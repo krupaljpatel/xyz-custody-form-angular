@@ -1,0 +1,497 @@
+{
+  "formTitle": "XYZ Custody Account Opening Form - Client",
+  "tabs": [
+    {
+      "name": "AOF Page 1",
+      "sections": [
+        {
+          "number": "1",
+          "title": "General Account Information",
+          "fields": [
+            {
+              "label": "Do you have XYZ Account Number reserved for the below opening?",
+              "type": "radio",
+              "name": "bbhAccountNumberReserved",
+              "options": ["Yes", "No"],
+              "required": true
+            },
+            {
+              "label": "XYZ 7-digit Account Number",
+              "type": "text",
+              "name": "bbhAccountNumber",
+              "conditional": {
+                "field": "bbhAccountNumberReserved",
+                "operator": "equals",
+                "value": "Yes",
+                "showWhen": true
+              },
+              "maxLength": 7,
+              "pattern": "[0-9]{7}",
+              "helpText": "7-digit XYZ account number"
+            },
+            {
+              "label": "New Account Name (Long Name - Legal Title)",
+              "type": "text",
+              "name": "newAccountNameLegal",
+              "required": true,
+              "maxLength": 228,
+              "helpText": "Account Legal Title is used to identify an account. Can have limit of 228 characters total. Should include client's full legal name."
+            },
+            {
+              "label": "Short New Account Name",
+              "type": "text", 
+              "name": "shortAccountName",
+              "required": true,
+              "maxLength": 30,
+              "helpText": "Shortened version displayed in XYZ Infuse and Wire Transfers. 30 character limit. Should be unique and recognizable."
+            },
+            {
+              "label": "Contact Name",
+              "type": "text",
+              "name": "contactName",
+              "required": true
+            }
+          ]
+        },
+        {
+          "number": "2",
+          "title": "Account Services",
+          "fields": [
+            {
+              "label": "Foreign Exchange with XYZ",
+              "type": "checkbox",
+              "name": "foreignExchangeServices"
+            },
+            {
+              "label": "Cash Services",
+              "type": "checkbox",
+              "name": "cashServices"  
+            },
+            {
+              "label": "Physical",
+              "type": "checkbox",
+              "name": "physicalServices"
+            }
+          ]
+        },
+        {
+          "number": "3",
+          "title": "Global Custody Markets and Cash",
+          "fields": [
+            {
+              "label": "Please select Cash currencies & Securities markets",
+              "type": "section-header",
+              "name": "currencyMarketsHeader"
+            },
+            {
+              "label": "Currency Preferences",
+              "type": "multiselect",
+              "name": "currencyPreferences",
+              "options": ["USD", "EUR", "GBP", "JPY", "CAD", "AUD", "CHF", "SEK", "NOK", "DKK", "HKD", "SGD", "CNY", "KRW", "INR", "BRL", "MXN", "ZAR", "RUB", "PLN", "CZK", "HUF", "ISK", "IDR", "ILS", "KZT", "KWD", "MYR", "NZD", "OMR", "PEN", "PHP", "QAR", "RON", "SAR", "THB", "AED", "UYU", "JOD", "KES", "MAD", "NGN"]
+            }
+          ]
+        },
+        {
+          "number": "4",
+          "title": "Intended Tax Treatment",
+          "fields": [
+            {
+              "label": "Tax classification for U.S. tax purposes",
+              "type": "dropdown",
+              "name": "taxClassification",
+              "required": true,
+              "options": ["Individual", "Corporation", "Partnership", "Trust", "Financial institution", "Estate", "Government"]
+            },
+            {
+              "label": "FATCA Classification",
+              "type": "radio",
+              "name": "fatcaClassification",
+              "required": true,
+              "options": ["FFI", "NFFE", "Neither FFI nor NFFE"]
+            }
+          ]
+        },
+        {
+          "number": "5",
+          "title": "Foreign Exchange with XYZ - confirmation methodology",
+          "fields": [
+            {
+              "label": "Confirmation Method",
+              "type": "dropdown",
+              "name": "fxConfirmationMethod",
+              "conditional": {
+                "field": "foreignExchangeServices",
+                "operator": "equals",
+                "value": true,
+                "showWhen": true
+              },
+              "required": true,
+              "options": ["Email", "SWIFT", "Fax", "Phone"],
+              "helpText": "Required when Foreign Exchange services are selected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AOF Page 2",
+      "sections": [
+        {
+          "number": "6",
+          "title": "Cash posting transactions", 
+          "fields": [
+            {
+              "label": "Cash Transaction Settings",
+              "type": "checkbox-group",
+              "name": "cashTransactionSettings"
+            }
+          ]
+        },
+        {
+          "number": "7",
+          "title": "Mailing Products",
+          "fields": [
+            {
+              "label": "Format Selection",
+              "type": "radio",
+              "name": "mailingFormat",
+              "options": ["SWIFT", "Infuse", "Both"],
+              "required": true,
+              "helpText": "Please select mailing format"
+            },
+            {
+              "label": "MT 950 Customer Statement Options",
+              "type": "checkbox-group",
+              "name": "mt950Options",
+              "conditional": {
+                "field": "mailingFormat",
+                "operator": "in",
+                "value": ["SWIFT", "Both"],
+                "showWhen": true
+              },
+              "options": [
+                "950 - MT950 Customer Statement w/ Ledger Aggregated",
+                "MT 940 Customer Statement w/ Ledger 60",
+                "MT 940 Customer Statement w/Head Acct and Ledger 60"
+              ]
+            },
+            {
+              "label": "SWIFT Message Types",
+              "type": "checkbox-group", 
+              "name": "swiftMessages",
+              "conditional": {
+                "field": "mailingFormat",
+                "operator": "in",
+                "value": ["SWIFT", "Both"],
+                "showWhen": true
+              },
+              "options": [
+                "613 - MT 513 Client Advice of Execution (Intraday)",
+                "615 - MT 515 Confirmation of Purchase Sale (Batch)"
+              ]
+            },
+            {
+              "label": "Infuse User ID",
+              "type": "text",
+              "name": "infuseUserId",
+              "conditional": {
+                "field": "mailingFormat",
+                "operator": "in",
+                "value": ["Infuse", "Both"],
+                "showWhen": true
+              },
+              "required": true,
+              "helpText": "Required when Infuse mailing is selected"
+            }
+          ]
+        },
+        {
+          "number": "8",
+          "title": "Wire Transfer Address",
+          "fields": [
+            {
+              "label": "Bank Name",
+              "type": "text",
+              "name": "wireTransferBankName"
+            },
+            {
+              "label": "SWIFT Code",
+              "type": "text",
+              "name": "wireTransferSwiftCode",
+              "pattern": "^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$",
+              "helpText": "8 or 11 character SWIFT/BIC code"
+            },
+            {
+              "label": "Account Details",
+              "type": "textarea",
+              "name": "wireTransferAccountDetails"
+            }
+          ]
+        },
+        {
+          "number": "9",
+          "title": "Billing Address",
+          "fields": [
+            {
+              "label": "Same as Primary Address",
+              "type": "checkbox",
+              "name": "billingSameAsPrimary"
+            },
+            {
+              "label": "Your Permanent Street Address",
+              "type": "textarea", 
+              "name": "billingStreetAddress",
+              "conditional": {
+                "field": "billingSameAsPrimary",
+                "operator": "equals",
+                "value": false,
+                "showWhen": true
+              }
+            },
+            {
+              "label": "City or Town",
+              "type": "text",
+              "name": "billingCity",
+              "conditional": {
+                "field": "billingSameAsPrimary",
+                "operator": "equals",
+                "value": false,
+                "showWhen": true
+              }
+            },
+            {
+              "label": "Country",
+              "type": "dropdown",
+              "name": "billingCountry",
+              "conditional": {
+                "field": "billingSameAsPrimary",
+                "operator": "equals",
+                "value": false,
+                "showWhen": true
+              },
+              "options": ["UNITED STATES", "CANADA", "UNITED KINGDOM", "AUSTRALIA", "GERMANY", "FRANCE", "JAPAN", "SINGAPORE", "HONG KONG", "SWITZERLAND", "NETHERLANDS", "BELGIUM", "AUSTRIA", "DENMARK", "SWEDEN", "NORWAY", "FINLAND", "IRELAND", "ITALY", "SPAIN", "PORTUGAL", "LUXEMBOURG", "CAYMAN ISLANDS", "BERMUDA", "BAHAMAS", "BRITISH VIRGIN ISLANDS"]
+            }
+          ]
+        },
+        {
+          "number": "10",
+          "title": "Cash accounting",
+          "fields": [
+            {
+              "label": "Cash Accounting Settings",
+              "type": "checkbox-group",
+              "name": "cashAccountingSettings"
+            }
+          ]
+        },
+        {
+          "number": "11", 
+          "title": "Trades - Custody",
+          "fields": [
+            {
+              "label": "Trade Settings",
+              "type": "checkbox-group",
+              "name": "tradeSettings"
+            }
+          ]
+        },
+        {
+          "number": "12",
+          "title": "Payments - Cash", 
+          "fields": [
+            {
+              "label": "Payment Settings",
+              "type": "checkbox-group",
+              "name": "paymentSettings"
+            }
+          ]
+        },
+        {
+          "number": "13",
+          "title": "FWDP - Allow MT304 Forward Processing (AFWD)",
+          "fields": [
+            {
+              "label": "Forward Processing Settings",
+              "type": "checkbox-group", 
+              "name": "forwardProcessingSettings"
+            }
+          ]
+        },
+        {
+          "number": "14",
+          "title": "Corporate Actions",
+          "fields": [
+            {
+              "label": "Corporate Action Settings",
+              "type": "checkbox-group",
+              "name": "corporateActionSettings" 
+            }
+          ]
+        },
+        {
+          "number": "15",
+          "title": "Fund Order & Custody",
+          "fields": [
+            {
+              "label": "Fund Order Settings", 
+              "type": "checkbox-group",
+              "name": "fundOrderSettings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Additional SWIFTs",
+      "sections": [
+        {
+          "number": "SWIFT",
+          "title": "SWIFT Message Configuration",
+          "fields": [
+            {
+              "label": "SWIFT Message Types",
+              "type": "table",
+              "name": "swiftMessageTypes",
+              "columns": [
+                {"header": "Code", "key": "code"},
+                {"header": "Description", "key": "description"},
+                {"header": "Enable", "key": "enabled", "type": "checkbox"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "User Guide",
+      "sections": [
+        {
+          "number": "Guide",
+          "title": "Instructions and Field References",
+          "content": "help_text_and_instructions"
+        }
+      ]
+    }
+  ],
+  "validationRules": {
+    "bbhAccountNumber": "^[0-9]{7}$",
+    "wireTransferSwiftCode": "^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$",
+    "postalCode": {
+      "US": "^[0-9]{5}(-[0-9]{4})?$",
+      "UK": "^[A-Z]{1,2}[0-9]{1,2}[A-Z]?\\s?[0-9][A-Z]{2}$",
+      "CA": "^[A-Z][0-9][A-Z]\\s?[0-9][A-Z][0-9]$"
+    }
+  },
+  "conditionalLogic": {
+    "serviceBasedConditionals": [
+      {
+        "triggerField": "foreignExchangeServices",
+        "operator": "equals",
+        "value": true,
+        "affectedFields": [
+          {
+            "field": "fxConfirmationMethod",
+            "action": "show",
+            "validation": "required"
+          }
+        ]
+      },
+      {
+        "triggerField": "cashServices",
+        "operator": "equals",
+        "value": true,
+        "affectedFields": [
+          {
+            "field": "cashTransactionSettings",
+            "action": "show"
+          },
+          {
+            "field": "cashAccountingSettings",
+            "action": "show"
+          }
+        ]
+      }
+    ],
+    "mailingAddressConditionals": [
+      {
+        "description": "SWIFT mailing requires at least one address type",
+        "condition": "IF(OR(swiftMailing=true,infuseMailing=true),requireOneAddress,noValidation)",
+        "validation": "At least one mailing address must be selected when SWIFT or Infuse mailing is enabled"
+      },
+      {
+        "description": "Infuse User ID required when Infuse selected",
+        "triggerField": "infuseMailing",
+        "operator": "equals",
+        "value": true,
+        "affectedFields": [
+          {
+            "field": "infuseUserId",
+            "action": "show",
+            "validation": "required"
+          }
+        ]
+      }
+    ],
+    "crossPageConditionals": [
+      {
+        "description": "Address fields from Page 1 populate address display on Page 2",
+        "sourceFields": ["primaryAddress", "secondaryAddress"],
+        "targetPage": "AOF Page 2",
+        "targetFields": ["mailingAddress"]
+      },
+      {
+        "description": "Tax classification affects multiple sections",
+        "triggerField": "taxClassification",
+        "affectedSections": ["mailingProducts", "wireTransfer"]
+      }
+    ],
+    "validationRules": [
+      {
+        "rule": "mailingAddressRequired",
+        "condition": "mailingFormat !== null",
+        "message": "At least one mailing address type must be selected",
+        "fields": ["mt950Options", "swiftMessages", "infuseUserId"]
+      },
+      {
+        "rule": "accountServicesRequired", 
+        "condition": "!foreignExchangeServices && !cashServices && !physicalServices",
+        "message": "Please select at least one account service",
+        "level": "warning"
+      },
+      {
+        "rule": "currencyMarketsDependency",
+        "condition": "(foreignExchangeServices || cashServices) && currencyPreferences.length === 0",
+        "message": "Please select currencies when cash or FX services are enabled",
+        "fields": ["currencyPreferences"]
+      }
+    ]
+  },
+  "lookupTables": {
+    "countries": 268,
+    "currencies": 40,
+    "entityTypes": 100,
+    "fatcaCodes": 30,
+    "swiftMessageTypes": 100
+  },
+  "correctSectionStructure": {
+    "note": "Sections extracted from Excel with correct numbering",
+    "source": "Excel analysis completed",
+    "sections": [
+      "1. General Account Information",
+      "2. Account Services", 
+      "3. Global Custody Markets and Cash",
+      "4. Intended Tax Treatment",
+      "5. Foreign Exchange with BBH - confirmation methodology",
+      "6. Cash posting transactions",
+      "7. Mailing Products", 
+      "8. Wire Transfer Address",
+      "9. Billing Address",
+      "10. Cash accounting",
+      "11. Trades - Custody",
+      "12. Payments - Cash", 
+      "13. FWDP - Allow MT304 Forward Processing (AFWD)",
+      "14. Corporate Actions",
+      "15. Fund Order & Custody"
+    ]
+  }
+}

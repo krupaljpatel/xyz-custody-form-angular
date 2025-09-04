@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Custody Account Opening Form - Comprehensive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .app-container {
+            min-height: 100vh;
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .app-header h1 {
+            margin: 0 0 1rem 0;
+            font-size: 2.2rem;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .app-header nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-button {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-button:hover,
+        .nav-button.active {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .app-main {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .form-editor {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .editor-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .editor-header h2 {
+            margin: 0 0 1rem 0;
+            font-size: 2rem;
+            font-weight: 300;
+        }
+
+        .form-tabs {
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            overflow-x: auto;
+            padding: 0 1rem;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-width: 150px;
+        }
+
+        .tab-button:hover {
+            background: rgba(0,123,255,0.1);
+            color: #007bff;
+        }
+
+        .tab-button.active {
+            background: white;
+            color: #007bff;
+            border-bottom-color: #007bff;
+        }
+
+        .tab-content {
+            padding: 2rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .form-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-section {
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            margin: 0 0 2rem 0;
+            color: #007bff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-number {
+            background: #007bff;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .section-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            background: rgba(255,255,255,0.9);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .form-field:hover {
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+
+        .form-field label {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-field label::before {
+            content: '•';
+            color: #007bff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .form-field input[type="text"],
+        .form-field input[type="email"],
+        .form-field input[type="tel"],
+        .form-field textarea,
+        .form-field select {
+            padding: 1.25rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.06);
+            font-family: inherit;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus,
+        .form-field select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 4px rgba(0,123,255,0.2), inset 0 2px 5px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+            background: rgba(0,123,255,0.02);
+        }
+
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: #adb5bd;
+            font-style: italic;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Enhanced checkbox and radio styling with better indentation */
+        .field-label {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.75rem;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background: rgba(0,123,255,0.02);
+            border-radius: 12px;
+            border-left: 4px solid #007bff;
+            position: relative;
+        }
+
+        .radio-group::before,
+        .checkbox-group::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #007bff, #0056b3);
+            border-radius: 0 2px 2px 0;
+        }
+
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            margin-left: 1rem;
+            position: relative;
+            min-height: 55px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .radio-option::before,
+        .checkbox-option::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 25px;
+            background: rgba(0,123,255,0.3);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option:hover,
+        .checkbox-option:hover {
+            border-color: #007bff;
+            background: rgba(0,123,255,0.08);
+            transform: translateX(8px);
+            box-shadow: 0 6px 20px rgba(0,123,255,0.15);
+        }
+
+        .radio-option:hover::before,
+        .checkbox-option:hover::before {
+            background: #007bff;
+            width: 4px;
+            height: 35px;
+        }
+
+        .radio-option input[type="radio"],
+        .checkbox-option input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin: 0;
+            accent-color: #007bff;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .radio-option input[type="radio"]:checked,
+        .checkbox-option input[type="checkbox"]:checked {
+            transform: scale(1.1);
+        }
+
+        .radio-option label,
+        .checkbox-option label {
+            cursor: pointer;
+            margin: 0;
+            font-weight: 500;
+            flex: 1;
+            font-size: 1rem;
+            color: #495057;
+            line-height: 1.5;
+        }
+
+        .radio-option input:checked + label,
+        .checkbox-option input:checked + label {
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        .multiselect-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+            max-height: 250px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            background: rgba(0,123,255,0.02);
+            border-left: 4px solid #28a745;
+            position: relative;
+        }
+
+        .multiselect-group::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #28a745, #1e7e34);
+            border-radius: 0 2px 2px 0;
+        }
+
+        .multiselect-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            border: 1px solid #e9ecef;
+            min-height: 45px;
+            margin-left: 0.5rem;
+            position: relative;
+        }
+
+        .multiselect-option::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 20px;
+            background: rgba(40, 167, 69, 0.3);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .multiselect-option:hover {
+            background: rgba(40, 167, 69, 0.08);
+            border-color: #28a745;
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.1);
+        }
+
+        .multiselect-option:hover::before {
+            background: #28a745;
+            width: 3px;
+            height: 30px;
+        }
+
+        .multiselect-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #28a745;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .multiselect-option input[type="checkbox"]:checked {
+            transform: scale(1.1);
+        }
+
+        .multiselect-option label {
+            cursor: pointer;
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #495057;
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .multiselect-option input:checked + label {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .help-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 0.25rem;
+            padding-left: 0.5rem;
+            border-left: 3px solid #dee2e6;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,123,255,0.5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .conditional-field {
+            transition: all 0.3s ease;
+        }
+
+        .conditional-field.hidden {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .app-main {
+                padding: 1rem;
+            }
+            
+            .section-fields {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .form-tabs {
+                padding: 0;
+            }
+            
+            .tab-button {
+                min-width: 120px;
+                padding: 0.75rem 1rem;
+            }
+            
+            .multiselect-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>🏦 XYZ Custody Account Opening Form</h1>
+            <nav>
+                <button class="nav-button" onclick="showFormsListPage()" id="nav-forms">📋 Forms List</button>
+                <button class="nav-button" onclick="showNewFormPage()" id="nav-new">➕ New Form</button>
+            </nav>
+        </header>
+
+        <main class="app-main">
+            <!-- Forms List Page -->
+            <div id="forms-list-page">
+                <div class="header" style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="color: #495057; margin-bottom: 1rem; font-size: 2rem;">Manage Your Forms</h2>
+                    <button class="btn-primary" onclick="showNewFormPage()">➕ Create New Form</button>
+                </div>
+
+                <div id="forms-container" class="forms-grid">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading forms...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Form Page -->
+            <div id="new-form-page" class="hidden">
+                <div class="form-editor">
+                    <div class="editor-header">
+                        <h2>Create New XYZ Custody Account Opening Form</h2>
+                        <div style="margin-top: 1rem;">
+                            <button class="btn-secondary" onclick="showFormsListPage()">← Back to Forms</button>
+                        </div>
+                    </div>
+
+                    <!-- Form Tabs -->
+                    <div class="form-tabs">
+                        <button class="tab-button active" onclick="switchTab(0)" id="tab-0">AOF Page 1</button>
+                        <button class="tab-button" onclick="switchTab(1)" id="tab-1">AOF Page 2</button>
+                        <button class="tab-button" onclick="switchTab(2)" id="tab-2">Additional SWIFTs</button>
+                        <button class="tab-button" onclick="switchTab(3)" id="tab-3">User Guide</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <form id="custody-form">
+                            <div id="form-content">
+                                <!-- Dynamic content will be loaded here -->
+                                <div class="loading">
+                                    <div class="spinner"></div>
+                                    <p>Loading form structure...</p>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="resetForm()">🔄 Reset Form</button>
+                                <button type="submit" class="btn-primary">💾 Save Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Application state
+        let currentPage = 'forms-list';
+        let currentTab = 0;
+        let forms = [];
+        let formMetadata = null;
+
+        // Navigation
+        function showFormsListPage() {
+            console.log('Showing forms list page');
+            currentPage = 'forms-list';
+            
+            const formsListPage = document.getElementById('forms-list-page');
+            const newFormPage = document.getElementById('new-form-page');
+            const navForms = document.getElementById('nav-forms');
+            const navNew = document.getElementById('nav-new');
+            
+            if (formsListPage) formsListPage.classList.remove('hidden');
+            if (newFormPage) newFormPage.classList.add('hidden');
+            if (navForms) navForms.classList.add('active');
+            if (navNew) navNew.classList.remove('active');
+            
+            loadForms();
+        }
+
+        function showNewFormPage() {
+            console.log('Showing new form page');
+            currentPage = 'new-form';
+            
+            const formsListPage = document.getElementById('forms-list-page');
+            const newFormPage = document.getElementById('new-form-page');
+            const navForms = document.getElementById('nav-forms');
+            const navNew = document.getElementById('nav-new');
+            
+            if (formsListPage) formsListPage.classList.add('hidden');
+            if (newFormPage) newFormPage.classList.remove('hidden');
+            if (navForms) navForms.classList.remove('active');
+            if (navNew) navNew.classList.add('active');
+            
+            if (!formMetadata) {
+                loadFormMetadata();
+            } else {
+                renderFormContent();
+            }
+        }
+
+        // Tab switching
+        function switchTab(tabIndex) {
+            currentTab = tabIndex;
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach((btn, index) => {
+                if (index === tabIndex) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            renderFormContent();
+        }
+
+        // Load form metadata
+        async function loadFormMetadata() {
+            try {
+                console.log('Loading form metadata...');
+                const response = await fetch('/form-metadata.json');
+                formMetadata = await response.json();
+                console.log('Metadata loaded:', formMetadata);
+                renderFormContent();
+            } catch (error) {
+                console.error('Error loading metadata:', error);
+                document.getElementById('form-content').innerHTML = 
+                    '<div style="text-align: center; padding: 2rem; color: #dc3545;">Error loading form structure</div>';
+            }
+        }
+
+        // Render form content based on current tab
+        function renderFormContent() {
+            if (!formMetadata) return;
+            
+            const container = document.getElementById('form-content');
+            const currentTabData = formMetadata.tabs[currentTab];
+            
+            if (!currentTabData || !currentTabData.sections) {
+                container.innerHTML = '<div style="text-align: center; padding: 2rem;">No content available for this tab</div>';
+                return;
+            }
+            
+            let html = '<div class="form-sections">';
+            
+            currentTabData.sections.forEach(section => {
+                html += `
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-number">${section.number}</span>
+                            ${section.title}
+                        </h3>
+                        <div class="section-fields">
+                `;
+                
+                section.fields.forEach(field => {
+                    html += renderField(field);
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+            
+            // Setup conditional logic after rendering
+            setupConditionalLogic();
+        }
+
+        // Render individual field
+        function renderField(field) {
+            const conditionalClass = field.conditional ? 'conditional-field' : '';
+            const conditionalId = field.conditional ? `conditional-${field.name}` : '';
+            
+            let fieldHtml = `<div class="form-field ${conditionalClass}" id="${conditionalId}" data-field="${field.name}">`;
+            
+            switch (field.type) {
+                case 'text':
+                case 'email':
+                case 'tel':
+                    fieldHtml += `
+                        <label for="${field.name}">${field.label}${field.required ? ' *' : ''}</label>
+                        <input 
+                            type="${field.type}" 
+                            id="${field.name}" 
+                            name="${field.name}"
+                            ${field.required ? 'required' : ''}
+                            ${field.maxLength ? `maxlength="${field.maxLength}"` : ''}
+                            ${field.pattern ? `pattern="${field.pattern}"` : ''}
+                            placeholder="${field.helpText || ''}"
+                            onchange="handleFieldChange('${field.name}')">
+                    `;
+                    break;
+                    
+                case 'textarea':
+                    fieldHtml += `
+                        <label for="${field.name}">${field.label}${field.required ? ' *' : ''}</label>
+                        <textarea 
+                            id="${field.name}" 
+                            name="${field.name}"
+                            ${field.required ? 'required' : ''}
+                            ${field.maxLength ? `maxlength="${field.maxLength}"` : ''}
+                            placeholder="${field.helpText || ''}"
+                            onchange="handleFieldChange('${field.name}')"></textarea>
+                    `;
+                    break;
+                    
+                case 'radio':
+                    fieldHtml += `
+                        <label class="field-label">${field.label}${field.required ? ' *' : ''}</label>
+                        <div class="radio-group">
+                    `;
+                    field.options.forEach(option => {
+                        fieldHtml += `
+                            <div class="radio-option">
+                                <input 
+                                    type="radio" 
+                                    id="${field.name}_${option}" 
+                                    name="${field.name}" 
+                                    value="${option}"
+                                    onchange="handleFieldChange('${field.name}')">
+                                <label for="${field.name}_${option}">${option}</label>
+                            </div>
+                        `;
+                    });
+                    fieldHtml += '</div>';
+                    break;
+                    
+                case 'checkbox':
+                    fieldHtml += `
+                        <div class="checkbox-option">
+                            <input 
+                                type="checkbox" 
+                                id="${field.name}" 
+                                name="${field.name}"
+                                onchange="handleFieldChange('${field.name}')">
+                            <label for="${field.name}">${field.label}</label>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'dropdown':
+                    fieldHtml += `
+                        <label for="${field.name}">${field.label}${field.required ? ' *' : ''}</label>
+                        <select 
+                            id="${field.name}" 
+                            name="${field.name}"
+                            ${field.required ? 'required' : ''}
+                            onchange="handleFieldChange('${field.name}')">
+                            <option value="">Select an option...</option>
+                    `;
+                    field.options.forEach(option => {
+                        fieldHtml += `<option value="${option}">${option}</option>`;
+                    });
+                    fieldHtml += '</select>';
+                    break;
+                    
+                case 'multiselect':
+                    fieldHtml += `
+                        <label class="field-label">${field.label}${field.required ? ' *' : ''}</label>
+                        <div class="multiselect-group">
+                    `;
+                    field.options.forEach(option => {
+                        fieldHtml += `
+                            <div class="multiselect-option">
+                                <input 
+                                    type="checkbox" 
+                                    id="${field.name}_${option}" 
+                                    name="${field.name}" 
+                                    value="${option}"
+                                    onchange="handleMultiselectChange('${field.name}')">
+                                <label for="${field.name}_${option}">${option}</label>
+                            </div>
+                        `;
+                    });
+                    fieldHtml += '</div>';
+                    break;
+                    
+                case 'checkbox-group':
+                    fieldHtml += `
+                        <label class="field-label">${field.label}${field.required ? ' *' : ''}</label>
+                        <div class="checkbox-group">
+                    `;
+                    if (field.options) {
+                        field.options.forEach(option => {
+                            fieldHtml += `
+                                <div class="checkbox-option">
+                                    <input 
+                                        type="checkbox" 
+                                        id="${field.name}_${option}" 
+                                        name="${field.name}" 
+                                        value="${option}"
+                                        onchange="handleFieldChange('${field.name}')">
+                                    <label for="${field.name}_${option}">${option}</label>
+                                </div>
+                            `;
+                        });
+                    }
+                    fieldHtml += '</div>';
+                    break;
+                    
+                default:
+                    fieldHtml += `
+                        <label for="${field.name}">${field.label}${field.required ? ' *' : ''}</label>
+                        <input 
+                            type="text" 
+                            id="${field.name}" 
+                            name="${field.name}"
+                            ${field.required ? 'required' : ''}
+                            onchange="handleFieldChange('${field.name}')">
+                    `;
+            }
+            
+            if (field.helpText) {
+                fieldHtml += `<div class="help-text">${field.helpText}</div>`;
+            }
+            
+            fieldHtml += '</div>';
+            return fieldHtml;
+        }
+
+        // Handle field changes and conditional logic
+        function handleFieldChange(fieldName) {
+            console.log('Field changed:', fieldName);
+            updateConditionalFields();
+        }
+
+        function handleMultiselectChange(fieldName) {
+            console.log('Multiselect changed:', fieldName);
+            updateConditionalFields();
+        }
+
+        // Setup and update conditional logic
+        function setupConditionalLogic() {
+            updateConditionalFields();
+        }
+
+        function updateConditionalFields() {
+            if (!formMetadata) return;
+            
+            const currentTabData = formMetadata.tabs[currentTab];
+            if (!currentTabData || !currentTabData.sections) return;
+            
+            currentTabData.sections.forEach(section => {
+                section.fields.forEach(field => {
+                    if (field.conditional) {
+                        const shouldShow = evaluateConditional(field.conditional);
+                        const fieldElement = document.getElementById(`conditional-${field.name}`);
+                        
+                        if (fieldElement) {
+                            if (shouldShow) {
+                                fieldElement.classList.remove('hidden');
+                            } else {
+                                fieldElement.classList.add('hidden');
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        function evaluateConditional(conditional) {
+            const triggerField = document.querySelector(`[name="${conditional.field}"]`);
+            if (!triggerField) return false;
+            
+            let fieldValue;
+            if (triggerField.type === 'checkbox') {
+                fieldValue = triggerField.checked;
+            } else if (triggerField.type === 'radio') {
+                const checkedRadio = document.querySelector(`[name="${conditional.field}"]:checked`);
+                fieldValue = checkedRadio ? checkedRadio.value : null;
+            } else {
+                fieldValue = triggerField.value;
+            }
+            
+            switch (conditional.operator) {
+                case 'equals':
+                    return conditional.showWhen ? fieldValue === conditional.value : fieldValue !== conditional.value;
+                case 'in':
+                    const isInArray = Array.isArray(conditional.value) && conditional.value.includes(fieldValue);
+                    return conditional.showWhen ? isInArray : !isInArray;
+                case 'not_equals':
+                    return conditional.showWhen ? fieldValue !== conditional.value : fieldValue === conditional.value;
+                default:
+                    return true;
+            }
+        }
+
+        // Form submission and management
+        function resetForm() {
+            if (confirm('Are you sure you want to reset the form? All data will be lost.')) {
+                document.getElementById('custody-form').reset();
+                updateConditionalFields();
+            }
+        }
+
+        // API functions for forms list
+        async function loadForms() {
+            try {
+                console.log('Loading forms...');
+                const response = await fetch('/api/forms');
+                console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                forms = await response.json();
+                console.log('Loaded forms:', forms);
+                renderForms();
+            } catch (error) {
+                console.error('Error loading forms:', error);
+                document.getElementById('forms-container').innerHTML = 
+                    `<div style="text-align: center; padding: 2rem; color: #dc3545;">
+                        <h3>Error loading forms</h3>
+                        <p>${error.message}</p>
+                        <button class="btn-primary" onclick="loadForms()">Retry</button>
+                    </div>`;
+            }
+        }
+
+        function renderForms() {
+            console.log('Rendering forms, count:', forms?.length || 0);
+            const container = document.getElementById('forms-container');
+            
+            if (!forms || forms.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 4rem; background: white; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+                        <div style="font-size: 4rem; margin-bottom: 2rem;">📋</div>
+                        <h3 style="color: #495057; margin-bottom: 1rem;">No Forms Yet</h3>
+                        <p style="color: #6c757d; margin-bottom: 2rem;">Create your first XYZ Custody Account Opening Form to get started.</p>
+                        <button class="btn-primary" onclick="showNewFormPage()">Create New Form</button>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = forms.map(form => `
+                <div class="form-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3 style="margin: 0; color: #495057;">${form.clientName}</h3>
+                        <div style="padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; background-color: ${form.status === 'draft' ? '#fff3cd' : '#d4edda'}; color: ${form.status === 'draft' ? '#856404' : '#155724'};">
+                            ${form.status.charAt(0).toUpperCase() + form.status.slice(1)}
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 2rem; color: #6c757d;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span style="font-weight: 600;">Created:</span>
+                            <span>${new Date(form.createdDate).toLocaleDateString()}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span style="font-weight: 600;">Modified:</span>
+                            <span>${new Date(form.lastModified).toLocaleDateString()}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600;">Progress:</span>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 100px; height: 8px; background-color: #e9ecef; border-radius: 4px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(90deg, #28a745, #007bff); width: ${form.completionPercentage}%; transition: width 0.3s;"></div>
+                                </div>
+                                <span style="font-size: 0.9rem; font-weight: 600;">${form.completionPercentage}%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <button class="btn-secondary" onclick="downloadForm('${form.id}', '${form.clientName}')" style="padding: 0.5rem 1rem; font-size: 0.9rem;">💾 Export</button>
+                        <button onclick="deleteForm('${form.id}', '${form.clientName}')" style="padding: 0.5rem 1rem; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">🗑 Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function downloadForm(id, clientName) {
+            try {
+                const response = await fetch(`/api/forms/${id}/export`);
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `xyz-custody-form-${clientName.replace(/[^a-zA-Z0-9]/g, '_')}-${id.substring(0, 8)}.json`;
+                a.click();
+                window.URL.revokeObjectURL(url);
+            } catch (error) {
+                console.error('Error downloading form:', error);
+                alert('Error downloading form');
+            }
+        }
+
+        async function deleteForm(id, clientName) {
+            if (!confirm(`Are you sure you want to delete the form for "${clientName}"?`)) return;
+            
+            try {
+                await fetch(`/api/forms/${id}`, { method: 'DELETE' });
+                loadForms();
+            } catch (error) {
+                console.error('Error deleting form:', error);
+                alert('Error deleting form');
+            }
+        }
+
+        // Form submission
+        document.getElementById('custody-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            const multiselectFields = new Set();
+            
+            // Collect multiselect fields
+            if (formMetadata && formMetadata.tabs[currentTab]) {
+                formMetadata.tabs[currentTab].sections.forEach(section => {
+                    section.fields.forEach(field => {
+                        if (field.type === 'multiselect' || field.type === 'checkbox-group') {
+                            multiselectFields.add(field.name);
+                        }
+                    });
+                });
+            }
+            
+            // Process form data
+            for (let [key, value] of formData.entries()) {
+                const field = this[key];
+                
+                if (multiselectFields.has(key)) {
+                    if (!data[key]) data[key] = [];
+                    data[key].push(value);
+                } else if (field && field.type === 'checkbox') {
+                    data[key] = field.checked;
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Handle unchecked checkboxes
+            multiselectFields.forEach(fieldName => {
+                if (!data[fieldName]) {
+                    data[fieldName] = [];
+                }
+            });
+
+            const payload = {
+                clientName: data.newAccountNameLegal || data.clientName || 'Unnamed Client',
+                status: 'draft',
+                formData: {
+                    [`tab${currentTab}`]: data
+                }
+            };
+
+            try {
+                const response = await fetch('/api/forms', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to save form');
+                }
+                
+                alert('Form saved successfully!');
+                showFormsListPage();
+            } catch (error) {
+                console.error('Error saving form:', error);
+                alert('Error saving form: ' + error.message);
+            }
+        });
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('App initialized');
+            showFormsListPage();
+        });
+    </script>
+</body>
+</html>

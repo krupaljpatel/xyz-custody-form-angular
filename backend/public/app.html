@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Custody Form Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .app-container {
+            min-height: 100vh;
+        }
+
+        .app-header {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .app-header h1 {
+            margin: 0 0 1rem 0;
+            color: #1976d2;
+            font-size: 1.8rem;
+        }
+
+        .app-header nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .app-header nav a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .app-header nav a:hover,
+        .app-header nav a.active {
+            background-color: #1976d2;
+            color: white;
+        }
+
+        .app-main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .form-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .form-header h3 {
+            margin: 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-draft {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-submitted {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .btn-primary {
+            background-color: #1976d2;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #1565c0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            grid-column: 1 / -1;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .form-editor {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .editor-header {
+            background: #1976d2;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-section {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #fafafa;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            margin: 0 0 1.5rem 0;
+            color: #1976d2;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-field label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-field input,
+        .form-field textarea,
+        .form-field select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus,
+        .form-field select:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+        }
+
+        .help-text {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 0.25rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1976d2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>XYZ Custody Account Opening Form</h1>
+            <nav>
+                <a href="#" onclick="showFormsListPage()" id="nav-forms">Forms List</a>
+                <a href="#" onclick="showNewFormPage()" id="nav-new">New Form</a>
+            </nav>
+        </header>
+
+        <main class="app-main">
+            <!-- Forms List Page -->
+            <div id="forms-list-page">
+                <div class="header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2 style="color: #1976d2; margin: 0;">XYZ Custody Forms</h2>
+                    <button class="btn-primary" onclick="showNewFormPage()">+ Create New Form</button>
+                </div>
+
+                <div id="forms-container" class="forms-grid">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading forms...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Form Page -->
+            <div id="new-form-page" class="hidden">
+                <div class="form-editor">
+                    <div class="editor-header">
+                        <h2>Create New XYZ Custody Form</h2>
+                        <div>
+                            <button class="btn-primary" onclick="showFormsListPage()" style="background-color: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">← Back to Forms</button>
+                        </div>
+                    </div>
+
+                    <div style="padding: 2rem;">
+                        <form id="custody-form">
+                            <div class="form-section">
+                                <h3 class="section-title">1. General Account Information</h3>
+                                
+                                <div class="form-field">
+                                    <label for="bbhAccountNumberReserved">Do you have XYZ Account Number reserved for the below opening?</label>
+                                    <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                                        <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem;">
+                                            <input type="radio" name="bbhAccountNumberReserved" value="Yes" onchange="toggleXyzAccountNumber()"> Yes
+                                        </label>
+                                        <label style="font-weight: normal; display: flex; align-items: center; gap: 0.5rem;">
+                                            <input type="radio" name="bbhAccountNumberReserved" value="No" onchange="toggleXyzAccountNumber()"> No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-field hidden" id="xyz-account-number-field">
+                                    <label for="bbhAccountNumber">XYZ 7-digit Account Number</label>
+                                    <input type="text" id="bbhAccountNumber" name="bbhAccountNumber" maxlength="7" pattern="[0-9]{7}">
+                                    <div class="help-text">7-digit XYZ account number</div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="newAccountNameLegal">New Account Name (Long Name - Legal Title) *</label>
+                                    <input type="text" id="newAccountNameLegal" name="newAccountNameLegal" required maxlength="228">
+                                    <div class="help-text">Account Legal Title is used to identify an account. Can have limit of 228 characters total.</div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="shortAccountName">Short New Account Name *</label>
+                                    <input type="text" id="shortAccountName" name="shortAccountName" required maxlength="30">
+                                    <div class="help-text">Shortened version displayed in XYZ Infuse and Wire Transfers. 30 character limit.</div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contactName">Contact Name *</label>
+                                    <input type="text" id="contactName" name="contactName" required>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="section-title">2. Account Services</h3>
+                                
+                                <div class="form-field">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
+                                        <input type="checkbox" name="foreignExchangeServices" onchange="toggleFxConfirmation()"> Foreign Exchange with XYZ
+                                    </label>
+                                </div>
+
+                                <div class="form-field hidden" id="fx-confirmation-field">
+                                    <label for="fxConfirmationMethod">Confirmation Method</label>
+                                    <select id="fxConfirmationMethod" name="fxConfirmationMethod">
+                                        <option value="">Select method...</option>
+                                        <option value="Email">Email</option>
+                                        <option value="SWIFT">SWIFT</option>
+                                        <option value="Fax">Fax</option>
+                                        <option value="Phone">Phone</option>
+                                    </select>
+                                    <div class="help-text">Required when Foreign Exchange services are selected</div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
+                                        <input type="checkbox" name="cashServices"> Cash Services
+                                    </label>
+                                </div>
+
+                                <div class="form-field">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
+                                        <input type="checkbox" name="physicalServices"> Physical
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; padding: 2rem;">
+                                <button type="submit" class="btn-primary">💾 Save Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Application state
+        let currentPage = 'forms-list';
+        let forms = [];
+
+        // Navigation
+        function showFormsListPage() {
+            console.log('Showing forms list page');
+            currentPage = 'forms-list';
+            
+            const formsListPage = document.getElementById('forms-list-page');
+            const newFormPage = document.getElementById('new-form-page');
+            const navForms = document.getElementById('nav-forms');
+            const navNew = document.getElementById('nav-new');
+            
+            if (formsListPage) formsListPage.classList.remove('hidden');
+            if (newFormPage) newFormPage.classList.add('hidden');
+            if (navForms) navForms.classList.add('active');
+            if (navNew) navNew.classList.remove('active');
+            
+            loadForms();
+        }
+
+        function showNewFormPage() {
+            console.log('Showing new form page');
+            currentPage = 'new-form';
+            
+            const formsListPage = document.getElementById('forms-list-page');
+            const newFormPage = document.getElementById('new-form-page');
+            const navForms = document.getElementById('nav-forms');
+            const navNew = document.getElementById('nav-new');
+            
+            if (formsListPage) formsListPage.classList.add('hidden');
+            if (newFormPage) newFormPage.classList.remove('hidden');
+            if (navForms) navForms.classList.remove('active');
+            if (navNew) navNew.classList.add('active');
+            
+            console.log('New form page should now be visible');
+        }
+
+        // Conditional logic
+        function toggleXyzAccountNumber() {
+            const hasReserved = document.querySelector('input[name="bbhAccountNumberReserved"]:checked')?.value;
+            const field = document.getElementById('xyz-account-number-field');
+            if (hasReserved === 'Yes') {
+                field.classList.remove('hidden');
+            } else {
+                field.classList.add('hidden');
+            }
+        }
+
+        function toggleFxConfirmation() {
+            const fxEnabled = document.querySelector('input[name="foreignExchangeServices"]').checked;
+            const field = document.getElementById('fx-confirmation-field');
+            if (fxEnabled) {
+                field.classList.remove('hidden');
+            } else {
+                field.classList.add('hidden');
+            }
+        }
+
+        // API functions
+        async function loadForms() {
+            try {
+                console.log('Loading forms...');
+                const response = await fetch('/api/forms');
+                console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                forms = await response.json();
+                console.log('Loaded forms:', forms);
+                renderForms();
+            } catch (error) {
+                console.error('Error loading forms:', error);
+                document.getElementById('forms-container').innerHTML = 
+                    `<div style="text-align: center; padding: 2rem; color: #f44336;">
+                        <h3>Error loading forms</h3>
+                        <p>${error.message}</p>
+                        <button class="btn-primary" onclick="loadForms()">Retry</button>
+                    </div>`;
+            }
+        }
+
+        function renderForms() {
+            console.log('Rendering forms, count:', forms?.length || 0);
+            const container = document.getElementById('forms-container');
+            
+            if (!forms || forms.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📋</div>
+                        <h3>No Forms Yet</h3>
+                        <p>Create your first XYZ Custody Account Opening Form to get started.</p>
+                        <button class="btn-primary" onclick="showNewFormPage()">Create New Form</button>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = forms.map(form => `
+                <div class="form-card">
+                    <div class="form-header">
+                        <h3>${form.clientName}</h3>
+                        <div class="status-badge status-${form.status}">
+                            ${form.status.charAt(0).toUpperCase() + form.status.slice(1)}
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="font-weight: 600; color: #666;">Created:</span>
+                            <span>${new Date(form.createdDate).toLocaleDateString()}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="font-weight: 600; color: #666;">Modified:</span>
+                            <span>${new Date(form.lastModified).toLocaleDateString()}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600; color: #666;">Progress:</span>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="width: 80px; height: 8px; background-color: #e0e0e0; border-radius: 4px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(90deg, #4caf50, #2196f3); width: ${form.completionPercentage}%; transition: width 0.3s;"></div>
+                                </div>
+                                <span style="font-size: 0.8rem; font-weight: 600; color: #666;">${form.completionPercentage}%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button style="padding: 0.5rem 1rem; background: #f5f5f5; color: #666; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;" onclick="downloadForm('${form.id}', '${form.clientName}')">💾 Export</button>
+                        <button style="padding: 0.5rem 1rem; background: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;" onclick="deleteForm('${form.id}', '${form.clientName}')">🗑 Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function downloadForm(id, clientName) {
+            try {
+                const response = await fetch(`/api/forms/${id}/export`);
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `xyz-custody-form-${clientName.replace(/[^a-zA-Z0-9]/g, '_')}-${id.substring(0, 8)}.json`;
+                a.click();
+                window.URL.revokeObjectURL(url);
+            } catch (error) {
+                console.error('Error downloading form:', error);
+                alert('Error downloading form');
+            }
+        }
+
+        async function deleteForm(id, clientName) {
+            if (!confirm(`Are you sure you want to delete the form for "${clientName}"?`)) return;
+            
+            try {
+                await fetch(`/api/forms/${id}`, { method: 'DELETE' });
+                loadForms();
+            } catch (error) {
+                console.error('Error deleting form:', error);
+                alert('Error deleting form');
+            }
+        }
+
+        // Form submission
+        document.getElementById('custody-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                if (this[key] && this[key].type === 'checkbox') {
+                    data[key] = this[key].checked;
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            const payload = {
+                clientName: data.newAccountNameLegal || 'Unnamed Client',
+                status: 'draft',
+                formData: {
+                    section1: data
+                }
+            };
+
+            try {
+                await fetch('/api/forms', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                alert('Form saved successfully!');
+                this.reset();
+                showFormsListPage();
+            } catch (error) {
+                console.error('Error saving form:', error);
+                alert('Error saving form');
+            }
+        });
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            showFormsListPage();
+        });
+    </script>
+</body>
+</html>

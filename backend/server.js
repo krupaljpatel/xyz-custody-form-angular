@@ -17,7 +17,16 @@ if (!fs.existsSync(DATA_DIR)) {
 
 // Security middleware
 app.use(helmet({
-  crossOriginResourcePolicy: { policy: "cross-origin" }
+  crossOriginResourcePolicy: { policy: "cross-origin" },
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"], // Allow inline scripts and eval for demo
+      scriptSrcAttr: ["'unsafe-inline'"], // Allow inline event handlers
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", "data:"],
+    },
+  },
 }));
 
 // Rate limiting
@@ -37,6 +46,9 @@ app.use(cors({
 // Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Serve static files from public directory
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 // Utility functions
 const getFormFilePath = (id) => path.join(DATA_DIR, `${id}.json`);
