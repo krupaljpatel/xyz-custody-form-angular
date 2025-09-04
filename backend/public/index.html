@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Custody Form - Backend Running</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .status {
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .endpoint {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .test-button {
+            background: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #1976D2;
+        }
+        .result {
+            background: #e8f5e8;
+            border: 1px solid #4CAF50;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .error {
+            background: #ffebee;
+            border: 1px solid #f44336;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 XYZ Custody Form Backend</h1>
+        <div class="status">✅ Backend Server is Running on Port 3001</div>
+        
+        <h2>Available API Endpoints</h2>
+        <div class="endpoint">GET /api/health - Server health status</div>
+        <div class="endpoint">GET /api/forms - List all forms</div>
+        <div class="endpoint">GET /api/forms/:id - Get specific form</div>
+        <div class="endpoint">POST /api/forms - Create new form</div>
+        <div class="endpoint">PUT /api/forms/:id - Update form</div>
+        <div class="endpoint">DELETE /api/forms/:id - Delete form</div>
+        <div class="endpoint">GET /api/forms/:id/export - Export form as JSON</div>
+        
+        <h2>API Tests</h2>
+        <button class="test-button" onclick="testHealth()">Test Health Check</button>
+        <button class="test-button" onclick="testGetForms()">Get All Forms</button>
+        <button class="test-button" onclick="testCreateForm()">Create Test Form</button>
+        
+        <div id="results"></div>
+        
+        <h2>Next Steps</h2>
+        <ul>
+            <li>✅ Backend API server running with file-based storage</li>
+            <li>✅ Security middleware (CORS, Helmet, Rate limiting)</li>
+            <li>✅ Form CRUD operations ready</li>
+            <li>⏳ Install Angular CLI and create frontend</li>
+            <li>⏳ Implement form components with conditional logic</li>
+            <li>⏳ Connect frontend to backend API</li>
+        </ul>
+        
+        <h2>Installation Commands</h2>
+        <div class="endpoint">npm install -g @angular/cli</div>
+        <div class="endpoint">ng new xyz-custody-frontend</div>
+        <div class="endpoint">ng serve --proxy-config proxy.conf.json</div>
+    </div>
+
+    <script>
+        const resultsDiv = document.getElementById('results');
+        
+        function showResult(title, data, isError = false) {
+            const resultDiv = document.createElement('div');
+            resultDiv.className = isError ? 'result error' : 'result';
+            resultDiv.innerHTML = `<h3>${title}</h3>${JSON.stringify(data, null, 2)}`;
+            resultsDiv.appendChild(resultDiv);
+        }
+        
+        async function testHealth() {
+            try {
+                const response = await fetch('/api/health');
+                const data = await response.json();
+                showResult('Health Check', data);
+            } catch (error) {
+                showResult('Health Check Error', { error: error.message }, true);
+            }
+        }
+        
+        async function testGetForms() {
+            try {
+                const response = await fetch('/api/forms');
+                const data = await response.json();
+                showResult('Get Forms', data);
+            } catch (error) {
+                showResult('Get Forms Error', { error: error.message }, true);
+            }
+        }
+        
+        async function testCreateForm() {
+            try {
+                const testForm = {
+                    clientName: 'Test Client ' + Date.now(),
+                    status: 'draft',
+                    formData: {
+                        section1: {
+                            bbhAccountNumberReserved: 'Yes',
+                            bbhAccountNumber: '1234567',
+                            newAccountNameLegal: 'Test Company LLC'
+                        }
+                    }
+                };
+                
+                const response = await fetch('/api/forms', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(testForm)
+                });
+                const data = await response.json();
+                showResult('Create Form', data);
+            } catch (error) {
+                showResult('Create Form Error', { error: error.message }, true);
+            }
+        }
+    </script>
+</body>
+</html>
