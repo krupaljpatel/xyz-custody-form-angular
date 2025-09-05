@@ -5,6 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XYZ Custody Account Opening Form - Comprehensive</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        :root {
+            /* Modern Color Palette */
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --danger-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            
+            /* Base Colors */
+            --primary: #667eea;
+            --primary-light: rgba(102, 126, 234, 0.1);
+            --primary-dark: #5a6fd8;
+            --secondary: #6c757d;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            
+            /* Neutral Colors */
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', Monaco, Consolas, monospace;
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            
+            /* Transitions */
+            --transition-fast: all 0.15s ease;
+            --transition-normal: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,11 +84,15 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-primary);
+            font-weight: 400;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--gray-900);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
             min-height: 100vh;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .app-container {
@@ -24,124 +100,192 @@
         }
 
         .app-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: var(--white);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: var(--space-4) var(--space-8);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .app-header h1 {
-            margin: 0 0 1rem 0;
-            font-size: 2.2rem;
-            font-weight: 300;
-            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
         }
 
         .app-header nav {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
+            gap: var(--space-2);
         }
 
         .nav-button {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 0.75rem 2rem;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 25px;
+            background: var(--white);
+            color: var(--gray-700);
+            padding: var(--space-2) var(--space-4);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            transition: var(--transition-normal);
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            transition: var(--transition-normal);
+            z-index: -1;
+        }
+
+        .nav-button:hover::before,
+        .nav-button.active::before {
+            left: 0;
         }
 
         .nav-button:hover,
         .nav-button.active {
-            background: rgba(255,255,255,0.3);
-            border-color: rgba(255,255,255,0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: var(--white);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
         }
 
         .app-main {
-            padding: 2rem;
+            padding: var(--space-8);
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .forms-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .forms-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
         }
 
         .form-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            background: var(--white);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-200);
+            transition: var(--transition-normal);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: var(--transition-normal);
         }
 
         .form-card:hover {
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            transform: translateY(-5px);
+            box-shadow: var(--shadow-2xl);
+            transform: translateY(-4px);
+            border-color: var(--primary-light);
+        }
+
+        .form-card:hover::before {
+            opacity: 1;
         }
 
         .form-editor {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            background: var(--white);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-2xl);
             overflow: hidden;
             margin: 0 auto;
             max-width: 1200px;
+            border: 1px solid var(--gray-200);
+            backdrop-filter: blur(20px);
         }
 
         .editor-header {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            padding: 2rem;
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: var(--space-8);
             text-align: center;
         }
 
         .editor-header h2 {
-            margin: 0 0 1rem 0;
-            font-size: 2rem;
-            font-weight: 300;
+            margin: 0 0 var(--space-4) 0;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .form-tabs {
-            background: #f8f9fa;
-            border-bottom: 1px solid #e9ecef;
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-200);
             display: flex;
             overflow-x: auto;
-            padding: 0 1rem;
+            padding: 0 var(--space-4);
+            gap: var(--space-2);
         }
 
         .tab-button {
-            padding: 1rem 2rem;
+            padding: var(--space-4) var(--space-6);
             border: none;
             background: none;
             cursor: pointer;
             font-weight: 500;
-            color: #666;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
+            color: var(--gray-500);
+            border-bottom: 2px solid transparent;
+            transition: var(--transition-normal);
             white-space: nowrap;
             min-width: 150px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            font-size: 0.875rem;
         }
 
         .tab-button:hover {
-            background: rgba(0,123,255,0.1);
-            color: #007bff;
+            background: var(--gray-100);
+            color: var(--primary);
         }
 
         .tab-button.active {
-            background: white;
-            color: #007bff;
-            border-bottom-color: #007bff;
+            background: var(--white);
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            box-shadow: var(--shadow-sm);
         }
 
         .tab-content {
@@ -198,34 +342,52 @@
         .form-field {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
-            background: rgba(255,255,255,0.9);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
+            gap: var(--space-3);
+            background: var(--white);
+            padding: var(--space-6);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
             position: relative;
         }
 
+        .form-field::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+
         .form-field:hover {
-            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            box-shadow: var(--shadow-lg);
             transform: translateY(-2px);
+            border-color: var(--primary-light);
+        }
+
+        .form-field:hover::before {
+            opacity: 1;
         }
 
         .form-field label {
             font-weight: 600;
-            color: #2c3e50;
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
+            color: var(--gray-800);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-2);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: var(--space-2);
         }
 
         .form-field label::before {
             content: '•';
-            color: #007bff;
+            color: var(--primary);
             font-size: 1.2rem;
             font-weight: bold;
         }
@@ -235,29 +397,27 @@
         .form-field input[type="tel"],
         .form-field textarea,
         .form-field select {
-            padding: 1.25rem;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: white;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.06);
-            font-family: inherit;
+            padding: var(--space-3) var(--space-4);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-lg);
+            font-size: 0.875rem;
+            transition: var(--transition-normal);
+            background: var(--gray-50);
+            font-family: var(--font-primary);
         }
 
         .form-field input:focus,
         .form-field textarea:focus,
         .form-field select:focus {
             outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 0 4px rgba(0,123,255,0.2), inset 0 2px 5px rgba(0,0,0,0.06);
-            transform: translateY(-2px);
-            background: rgba(0,123,255,0.02);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+            background: var(--white);
         }
 
         .form-field input::placeholder,
         .form-field textarea::placeholder {
-            color: #adb5bd;
+            color: var(--gray-400);
             font-style: italic;
         }
 
@@ -483,40 +643,66 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-            color: white;
-            padding: 1rem 2rem;
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: var(--space-3) var(--space-6);
             border: none;
-            border-radius: 25px;
+            border-radius: var(--radius-full);
             cursor: pointer;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            transition: var(--transition-normal);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0,123,255,0.4);
+            gap: var(--space-2);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+            transition: var(--transition-normal);
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,123,255,0.5);
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 25px;
+            background: var(--white);
+            color: var(--gray-700);
+            padding: var(--space-3) var(--space-6);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-full);
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: var(--transition-normal);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: var(--space-2);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+            color: var(--primary);
         }
 
         .form-actions {
@@ -599,11 +785,17 @@
 <body>
     <div class="app-container">
         <header class="app-header">
-            <h1>🏦 XYZ Custody Account Opening Form</h1>
-            <nav>
-                <button class="nav-button" onclick="showFormsListPage()" id="nav-forms">📋 Forms List</button>
-                <button class="nav-button" onclick="showNewFormPage()" id="nav-new">➕ New Form</button>
-            </nav>
+            <div class="header-content">
+                <h1>🏦 XYZ Custody Forms</h1>
+                <nav>
+                    <button class="nav-button" onclick="showFormsListPage()" id="nav-forms">
+                        <span>📋</span> My Forms
+                    </button>
+                    <button class="nav-button" onclick="showNewFormPage()" id="nav-new">
+                        <span>✨</span> New Form
+                    </button>
+                </nav>
+            </div>
         </header>
 
         <main class="app-main">
@@ -612,6 +804,57 @@
                 <div class="header" style="text-align: center; margin-bottom: 3rem;">
                     <h2 style="color: #495057; margin-bottom: 1rem; font-size: 2rem;">Manage Your Forms</h2>
                     <button class="btn-primary" onclick="showNewFormPage()">➕ Create New Form</button>
+                </div>
+
+                <!-- Enhanced Search and Filter Controls -->
+                <div class="forms-controls" style="background: white; border-radius: 15px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+                    <div style="display: grid; grid-template-columns: 1fr auto auto auto; gap: 1rem; align-items: center;">
+                        <!-- Search Bar -->
+                        <div class="search-container" style="position: relative;">
+                            <input 
+                                type="text" 
+                                id="search-input" 
+                                placeholder="🔍 Search forms by client name, status, or content..." 
+                                style="width: 100%; padding: 0.75rem 1rem 0.75rem 3rem; border: 2px solid #e9ecef; border-radius: 25px; font-size: 1rem; transition: all 0.3s ease;"
+                                oninput="handleSearch()"
+                                onfocus="this.style.borderColor='#007bff'; this.style.boxShadow='0 0 0 3px rgba(0,123,255,0.1)'"
+                                onblur="this.style.borderColor='#e9ecef'; this.style.boxShadow='none'">
+                            <div style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: #6c757d;">🔍</div>
+                        </div>
+                        
+                        <!-- Status Filter -->
+                        <select id="status-filter" onchange="handleFilter()" style="padding: 0.75rem 1rem; border: 2px solid #e9ecef; border-radius: 8px; background: white; cursor: pointer;">
+                            <option value="">All Status</option>
+                            <option value="draft">Draft</option>
+                            <option value="completed">Completed</option>
+                            <option value="submitted">Submitted</option>
+                        </select>
+                        
+                        <!-- Sort Options -->
+                        <select id="sort-options" onchange="handleSort()" style="padding: 0.75rem 1rem; border: 2px solid #e9ecef; border-radius: 8px; background: white; cursor: pointer;">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="name">Client Name A-Z</option>
+                            <option value="name-desc">Client Name Z-A</option>
+                            <option value="progress">Progress High-Low</option>
+                            <option value="progress-low">Progress Low-High</option>
+                        </select>
+                        
+                        <!-- View Toggle -->
+                        <div class="view-toggle" style="display: flex; background: #f8f9fa; border-radius: 8px; padding: 0.25rem;">
+                            <button id="grid-view" onclick="setViewMode('grid')" class="view-btn active" style="padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; background: #007bff; color: white; font-size: 0.9rem;">📊 Cards</button>
+                            <button id="list-view" onclick="setViewMode('list')" class="view-btn" style="padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; background: transparent; color: #6c757d; font-size: 0.9rem;">📋 List</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Active Filters Display -->
+                    <div id="active-filters" style="margin-top: 1rem; display: none;">
+                        <div style="color: #495057; font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 600;">Active Filters:</div>
+                        <div id="filter-tags" style="display: flex; gap: 0.5rem; flex-wrap: wrap;"></div>
+                    </div>
+                    
+                    <!-- Results Summary -->
+                    <div id="results-summary" style="margin-top: 1rem; color: #6c757d; font-size: 0.9rem; text-align: center;"></div>
                 </div>
 
                 <div id="forms-container" class="forms-grid">
@@ -1081,55 +1324,479 @@
             }
         }
 
-        function renderForms() {
-            console.log('Rendering forms, count:', forms?.length || 0);
+        // Enhanced forms management with search, filter, and view modes
+        let filteredForms = [];
+        let currentViewMode = 'grid';
+        
+        function renderForms(formsToRender = forms) {
+            console.log('Rendering forms, count:', formsToRender?.length || 0);
             const container = document.getElementById('forms-container');
+            filteredForms = formsToRender || [];
             
-            if (!forms || forms.length === 0) {
+            // Update results summary
+            updateResultsSummary(filteredForms.length, forms?.length || 0);
+            
+            if (!filteredForms || filteredForms.length === 0) {
                 container.innerHTML = `
                     <div style="grid-column: 1 / -1; text-align: center; padding: 4rem; background: white; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
                         <div style="font-size: 4rem; margin-bottom: 2rem;">📋</div>
-                        <h3 style="color: #495057; margin-bottom: 1rem;">No Forms Yet</h3>
-                        <p style="color: #6c757d; margin-bottom: 2rem;">Create your first XYZ Custody Account Opening Form to get started.</p>
-                        <button class="btn-primary" onclick="showNewFormPage()">Create New Form</button>
+                        <h3 style="color: #495057; margin-bottom: 1rem;">${forms?.length > 0 ? 'No forms match your search' : 'No Forms Yet'}</h3>
+                        <p style="color: #6c757d; margin-bottom: 2rem;">${forms?.length > 0 ? 'Try adjusting your search or filters.' : 'Create your first XYZ Custody Account Opening Form to get started.'}</p>
+                        ${forms?.length > 0 ? '<button class="btn-secondary" onclick="clearAllFilters()">Clear Filters</button>' : '<button class="btn-primary" onclick="showNewFormPage()">Create New Form</button>'}
                     </div>
                 `;
                 return;
             }
 
-            container.innerHTML = forms.map(form => `
-                <div class="form-card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-                        <h3 style="margin: 0; color: #495057;">${form.clientName}</h3>
-                        <div style="padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; background-color: ${form.status === 'draft' ? '#fff3cd' : '#d4edda'}; color: ${form.status === 'draft' ? '#856404' : '#155724'};">
-                            ${form.status.charAt(0).toUpperCase() + form.status.slice(1)}
+            // Update container class based on view mode
+            container.className = currentViewMode === 'grid' ? 'forms-grid' : 'forms-list';
+            
+            if (currentViewMode === 'grid') {
+                container.innerHTML = filteredForms.map(form => renderFormCard(form)).join('');
+            } else {
+                container.innerHTML = filteredForms.map(form => renderFormListItem(form)).join('');
+            }
+        }
+        
+        function renderFormCard(form) {
+            const completionPercentage = calculateCompletionPercentage(form);
+            const formDataPreview = getFormDataPreview(form);
+            
+            return `
+                <div class="form-card" style="position: relative; overflow: hidden;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                        <div>
+                            <h3 style="margin: 0 0 0.5rem 0; color: #495057; font-size: 1.3rem;">${form.clientName}</h3>
+                            <div style="font-size: 0.85rem; color: #6c757d;">${form.id.substring(0, 8)}...</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            ${getStatusBadge(form.status)}
+                            <div class="form-menu" style="position: relative;">
+                                <button onclick="toggleFormMenu('${form.id}')" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0.25rem;">⋮</button>
+                                <div id="menu-${form.id}" class="form-menu-dropdown" style="display: none; position: absolute; right: 0; top: 100%; background: white; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 100; min-width: 150px;">
+                                    <button onclick="viewFormDetails('${form.id}')" style="width: 100%; padding: 0.75rem 1rem; border: none; background: none; text-align: left; cursor: pointer; font-size: 0.9rem; border-bottom: 1px solid #f8f9fa;">👁️ View Details</button>
+                                    <button onclick="editForm('${form.id}')" style="width: 100%; padding: 0.75rem 1rem; border: none; background: none; text-align: left; cursor: pointer; font-size: 0.9rem; border-bottom: 1px solid #f8f9fa;">✏️ Edit</button>
+                                    <button onclick="duplicateForm('${form.id}')" style="width: 100%; padding: 0.75rem 1rem; border: none; background: none; text-align: left; cursor: pointer; font-size: 0.9rem; border-bottom: 1px solid #f8f9fa;">📋 Duplicate</button>
+                                    <button onclick="downloadForm('${form.id}', '${form.clientName}')" style="width: 100%; padding: 0.75rem 1rem; border: none; background: none; text-align: left; cursor: pointer; font-size: 0.9rem; border-bottom: 1px solid #f8f9fa;">💾 Export</button>
+                                    <button onclick="deleteForm('${form.id}', '${form.clientName}')" style="width: 100%; padding: 0.75rem 1rem; border: none; background: none; text-align: left; cursor: pointer; font-size: 0.9rem; color: #dc3545;">🗑️ Delete</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div style="margin-bottom: 2rem; color: #6c757d;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
-                            <span style="font-weight: 600;">Created:</span>
-                            <span>${new Date(form.createdDate).toLocaleDateString()}</span>
+                    
+                    <!-- Form Data Preview -->
+                    <div style="background: #f8f9fa; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
+                        <div style="font-size: 0.85rem; font-weight: 600; color: #495057; margin-bottom: 0.5rem;">Form Preview:</div>
+                        <div style="font-size: 0.8rem; color: #6c757d; line-height: 1.4;">
+                            ${formDataPreview}
                         </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
-                            <span style="font-weight: 600;">Modified:</span>
-                            <span>${new Date(form.lastModified).toLocaleDateString()}</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem; color: #6c757d; font-size: 0.9rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div>
+                                <span style="font-weight: 600;">Created:</span><br>
+                                <span>${formatDate(form.createdDate)}</span>
+                            </div>
+                            <div>
+                                <span style="font-weight: 600;">Modified:</span><br>
+                                <span>${formatDate(form.lastModified)}</span>
+                            </div>
                         </div>
+                        
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span style="font-weight: 600;">Progress:</span>
                             <div style="display: flex; align-items: center; gap: 0.75rem;">
                                 <div style="width: 100px; height: 8px; background-color: #e9ecef; border-radius: 4px; overflow: hidden;">
-                                    <div style="height: 100%; background: linear-gradient(90deg, #28a745, #007bff); width: ${form.completionPercentage}%; transition: width 0.3s;"></div>
+                                    <div style="height: 100%; background: linear-gradient(90deg, ${getProgressColor(completionPercentage)}); width: ${completionPercentage}%; transition: width 0.3s;"></div>
                                 </div>
-                                <span style="font-size: 0.9rem; font-weight: 600;">${form.completionPercentage}%</span>
+                                <span style="font-size: 0.9rem; font-weight: 600;">${completionPercentage}%</span>
                             </div>
                         </div>
                     </div>
-                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                        <button class="btn-secondary" onclick="downloadForm('${form.id}', '${form.clientName}')" style="padding: 0.5rem 1rem; font-size: 0.9rem;">💾 Export</button>
-                        <button onclick="deleteForm('${form.id}', '${form.clientName}')" style="padding: 0.5rem 1rem; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">🗑 Delete</button>
+                    
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="btn-secondary" onclick="viewFormDetails('${form.id}')" style="padding: 0.5rem 1rem; font-size: 0.85rem; flex: 1;">👁️ View</button>
+                        <button class="btn-secondary" onclick="downloadForm('${form.id}', '${form.clientName}')" style="padding: 0.5rem 1rem; font-size: 0.85rem;">💾</button>
+                        <button onclick="deleteForm('${form.id}', '${form.clientName}')" style="padding: 0.5rem 1rem; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">🗑</button>
                     </div>
                 </div>
-            `).join('');
+            `;
+        }
+        
+        function renderFormListItem(form) {
+            const completionPercentage = calculateCompletionPercentage(form);
+            const formDataPreview = getFormDataPreview(form);
+            
+            return `
+                <div class="form-list-item" style="background: white; border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: grid; grid-template-columns: 2fr 1fr 1fr auto auto; gap: 1rem; align-items: center;">
+                    <div>
+                        <h4 style="margin: 0 0 0.5rem 0; color: #495057;">${form.clientName}</h4>
+                        <div style="font-size: 0.8rem; color: #6c757d; margin-bottom: 0.5rem;">${form.id.substring(0, 8)}...</div>
+                        <div style="font-size: 0.75rem; color: #868e96;">${formDataPreview}</div>
+                    </div>
+                    <div style="text-align: center;">
+                        ${getStatusBadge(form.status)}
+                    </div>
+                    <div style="text-align: center; font-size: 0.85rem; color: #6c757d;">
+                        <div style="font-weight: 600;">Created</div>
+                        <div>${formatDate(form.createdDate)}</div>
+                        <div style="margin-top: 0.5rem; font-weight: 600;">Modified</div>
+                        <div>${formatDate(form.lastModified)}</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: conic-gradient(${getProgressColor(completionPercentage)} ${completionPercentage * 3.6}deg, #e9ecef 0deg); display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <div style="width: 45px; height: 45px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600;">${completionPercentage}%</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <button class="btn-secondary" onclick="viewFormDetails('${form.id}')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">👁️ View</button>
+                        <button class="btn-secondary" onclick="downloadForm('${form.id}', '${form.clientName}')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">💾 Export</button>
+                        <button onclick="deleteForm('${form.id}', '${form.clientName}')" style="padding: 0.4rem 0.8rem; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">🗑 Delete</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Helper functions for enhanced UI
+        function calculateCompletionPercentage(form) {
+            if (!form.formData || typeof form.formData !== 'object') return 0;
+            
+            let totalFields = 0;
+            let completedFields = 0;
+            
+            Object.values(form.formData).forEach(section => {
+                if (typeof section === 'object' && section !== null) {
+                    Object.entries(section).forEach(([key, value]) => {
+                        totalFields++;
+                        if (value && value !== '' && value !== false) {
+                            completedFields++;
+                        }
+                    });
+                }
+            });
+            
+            return totalFields === 0 ? 0 : Math.round((completedFields / totalFields) * 100);
+        }
+        
+        function getFormDataPreview(form) {
+            if (!form.formData) return 'No data available';
+            
+            const previews = [];
+            Object.values(form.formData).forEach(section => {
+                if (typeof section === 'object' && section !== null) {
+                    Object.entries(section).forEach(([key, value]) => {
+                        if (value && value !== '' && value !== false) {
+                            const cleanKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                            const cleanValue = typeof value === 'boolean' ? (value ? 'Yes' : 'No') : String(value).substring(0, 30);
+                            previews.push(`${cleanKey}: ${cleanValue}`);
+                        }
+                    });
+                }
+            });
+            
+            return previews.length > 0 ? previews.slice(0, 3).join(' • ') + (previews.length > 3 ? '...' : '') : 'No data available';
+        }
+        
+        function getStatusBadge(status) {
+            const statusConfig = {
+                'draft': { bg: '#fff3cd', color: '#856404', icon: '📝' },
+                'completed': { bg: '#d4edda', color: '#155724', icon: '✅' },
+                'submitted': { bg: '#d1ecf1', color: '#0c5460', icon: '📤' }
+            };
+            
+            const config = statusConfig[status] || statusConfig['draft'];
+            return `<div style="padding: 0.4rem 0.8rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background-color: ${config.bg}; color: ${config.color}; display: flex; align-items: center; gap: 0.25rem;">
+                ${config.icon} ${status.charAt(0).toUpperCase() + status.slice(1)}
+            </div>`;
+        }
+        
+        function getProgressColor(percentage) {
+            if (percentage < 25) return '#dc3545, #dc3545';
+            if (percentage < 50) return '#fd7e14, #ffc107';
+            if (percentage < 75) return '#ffc107, #28a745';
+            return '#28a745, #007bff';
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffTime = Math.abs(now - date);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            if (diffDays === 1) return 'Yesterday';
+            if (diffDays < 7) return `${diffDays} days ago`;
+            if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
+            
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+        
+        // Search and Filter Functions
+        function handleSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            applyFilters();
+        }
+        
+        function handleFilter() {
+            applyFilters();
+        }
+        
+        function handleSort() {
+            applyFilters();
+        }
+        
+        function applyFilters() {
+            if (!forms) return;
+            
+            let filtered = [...forms];
+            
+            // Apply search filter
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            if (searchTerm) {
+                filtered = filtered.filter(form => {
+                    const clientName = form.clientName.toLowerCase();
+                    const status = form.status.toLowerCase();
+                    const formDataText = getFormDataPreview(form).toLowerCase();
+                    const id = form.id.toLowerCase();
+                    
+                    return clientName.includes(searchTerm) || 
+                           status.includes(searchTerm) || 
+                           formDataText.includes(searchTerm) ||
+                           id.includes(searchTerm);
+                });
+            }
+            
+            // Apply status filter
+            const statusFilter = document.getElementById('status-filter').value;
+            if (statusFilter) {
+                filtered = filtered.filter(form => form.status === statusFilter);
+            }
+            
+            // Apply sorting
+            const sortOption = document.getElementById('sort-options').value;
+            filtered.sort((a, b) => {
+                switch (sortOption) {
+                    case 'newest':
+                        return new Date(b.createdDate) - new Date(a.createdDate);
+                    case 'oldest':
+                        return new Date(a.createdDate) - new Date(b.createdDate);
+                    case 'name':
+                        return a.clientName.localeCompare(b.clientName);
+                    case 'name-desc':
+                        return b.clientName.localeCompare(a.clientName);
+                    case 'progress':
+                        return calculateCompletionPercentage(b) - calculateCompletionPercentage(a);
+                    case 'progress-low':
+                        return calculateCompletionPercentage(a) - calculateCompletionPercentage(b);
+                    default:
+                        return 0;
+                }
+            });
+            
+            updateActiveFilters(searchTerm, statusFilter);
+            renderForms(filtered);
+        }
+        
+        function updateActiveFilters(searchTerm, statusFilter) {
+            const activeFiltersContainer = document.getElementById('active-filters');
+            const filterTagsContainer = document.getElementById('filter-tags');
+            
+            const activeTags = [];
+            if (searchTerm) activeTags.push(`Search: "${searchTerm}"`);
+            if (statusFilter) activeTags.push(`Status: ${statusFilter}`);
+            
+            if (activeTags.length > 0) {
+                activeFiltersContainer.style.display = 'block';
+                filterTagsContainer.innerHTML = activeTags.map(tag => 
+                    `<span style="background: #e9ecef; padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.8rem; color: #495057;">
+                        ${tag} <button onclick="clearFilter('${tag.split(':')[0].toLowerCase()}')" style="background: none; border: none; margin-left: 0.5rem; cursor: pointer; color: #6c757d;">×</button>
+                    </span>`
+                ).join('');
+            } else {
+                activeFiltersContainer.style.display = 'none';
+            }
+        }
+        
+        function clearFilter(type) {
+            if (type === 'search') {
+                document.getElementById('search-input').value = '';
+            } else if (type === 'status') {
+                document.getElementById('status-filter').value = '';
+            }
+            applyFilters();
+        }
+        
+        function clearAllFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('status-filter').value = '';
+            document.getElementById('sort-options').value = 'newest';
+            applyFilters();
+        }
+        
+        function updateResultsSummary(filteredCount, totalCount) {
+            const summary = document.getElementById('results-summary');
+            if (filteredCount === totalCount) {
+                summary.innerHTML = `Showing ${totalCount} form${totalCount !== 1 ? 's' : ''}`;
+            } else {
+                summary.innerHTML = `Showing ${filteredCount} of ${totalCount} form${totalCount !== 1 ? 's' : ''}`;
+            }
+        }
+        
+        // View Mode Functions
+        function setViewMode(mode) {
+            currentViewMode = mode;
+            
+            // Update button states
+            document.getElementById('grid-view').className = mode === 'grid' ? 'view-btn active' : 'view-btn';
+            document.getElementById('list-view').className = mode === 'list' ? 'view-btn active' : 'view-btn';
+            
+            // Update button styles
+            if (mode === 'grid') {
+                document.getElementById('grid-view').style.background = '#007bff';
+                document.getElementById('grid-view').style.color = 'white';
+                document.getElementById('list-view').style.background = 'transparent';
+                document.getElementById('list-view').style.color = '#6c757d';
+            } else {
+                document.getElementById('list-view').style.background = '#007bff';
+                document.getElementById('list-view').style.color = 'white';
+                document.getElementById('grid-view').style.background = 'transparent';
+                document.getElementById('grid-view').style.color = '#6c757d';
+            }
+            
+            renderForms(filteredForms);
+        }
+        
+        // Form Actions
+        function toggleFormMenu(formId) {
+            const menu = document.getElementById(`menu-${formId}`);
+            const isVisible = menu.style.display !== 'none';
+            
+            // Close all other menus
+            document.querySelectorAll('.form-menu-dropdown').forEach(m => m.style.display = 'none');
+            
+            menu.style.display = isVisible ? 'none' : 'block';
+            
+            // Close menu when clicking outside
+            if (!isVisible) {
+                setTimeout(() => {
+                    document.addEventListener('click', function closeMenu(e) {
+                        if (!e.target.closest('.form-menu')) {
+                            menu.style.display = 'none';
+                            document.removeEventListener('click', closeMenu);
+                        }
+                    });
+                }, 100);
+            }
+        }
+        
+        function viewFormDetails(formId) {
+            const form = forms.find(f => f.id === formId);
+            if (!form) return;
+            
+            // Create and show detailed view modal
+            showFormDetailsModal(form);
+        }
+        
+        function showFormDetailsModal(form) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); 
+                display: flex; align-items: center; justify-content: center; z-index: 1000;
+            `;
+            
+            const completionPercentage = calculateCompletionPercentage(form);
+            
+            modal.innerHTML = `
+                <div style="background: white; border-radius: 15px; padding: 2rem; max-width: 600px; max-height: 80vh; overflow-y: auto; margin: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 2px solid #f8f9fa; padding-bottom: 1rem;">
+                        <h2 style="margin: 0; color: #495057;">Form Details</h2>
+                        <button onclick="this.closest('.modal').remove()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #6c757d;">×</button>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="margin: 0 0 1rem 0; color: #495057;">${form.clientName}</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div><strong>Form ID:</strong> ${form.id}</div>
+                            <div><strong>Status:</strong> ${getStatusBadge(form.status)}</div>
+                            <div><strong>Created:</strong> ${formatDate(form.createdDate)}</div>
+                            <div><strong>Last Modified:</strong> ${formatDate(form.lastModified)}</div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0;">
+                            <strong>Completion Progress:</strong>
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+                                <div style="flex: 1; height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(90deg, ${getProgressColor(completionPercentage)}); width: ${completionPercentage}%; transition: width 0.3s;"></div>
+                                </div>
+                                <span style="font-weight: 600; min-width: 50px;">${completionPercentage}%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; border-radius: 8px; padding: 1.5rem;">
+                        <h4 style="margin: 0 0 1rem 0; color: #495057;">Form Data Summary:</h4>
+                        <div style="font-size: 0.9rem; color: #6c757d; line-height: 1.6;">
+                            ${getDetailedFormPreview(form)}
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem; justify-content: flex-end;">
+                        <button onclick="downloadForm('${form.id}', '${form.clientName}')" class="btn-secondary">💾 Export</button>
+                        <button onclick="editForm('${form.id}')" class="btn-primary">✏️ Edit Form</button>
+                        <button onclick="this.closest('.modal').remove()" class="btn-secondary">Close</button>
+                    </div>
+                </div>
+            `;
+            
+            modal.className = 'modal';
+            document.body.appendChild(modal);
+            
+            // Close on background click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+        
+        function getDetailedFormPreview(form) {
+            if (!form.formData) return 'No form data available.';
+            
+            const sections = [];
+            Object.entries(form.formData).forEach(([sectionKey, section]) => {
+                if (typeof section === 'object' && section !== null) {
+                    const fields = [];
+                    Object.entries(section).forEach(([key, value]) => {
+                        if (value && value !== '' && value !== false) {
+                            const cleanKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                            const cleanValue = typeof value === 'boolean' ? (value ? 'Yes' : 'No') : String(value);
+                            fields.push(`<strong>${cleanKey}:</strong> ${cleanValue}`);
+                        }
+                    });
+                    
+                    if (fields.length > 0) {
+                        sections.push(`<div style="margin-bottom: 1rem;"><div style="font-weight: 600; color: #495057; margin-bottom: 0.5rem; text-transform: capitalize;">${sectionKey.replace(/([A-Z])/g, ' $1')}</div>${fields.join('<br>')}</div>`);
+                    }
+                }
+            });
+            
+            return sections.length > 0 ? sections.join('') : 'No completed fields yet.';
+        }
+        
+        function editForm(formId) {
+            // Implement edit functionality
+            console.log('Edit form:', formId);
+            alert('Edit functionality would be implemented here');
+        }
+        
+        function duplicateForm(formId) {
+            // Implement duplicate functionality
+            console.log('Duplicate form:', formId);
+            alert('Duplicate functionality would be implemented here');
         }
 
         async function downloadForm(id, clientName) {
