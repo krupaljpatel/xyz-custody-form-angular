@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XYZ Custody Account Opening Form - Comprehensive</title>
+    <title>XYZ Custody Account Opening Form - Comprehensive v2</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
         
@@ -780,6 +780,270 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* Guide Content Styles */
+        .guide-content {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            border: 1px solid #c7d2fe;
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin-bottom: var(--space-4);
+            position: relative;
+        }
+        
+        .guide-content h4 {
+            color: var(--primary);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-3);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .guide-content h4:before {
+            content: "📘";
+            font-size: 1.25rem;
+        }
+        
+        .guide-text {
+            color: var(--gray-700);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .guide-text p {
+            margin-bottom: var(--space-3);
+        }
+        
+        .guide-text p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .guide-text strong {
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+        
+        .guide-text ul, .guide-text ol {
+            margin: var(--space-3) 0;
+            padding-left: var(--space-6);
+        }
+        
+        .guide-text li {
+            margin-bottom: var(--space-1);
+        }
+        
+        /* Tooltip Styles */
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip-trigger {
+            cursor: help;
+            margin-left: var(--space-1);
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        
+        .tooltip-trigger:hover {
+            opacity: 1;
+        }
+        
+        .tooltip-content {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: var(--space-2);
+            padding: var(--space-3);
+            background: var(--gray-900);
+            color: var(--white);
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            line-height: 1.4;
+            white-space: nowrap;
+            max-width: 300px;
+            white-space: normal;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .tooltip-content::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--gray-900);
+        }
+        
+        .tooltip-container:hover .tooltip-content {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .form-field label {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-2);
+        }
+        
+        /* User Guide Document Styles */
+        .user-guide-document {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--space-8);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            line-height: 1.7;
+        }
+        
+        .guide-header {
+            text-align: center;
+            margin-bottom: var(--space-12);
+            padding-bottom: var(--space-8);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .guide-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: var(--space-4);
+            font-weight: 700;
+        }
+        
+        .guide-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            font-weight: 400;
+            margin: 0;
+        }
+        
+        .guide-toc {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin-bottom: var(--space-10);
+        }
+        
+        .guide-toc h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-4);
+            font-weight: 600;
+        }
+        
+        .guide-toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-2);
+        }
+        
+        .guide-toc li {
+            margin: 0;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: var(--space-3) var(--space-4);
+            color: var(--gray-700);
+            text-decoration: none;
+            border-radius: var(--radius);
+            transition: var(--transition-fast);
+            font-weight: 500;
+        }
+        
+        .toc-link:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .guide-section {
+            margin-bottom: var(--space-12);
+            scroll-margin-top: var(--space-8);
+        }
+        
+        .guide-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-3);
+            border-bottom: 2px solid var(--primary-light);
+        }
+        
+        .guide-content-section {
+            margin-bottom: var(--space-8);
+            background: var(--gray-50);
+            border-left: 4px solid var(--primary);
+            padding: var(--space-6);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+        
+        .guide-content-section h3 {
+            color: var(--primary-dark);
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .guide-content-section h3:before {
+            content: "📖";
+            font-size: 1.25rem;
+        }
+        
+        .guide-content-section .guide-text {
+            color: var(--gray-800);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        .guide-content-section .guide-text p {
+            margin-bottom: var(--space-4);
+        }
+        
+        .guide-content-section .guide-text p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .guide-content-section .guide-text strong {
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+        
+        /* Responsive adjustments for guide */
+        @media (max-width: 768px) {
+            .user-guide-document {
+                padding: var(--space-4);
+            }
+            
+            .guide-header h1 {
+                font-size: 2rem;
+            }
+            
+            .guide-toc ul {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -880,7 +1144,7 @@
                         <button class="tab-button active" onclick="switchTab(0)" id="tab-0">AOF Page 1</button>
                         <button class="tab-button" onclick="switchTab(1)" id="tab-1">AOF Page 2</button>
                         <button class="tab-button" onclick="switchTab(2)" id="tab-2">Additional SWIFTs</button>
-                        <button class="tab-button" onclick="switchTab(3)" id="tab-3">User Guide</button>
+                        <button class="tab-button" onclick="switchTab(3); console.log('User Guide tab clicked');" id="tab-3">User Guide</button>
                     </div>
 
                     <div class="tab-content">
@@ -952,7 +1216,9 @@
 
         // Tab switching
         function switchTab(tabIndex) {
+            console.log('switchTab called with index:', tabIndex);
             currentTab = tabIndex;
+            console.log('currentTab set to:', currentTab);
             
             // Update tab buttons
             document.querySelectorAll('.tab-button').forEach((btn, index) => {
@@ -981,17 +1247,103 @@
             }
         }
 
+        // Get tooltip content for a specific field based on User Guide
+        function getTooltipContent(fieldName) {
+            const tooltipMap = {
+                // Section 1: General Account Information
+                'bbhAccountNumberReserved': 'Select Yes if you already have a reserved XYZ account number for this account opening.',
+                'bbhAccountNumber': 'Enter the 7-digit XYZ account number that was reserved for this account opening.',
+                'newAccountNameLegal': 'Account Legal Title is used to identify an account. Can have limit of 228 characters total. Should include client\'s full legal name and full legal names of related parties.',
+                'shortAccountName': 'Shortened version displayed in XYZ Infuse and Wire Transfers. 30 character limit. Should be unique and recognizable.',
+                'contactName': 'Primary contact person for this account who will receive communications and notifications.',
+                'contactEmail': 'Email address for the primary contact person. This will be used for account notifications and communications.',
+                'contactPhone': 'Phone number for the primary contact person. Include country and area codes for international numbers.',
+                
+                // Section 2: Account Services
+                'foreignExchangeServices': 'Select if you need Foreign Exchange services with XYZ. This will enable FX trading capabilities for your account.',
+                'cashServices': 'Select if you need Cash services. Required for cash-only accounts and accounts handling cash transactions.',
+                'physicalServices': 'Select if you need Physical custody services for holding and safekeeping securities.',
+                'custodyServices': 'Select if you need Custody services for securities safekeeping, settlement, and administration.',
+                
+                // Section 3: Global Custody Markets and Cash
+                'currencyPreferences': 'Select required currencies for your account. Missing currencies may delay account availability. Choose based on your investment and settlement needs.',
+                'marketPreferences': 'Select required markets for custody services. It is important to avoid missing or unnecessary markets as some require more than a business day to open.',
+                'euroclearClearstream': 'Select required currencies for International Central Securities Depository (Euroclear/Clearstream) if you trade international fixed income.',
+                'clsSetup': 'Select "Yes" if account requires setup in Continuous Linked Settlement foreign exchange settlement system for FX risk mitigation.',
+                
+                // Section 4: Tax Treatment
+                'taxClassification': 'Entity type classification for U.S. tax purposes. Enter your tax classification from IRS Form W-8/W-9 (Individual, Corporation, Trust, Partnership, etc.).',
+                'fatcaClassification': 'FATCA classification determines withholding requirements. FFI (Foreign Financial Institution), NFFE (Non-Financial Foreign Entity), or Neither.',
+                'taxDomicileCountry': 'Country where account holder is considered tax resident. For U.S. accounts, enter actual state of residence rather than "U.S."',
+                'taxpayerIdNumber': 'Local Taxpayer Identification Number. For U.S. citizens living outside U.S., provide U.S. TIN and enter "United States" as domicile.',
+                'fatcaWithholding': 'FATCA withholding rate. If not populated, XYZ will determine based on tax documents provided or apply default treatment.',
+                
+                // Section 5: Foreign Exchange  
+                'fxTradingActivity': 'FX trading activity setup can be modeled after existing account. Select execution methods and confirmation preferences.',
+                'fxConfirmationMethod': 'Method for FX trade confirmations: SWIFT MT300, Email, or third-party vendor platforms (MISYS, GTSS, FXAll, Bloomberg).',
+                'tradingCounterpartyInfo': 'Trading counterparty information cannot be modeled and must be provided manually. Required for XYZ\'s FX regulatory reporting.',
+                
+                // Mailing and Address fields
+                'mailingFormat': 'Delivery methods: SWIFT delivery, Infuse (digital), or Both. Preferred option is Digital Copy via Infuse portal.',
+                'infuseUserId': 'Required when Infuse mailing is selected. Your Infuse portal user ID for receiving digital statements and confirmations.',
+                'wireTransferSwiftCode': 'SWIFT/BIC code for wire transfers. 8 or 11 characters. Contact name will be populated with account Short Title.',
+                'billingAddress': 'Billing information for invoicing purposes. Can use same address as tax documentation mailing or provide different address.',
+                
+                // SWIFT Message Types
+                'mt950Options': 'MT950 Customer Statement options with different aggregation levels (Ledger/Head account aggregated or segregated).',
+                'swiftMessages': 'SWIFT message types for trade confirmations: MT513 (intraday execution advice) or MT515 (batch purchase/sale confirmation).',
+                'mt535StatementOfPositions': 'MT535 Statement of Positions frequency: Daily, Weekly, Monthly, Daily on activity, Always daily, or Quarterly.',
+                
+                // Additional common fields
+                'primaryAddress': 'Primary mailing address for account correspondence and regulatory communications.',
+                'secondaryAddress': 'Secondary address if different from primary address for specific document types.',
+                'accountType': 'Account type determined by Services (Cash/Custody) and Markets/Currencies selected. Types: Cash Only, U.S. Custody Only, Global Custody.',
+                'additionalServices': 'Additional services beyond basic custody: Corporate Actions, Proxy Services, Tax Relief, Income Processing, etc.'
+            };
+            
+            return tooltipMap[fieldName] || null;
+        }
+
+        // Generate tooltip HTML
+        function generateTooltipHTML(tooltipContent) {
+            if (!tooltipContent) return '';
+            
+            return `
+                <div class="tooltip-container">
+                    <span class="tooltip-trigger">?</span>
+                    <div class="tooltip-content">${tooltipContent}</div>
+                </div>
+            `;
+        }
+
         // Render form content based on current tab
         function renderFormContent() {
-            if (!formMetadata) return;
+            console.log('renderFormContent called, currentTab:', currentTab);
+            if (!formMetadata) {
+                console.log('No formMetadata available');
+                return;
+            }
+            
+            // Debug: show all tab names
+            console.log('All tabs:', formMetadata.tabs.map((tab, i) => `${i}: ${tab.name}`));
             
             const container = document.getElementById('form-content');
             const currentTabData = formMetadata.tabs[currentTab];
+            console.log('currentTabData:', currentTabData);
             
             if (!currentTabData || !currentTabData.sections) {
+                console.log('No currentTabData or sections');
                 container.innerHTML = '<div style="text-align: center; padding: 2rem;">No content available for this tab</div>';
                 return;
             }
+            
+            // Special handling for User Guide tab
+            if (currentTabData.name === 'User Guide' || currentTabData.name.includes('Guide') || currentTab === 3) {
+                console.log('Rendering User Guide tab:', currentTabData);
+                renderUserGuide(currentTabData, container);
+                return;
+            }
+            console.log('Rendering regular tab:', currentTabData.name);
             
             let html = '<div class="form-sections">';
             
@@ -1022,10 +1374,157 @@
             setupConditionalLogic();
         }
 
+        // Render User Guide as a document instead of form fields
+        function renderUserGuide(guideData, container) {
+            console.log('renderUserGuide called with:', guideData);
+            
+            // Create a proper User Guide since the Excel data is corrupted
+            const properUserGuide = {
+                sections: [
+                    {
+                        title: "📋 Introduction",
+                        content: "The purpose of this guide is to assist clients in the completion of the XYZ Custody Account Opening Form. This form should be completed and sent to your client service team along with an instruction to open the account. It is recommended the form be password protected, with the password sent in a separate email."
+                    },
+                    {
+                        title: "⚡ How the Form Works",
+                        content: "This form uses conditional logic - initial selections will trigger next available fields or sub-sections to appear for input. Please ensure to input information in all available sections to complete the setup. All mandatory fields are marked in yellow or with a red marker. Use your mouse to click and navigate rather than using the ENTER button."
+                    },
+                    {
+                        title: "🏢 1. General Account Information",
+                        content: "<strong>New Account Name (Long Name - Legal Title):</strong> Account Legal Title is used to identify an account. Can have limit of 228 characters total. Should include client's full legal name.<br><br><strong>Short New Account Name:</strong> Shortened version displayed in XYZ Infuse and Wire Transfers. 30 character limit. Should be unique and recognizable.<br><br><strong>Contact Information:</strong> Primary contact person for this account who will receive communications and notifications."
+                    },
+                    {
+                        title: "⚙️ 2. Account Services",
+                        content: "Select all services which need to be added to the new account. The account type will be defined based on your selections of Services (Cash and/or Custody) and Markets/Currencies in Section 3.<br><br><strong>Available Account Types:</strong><br>• Cash Only Account<br>• U.S. Custody Only Account<br>• Global Custody Account<br><br>Services selected should match the services contracted with XYZ."
+                    },
+                    {
+                        title: "🌍 3. Global Custody Markets and Cash",
+                        content: "Select the required markets and currencies for your account. It is important to avoid any missing or unnecessary markets or currencies. Missing markets may incur a delay in availability of the account.<br><br><strong>Key Considerations:</strong><br>• Non-Registration Markets: Select required markets and currencies<br>• Registration Markets: Refer to Registration Kits within XYZ Infuse<br>• Euroclear/Clearstream: Select required currencies for ICSD<br>• CLS: Select if account requires Continuous Linked Settlement setup"
+                    },
+                    {
+                        title: "💰 4. Intended Tax Treatment",
+                        content: "<strong>Cash Only Accounts:</strong> Require Taxpayer Identification section to be populated with Taxpayer Title, Local Taxpayer ID Number, and Address.<br><br><strong>Important Notes:</strong><br>• For U.S. accounts, enter actual state of residence rather than 'U.S.'<br>• For U.S. citizens living outside U.S., enter 'United States'<br>• Enter tax classification from IRS Form W-8/W-9<br>• FATCA withholding may apply if proper documentation not provided<br><br><strong>Custody Accounts:</strong> First question identifies account structure (Direct vs. Intermediary)."
+                    },
+                    {
+                        title: "💱 5. Foreign Exchange with XYZ",
+                        content: "This section appears when Foreign Exchange service is selected in Section 2.<br><br><strong>FX Trading Activity:</strong> Can be modeled after existing account<br><strong>Trading Counterparty Info:</strong> Cannot be modeled, details must be provided manually<br><br><strong>Execution Methods:</strong><br>• Negotiated FX Execution - Active Execution<br>• Non-Negotiated Execution<br><br><strong>Confirmation Methods:</strong><br>• SWIFT MT300<br>• Email<br>• Third-party vendor platforms (MISYS, GTSS, FXAll, Bloomberg)"
+                    },
+                    {
+                        title: "💳 6. Cash Posting Transactions",
+                        content: "Select these options if any cash or custody flows should be posted from the head account to another XYZ account number. This section can be modeled after existing accounts. Required for U.S. Custody Only Accounts as USD cash transform for all transactions is required."
+                    },
+                    {
+                        title: "📮 7. Mailing Products",
+                        content: "Delivery methods supported include paper statements, SWIFT delivery, email, and Infuse. The delivery methods available vary by mailing product.<br><br><strong>Cash Service Mailing:</strong> Preferred option is Digital Copy via Infuse portal<br><strong>Custody Service Mailing:</strong> Preferred option is Digital Copy via Infuse portal - Statements Online<br><br>Contact your client service team to discuss any custom delivery methods."
+                    },
+                    {
+                        title: "🏦 8. Wire Transfer Address",
+                        content: "Wire transfer address is required for electronic transfer of funds. The contact name will be populated with the Short Title of the account. Address should not include PO Box or words 'Personal' or 'Confidential'. Option to use same address as tax documentation mailing from Section 4."
+                    },
+                    {
+                        title: "🧾 9. Billing Address",
+                        content: "Please input billing information for invoicing purposes. Option to use same address as tax documentation mailing from Section 4, or provide different address when 'Other' is selected."
+                    },
+                    {
+                        title: "💰 10. Cash Accounting",
+                        content: "XYZ's Contractual Cash Program for USD is a settlement valuation option for funds management. Gives 'as of' contractual value on 'vs. payment' security settlements. Allows clients to commit to security sale proceeds prior to settlement while avoiding overdraft charges. For more information, see Custody Client Guide in Infuse."
+                    },
+                    {
+                        title: "📈 11. Trades - Custody",
+                        content: "This section is visible only if Custody service is selected in Section 2.<br><br><strong>11.1 Trades Authorization:</strong> BIC addresses (8 or 11 characters) authorized for payments or trades. Authorized Persons Document required.<br><br><strong>11.2 Custody Security Instructions:</strong><br>• Client Duplicate Check options<br>• Depository Movement Service<br>• DNR Money tolerance<br>• Holiday Service<br>• Fed 50 million<br>• Return Delivery Service (RTD)<br><br><strong>11.3 SWIFTs for Trades & Position Reporting:</strong> SWIFT/BIC addresses for delivery<br><br><strong>11.4 Shareholder Rights Directive II:</strong> Account classification for SRDII compliance"
+                    },
+                    {
+                        title: "💸 12. Payments - Cash",
+                        content: "<strong>12.1 Payments Authorization:</strong> BIC addresses (8 or 11 characters) authorized for payments or trades. XYZ Infuse portal provides ability to execute and authorize payments.<br><br><strong>12.2 SWIFTs for Cash:</strong> SWIFT/BIC addresses for cash-related SWIFT delivery. Complete Additional SWIFT section if multiple BIC addresses with different requirements needed."
+                    },
+                    {
+                        title: "📊 13. FWDP - Allow MT304 Forward Processing",
+                        content: "BIC addresses (8 or 11 characters) authorized for MT304 forward processing. XYZ will require Authorized Persons Document. Indicate if any BIC addresses are for third parties (e.g., subadvisor)."
+                    },
+                    {
+                        title: "🏢 14. Corporate Actions",
+                        content: "Comprehensive corporate actions services including:<br><br><strong>14.1 Contacts Information:</strong> Primary, Escalation and Fax back contacts required<br><strong>14.2 Notification Receipt Methods:</strong> ActionView®, SWIFT, or fax<br><strong>14.3 Notification Products:</strong> Eligibility Date Notices for various action types<br><strong>14.4-14.18 Additional Services:</strong><br>• Odd Lot Tenders Processing<br>• Response Standing Instructions<br>• Cash Dividends Service<br>• Currency Options Service<br>• Restricted Security Exchange Offers<br>• Certifications Standing Instructions<br>• Response Reconciliation Report<br>• Pre-payment Advice<br>• MT566 Payment Confirmation<br>• Provisional Income Program<br>• Income Reclassification Service<br>• Proxy Information"
+                    },
+                    {
+                        title: "📈 15. Fund Order & Custody",
+                        content: "<strong>15.1 Fund Order & Custody Information:</strong> Fund order and custody services setup<br><br><strong>15.2 Prospectus:</strong> Address for Mutual Fund Prospectus mailing. Email address required if suppressing hard copy.<br><br><strong>15.3 Service Mailing Products:</strong> MFPS Confirmation delivery methods:<br>• Hard copy mailing (up to 3 addresses)<br>• Email<br>• SWIFT (MT515)<br><br>For Fund Order & Custody services, select required currencies for settlement of Fund Orders."
+                    },
+                    {
+                        title: "❓ Additional Help",
+                        content: "<strong>For additional assistance:</strong><br>• Hover over the ℹ️ icon next to field labels for specific guidance<br>• Contact your Client Service Representative for complex requirements<br>• Review detailed documentation in XYZ Infuse<br>• Use mouse to navigate rather than ENTER button<br><br><strong>Contact:</strong> If you have questions about this guide or process, contact your client service team."
+                    }
+                ]
+            };
+            
+            try {
+                let html = `
+                    <div class="user-guide-document">
+                        <div class="guide-header">
+                            <h1>📚 XYZ Custody Account Opening Form - User Guide</h1>
+                            <p class="guide-subtitle">Complete guidance for filling out your account opening form</p>
+                        </div>
+                        
+                        <div class="guide-toc">
+                            <h2>📋 Table of Contents</h2>
+                            <ul>
+                `;
+                
+                // Generate table of contents
+                properUserGuide.sections.forEach((section, index) => {
+                    html += `<li><a href="#guide-section-${index}" class="toc-link">${section.title}</a></li>`;
+                });
+                
+                html += `
+                            </ul>
+                        </div>
+                `;
+                
+                // Generate all sections
+                properUserGuide.sections.forEach((section, index) => {
+                    html += `
+                        <div class="guide-section" id="guide-section-${index}">
+                            <h2>${section.title}</h2>
+                            <div class="guide-content-section">
+                                <div class="guide-text">
+                                    <p>${section.content}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                
+                console.log('Generated proper User Guide HTML length:', html.length);
+                container.innerHTML = html;
+                setupGuideNavigation();
+                
+            } catch (error) {
+                console.error('Error rendering User Guide:', error);
+                container.innerHTML = `<div style="padding: 2rem; color: red;">Error rendering User Guide: ${error.message}</div>`;
+            }
+        }
+
+        // Setup guide navigation
+        function setupGuideNavigation() {
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
         // Render individual field
         function renderField(field) {
             const conditionalClass = field.conditional ? 'conditional-field' : '';
             const conditionalId = field.conditional ? `conditional-${field.name}` : '';
+            const tooltipContent = getTooltipContent(field.name);
+            const tooltipHTML = generateTooltipHTML(tooltipContent);
             
             let fieldHtml = `<div class="form-field ${conditionalClass}" id="${conditionalId}" data-field="${field.name}">`;
             
@@ -1034,7 +1533,10 @@
                 case 'email':
                 case 'tel':
                     fieldHtml += `
-                        <label for="${field.name}">${field.label}${field.required ? ' *' : ''}</label>
+                        <label for="${field.name}">
+                            ${field.label}${field.required ? ' *' : ''}
+                            ${tooltipHTML}
+                        </label>
                         <input 
                             type="${field.type}" 
                             id="${field.name}" 
@@ -1049,7 +1551,10 @@
                     
                 case 'textarea':
                     fieldHtml += `
-                        <label for="${field.name}">${field.label}${field.required ? ' *' : ''}</label>
+                        <label for="${field.name}">
+                            ${field.label}${field.required ? ' *' : ''}
+                            ${tooltipHTML}
+                        </label>
                         <textarea 
                             id="${field.name}" 
                             name="${field.name}"
@@ -1062,7 +1567,10 @@
                     
                 case 'radio':
                     fieldHtml += `
-                        <label class="field-label">${field.label}${field.required ? ' *' : ''}</label>
+                        <label class="field-label">
+                            ${field.label}${field.required ? ' *' : ''}
+                            ${tooltipHTML}
+                        </label>
                         <div class="radio-group">
                     `;
                     field.options.forEach(option => {
@@ -1081,6 +1589,15 @@
                     fieldHtml += '</div>';
                     break;
                     
+                case 'guide-content':
+                    fieldHtml += `
+                        <div class="guide-content">
+                            <h4>${field.label}</h4>
+                            <div class="guide-text">${field.content}</div>
+                        </div>
+                    `;
+                    break;
+                    
                 case 'checkbox':
                     fieldHtml += `
                         <div class="checkbox-option">
@@ -1089,7 +1606,10 @@
                                 id="${field.name}" 
                                 name="${field.name}"
                                 onchange="handleFieldChange('${field.name}')">
-                            <label for="${field.name}">${field.label}</label>
+                            <label for="${field.name}">
+                                ${field.label}
+                                ${tooltipHTML}
+                            </label>
                         </div>
                     `;
                     break;
@@ -1102,7 +1622,10 @@
                                 id="${field.name}" 
                                 name="${field.name}"
                                 onchange="handleFieldChange('${field.name}')">
-                            <label for="${field.name}">${field.label}</label>
+                            <label for="${field.name}">
+                                ${field.label}
+                                ${tooltipHTML}
+                            </label>
                         </div>
                     `;
                     if (field.conditionalOptions && field.conditionalOptions.length > 0) {
@@ -1133,7 +1656,10 @@
                     
                 case 'dropdown':
                     fieldHtml += `
-                        <label for="${field.name}">${field.label}${field.required ? ' *' : ''}</label>
+                        <label for="${field.name}">
+                            ${field.label}${field.required ? ' *' : ''}
+                            ${tooltipHTML}
+                        </label>
                         <select 
                             id="${field.name}" 
                             name="${field.name}"
@@ -1149,7 +1675,10 @@
                     
                 case 'multiselect':
                     fieldHtml += `
-                        <label class="field-label">${field.label}${field.required ? ' *' : ''}</label>
+                        <label class="field-label">
+                            ${field.label}${field.required ? ' *' : ''}
+                            ${tooltipHTML}
+                        </label>
                         <div class="multiselect-group">
                     `;
                     field.options.forEach(option => {
@@ -1170,7 +1699,10 @@
                     
                 case 'checkbox-group':
                     fieldHtml += `
-                        <label class="field-label">${field.label}${field.required ? ' *' : ''}</label>
+                        <label class="field-label">
+                            ${field.label}${field.required ? ' *' : ''}
+                            ${tooltipHTML}
+                        </label>
                         <div class="checkbox-group">
                     `;
                     if (field.options) {

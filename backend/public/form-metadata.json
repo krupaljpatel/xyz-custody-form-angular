@@ -12,7 +12,10 @@
               "label": "Do you have XYZ Account Number reserved for the below opening?",
               "type": "radio",
               "name": "bbhAccountNumberReserved",
-              "options": ["Yes", "No"],
+              "options": [
+                "Yes",
+                "No"
+              ],
               "required": true
             },
             {
@@ -39,7 +42,7 @@
             },
             {
               "label": "Short New Account Name",
-              "type": "text", 
+              "type": "text",
               "name": "shortAccountName",
               "required": true,
               "maxLength": 30,
@@ -65,7 +68,7 @@
             {
               "label": "Cash Services",
               "type": "checkbox",
-              "name": "cashServices"  
+              "name": "cashServices"
             },
             {
               "label": "Physical",
@@ -87,7 +90,50 @@
               "label": "Currency Preferences",
               "type": "multiselect",
               "name": "currencyPreferences",
-              "options": ["USD", "EUR", "GBP", "JPY", "CAD", "AUD", "CHF", "SEK", "NOK", "DKK", "HKD", "SGD", "CNY", "KRW", "INR", "BRL", "MXN", "ZAR", "RUB", "PLN", "CZK", "HUF", "ISK", "IDR", "ILS", "KZT", "KWD", "MYR", "NZD", "OMR", "PEN", "PHP", "QAR", "RON", "SAR", "THB", "AED", "UYU", "JOD", "KES", "MAD", "NGN"]
+              "options": [
+                "USD",
+                "EUR",
+                "GBP",
+                "JPY",
+                "CAD",
+                "AUD",
+                "CHF",
+                "SEK",
+                "NOK",
+                "DKK",
+                "HKD",
+                "SGD",
+                "CNY",
+                "KRW",
+                "INR",
+                "BRL",
+                "MXN",
+                "ZAR",
+                "RUB",
+                "PLN",
+                "CZK",
+                "HUF",
+                "ISK",
+                "IDR",
+                "ILS",
+                "KZT",
+                "KWD",
+                "MYR",
+                "NZD",
+                "OMR",
+                "PEN",
+                "PHP",
+                "QAR",
+                "RON",
+                "SAR",
+                "THB",
+                "AED",
+                "UYU",
+                "JOD",
+                "KES",
+                "MAD",
+                "NGN"
+              ]
             }
           ]
         },
@@ -100,14 +146,26 @@
               "type": "dropdown",
               "name": "taxClassification",
               "required": true,
-              "options": ["Individual", "Corporation", "Partnership", "Trust", "Financial institution", "Estate", "Government"]
+              "options": [
+                "Individual",
+                "Corporation",
+                "Partnership",
+                "Trust",
+                "Financial institution",
+                "Estate",
+                "Government"
+              ]
             },
             {
               "label": "FATCA Classification",
               "type": "radio",
               "name": "fatcaClassification",
               "required": true,
-              "options": ["FFI", "NFFE", "Neither FFI nor NFFE"]
+              "options": [
+                "FFI",
+                "NFFE",
+                "Neither FFI nor NFFE"
+              ]
             }
           ]
         },
@@ -126,7 +184,12 @@
                 "showWhen": true
               },
               "required": true,
-              "options": ["Email", "SWIFT", "Fax", "Phone"],
+              "options": [
+                "Email",
+                "SWIFT",
+                "Fax",
+                "Phone"
+              ],
               "helpText": "Required when Foreign Exchange services are selected"
             }
           ]
@@ -138,7 +201,7 @@
       "sections": [
         {
           "number": "6",
-          "title": "Cash posting transactions", 
+          "title": "Cash posting transactions",
           "fields": [
             {
               "label": "Cash Transaction Settings",
@@ -155,7 +218,11 @@
               "label": "Format Selection",
               "type": "radio",
               "name": "mailingFormat",
-              "options": ["SWIFT", "Infuse", "Both"],
+              "options": [
+                "SWIFT",
+                "Infuse",
+                "Both"
+              ],
               "required": true,
               "helpText": "Please select mailing format"
             },
@@ -166,7 +233,10 @@
               "conditional": {
                 "field": "mailingFormat",
                 "operator": "in",
-                "value": ["SWIFT", "Both"],
+                "value": [
+                  "SWIFT",
+                  "Both"
+                ],
                 "showWhen": true
               },
               "options": [
@@ -177,12 +247,15 @@
             },
             {
               "label": "SWIFT Message Types",
-              "type": "checkbox-group", 
+              "type": "checkbox-group",
               "name": "swiftMessages",
               "conditional": {
                 "field": "mailingFormat",
                 "operator": "in",
-                "value": ["SWIFT", "Both"],
+                "value": [
+                  "SWIFT",
+                  "Both"
+                ],
                 "showWhen": true
               },
               "options": [
@@ -197,7 +270,10 @@
               "conditional": {
                 "field": "mailingFormat",
                 "operator": "in",
-                "value": ["Infuse", "Both"],
+                "value": [
+                  "Infuse",
+                  "Both"
+                ],
                 "showWhen": true
               },
               "required": true,
@@ -239,7 +315,7 @@
             },
             {
               "label": "Your Permanent Street Address",
-              "type": "textarea", 
+              "type": "textarea",
               "name": "billingStreetAddress",
               "conditional": {
                 "field": "billingSameAsPrimary",
@@ -269,7 +345,34 @@
                 "value": false,
                 "showWhen": true
               },
-              "options": ["UNITED STATES", "CANADA", "UNITED KINGDOM", "AUSTRALIA", "GERMANY", "FRANCE", "JAPAN", "SINGAPORE", "HONG KONG", "SWITZERLAND", "NETHERLANDS", "BELGIUM", "AUSTRIA", "DENMARK", "SWEDEN", "NORWAY", "FINLAND", "IRELAND", "ITALY", "SPAIN", "PORTUGAL", "LUXEMBOURG", "CAYMAN ISLANDS", "BERMUDA", "BAHAMAS", "BRITISH VIRGIN ISLANDS"]
+              "options": [
+                "UNITED STATES",
+                "CANADA",
+                "UNITED KINGDOM",
+                "AUSTRALIA",
+                "GERMANY",
+                "FRANCE",
+                "JAPAN",
+                "SINGAPORE",
+                "HONG KONG",
+                "SWITZERLAND",
+                "NETHERLANDS",
+                "BELGIUM",
+                "AUSTRIA",
+                "DENMARK",
+                "SWEDEN",
+                "NORWAY",
+                "FINLAND",
+                "IRELAND",
+                "ITALY",
+                "SPAIN",
+                "PORTUGAL",
+                "LUXEMBOURG",
+                "CAYMAN ISLANDS",
+                "BERMUDA",
+                "BAHAMAS",
+                "BRITISH VIRGIN ISLANDS"
+              ]
             }
           ]
         },
@@ -285,7 +388,7 @@
           ]
         },
         {
-          "number": "11", 
+          "number": "11",
           "title": "Trades - Custody",
           "fields": [
             {
@@ -297,7 +400,7 @@
         },
         {
           "number": "12",
-          "title": "Payments - Cash", 
+          "title": "Payments - Cash",
           "fields": [
             {
               "label": "Payment Settings",
@@ -312,7 +415,7 @@
           "fields": [
             {
               "label": "Forward Processing Settings",
-              "type": "checkbox-group", 
+              "type": "checkbox-group",
               "name": "forwardProcessingSettings"
             }
           ]
@@ -324,7 +427,7 @@
             {
               "label": "Corporate Action Settings",
               "type": "checkbox-group",
-              "name": "corporateActionSettings" 
+              "name": "corporateActionSettings"
             }
           ]
         },
@@ -333,7 +436,7 @@
           "title": "Fund Order & Custody",
           "fields": [
             {
-              "label": "Fund Order Settings", 
+              "label": "Fund Order Settings",
               "type": "checkbox-group",
               "name": "fundOrderSettings"
             }
@@ -355,7 +458,7 @@
               "helpText": "Please select frequency:",
               "conditionalOptions": [
                 "Daily",
-                "Weekly", 
+                "Weekly",
                 "Monthly",
                 "Daily on activity",
                 "Always daily",
@@ -524,7 +627,7 @@
             },
             {
               "label": "MT51X - Confirmation Messages",
-              "type": "checkbox-group", 
+              "type": "checkbox-group",
               "name": "mt51xMessages",
               "options": [
                 "MT 51X Confirmation of Execution, Purchase, & Sales"
@@ -683,7 +786,7 @@
               "type": "checkbox-group",
               "name": "mt578Messages",
               "options": [
-                "MT 578 Settlement Allegement", 
+                "MT 578 Settlement Allegement",
                 "901 - MT 578 Stlmnt Allegement - Unmatched BRKR CNFM",
                 "902 - MT 578 Stlmnt Allegement - Dom Return Rec"
               ]
@@ -712,7 +815,7 @@
               "options": [
                 "Daily",
                 "Daily on activity",
-                "Weekly", 
+                "Weekly",
                 "Monthly",
                 "Quarterly",
                 "Always daily",
@@ -783,9 +886,92 @@
       "name": "User Guide",
       "sections": [
         {
-          "number": "Guide",
-          "title": "Instructions and Field References",
-          "content": "help_text_and_instructions"
+          "number": "Introduction",
+          "title": "\ud83d\udccb Introduction",
+          "fields": [
+            {
+              "label": "Purpose & Overview",
+              "type": "guide-content",
+              "content": "14. Corporate Actions The purpose of this guide is to assist clients in the completion of the Client Account Opening Form (\u201cthe Form\u201d). The Client Account Opening Form should be completed and sent to your client service team along with an instruction to open the account (see Appendix 1 for sample instruction letter). \nIt is recommended the Form be password protected, with the password sent in a separate email.\nIf the Form and instruction letter are in good order, you will receive an acknowledgement email back notifying you of such.\nIf BBH needs to add or update any information on the Form you will receive an email back with the updated Form included. You will be requested to acknowledge receipt by return email. \nIf you have any questions about this guide or process, please contact your client service team."
+            }
+          ]
+        },
+        {
+          "number": "How It Works",
+          "title": "\u26a1 How the Form Works",
+          "fields": [
+            {
+              "label": "Form Navigation & Logic",
+              "type": "guide-content",
+              "content": "14.1     CORPORATE ACTIONS CONTACTS INFORMATION This form has been created to guide our clients through the account opening process using conditional logic built into the form. \nIn each section, an initial selection will need to be made in order to trigger the next available field, or sub section, to appear for input. Please be sure to input information in all available sections in order to progress through the form and complete the setup.\nSome sections may be locked (greyed out, without the option to input information or make a selection). This means that based on information already input into the form, the data points in the locked section are not applicable to the setup. \nAll mandatory fields are marked in yellow or a red marker in the section header. Please see examples below: Field marked in yellow: In both scenarios, once a field is populated or a selection is made, these markers will disappear. Please note that many of the fields in the form may have validation checks implemented. For example, there may be a character limitation. If the information input into a field fails a validation check, a warning message will appear. The first tab of the form called In Section 2: Account Services it is required to select all services which need to be added to the new account.  \n\n\nThere are two options for the model account function: Master model - Note: The master model account should have all services as the new account to complete the set up. Custom setup & model for sections Note: Please review carefully when choosing a model account. If there are any questions, please contact your Client Service Representative.\nNote: Data included in the AOF Page 1 will not be taken from the master model account as so populating of all sections on the first tab: AOF Page 1 is required, even when selecting the master model account function. To see more details about required data points or information on a particular section, please: - Hover over the            icon. - Click into the field to see additional details - Go to this guide Please note it is strongly suggested to use your mouse to click and move to the next required field/selection rather than using the  ENTER button."
+            }
+          ]
+        },
+        {
+          "number": "Section 1",
+          "title": "\ud83c\udfe2 Section 1: General Account Information",
+          "fields": [
+            {
+              "label": "Guidelines & Requirements",
+              "type": "guide-content",
+              "content": "\u25aa  New Account Name (Long Name - Legal Title) Account Legal Title is used to identify an account. The Legal Title can have limit of 228 character in total. In general, account legal title should always include the client\u2019s full legal name and full legal names of related parties whose names may also be indicated within a title (e.g. asset manager, sub fund name, etc.). If possible, avoid abbreviations. Custody account naming conventions vary by client type. \u2022 UCITS reference both the UCITS and sub-fund name \u2022 Japanese trust banks reference three entities: master trust bank + asset manager + fund name. If there are character limitation concerns, the word \"Limited\" can be dropped from all banks names. \u2022 Banks: reference full legal name of the bank and, if correspondent account, the bank\u2019s customer\u2019s name \u2022 Alternative Investment Funds: reference full legal name of the entity \u2022 Mutual Funds: reference full legal name of the fund and, if necessary, name of a fund series or a sub fund \u2022 Insurance: reference full legal name of the entity \u25aa  Account Short Title Account short title is a shortened version of the Account Legal Title which will be displayed in BBH Infuse and on Wire Transfers. This field has a 30 character limitation. It should be unique and contain enough detail such that it can be recognized. \u25aa  LEI This section collects an account\u2019s LEI to be used for Proxy reporting and Shareholder ID Forwarding Address for intermediaries."
+            }
+          ]
+        },
+        {
+          "number": "Section 2",
+          "title": "\u2699\ufe0f Section 2: Account Services",
+          "fields": [
+            {
+              "label": "Guidelines & Requirements",
+              "type": "guide-content",
+              "content": "The account type would be defined based on the selections made on the Services (Cash and/or Custody) and Markets/Currencies selected in the Section 3. It will be visible on the right hand side of that section. There are also additional services available to select once the initial selection is made called Additional Custody Services and Additional Cash Services. Services selected should match the services contracted with BBH. Account types available: Cash Only Account U.S. Custody Only Account U.S. Custody \u2013 Custody Only Account Global Custody \u2013 DDA For further details on the account opening modelling options, please see previous section :"
+            }
+          ]
+        },
+        {
+          "number": "Section 3",
+          "title": "\ud83c\udf0d Section 3: Global Custody Markets and Cash",
+          "fields": [
+            {
+              "label": "Guidelines & Requirements",
+              "type": "guide-content",
+              "content": "It is important to avoid any missing or unnecessary markets or currencies. Missing markets may incur a delay in availability of the account (as some markets require more than a business day to open). \u2022  NON - REGISTRATION MARKETS Select the required markets and currencies, or just currencies for cash only accounts. If you require a currency other than the one noted for a market, enter those in the \u201cOther Currencies\u201d column. Some markets might required some additional data in order to open them. Those markets have been marked with \u2022  Euroclear, Clearstream, Select the required currencies for the International Central Securities Depository (Euroclear/Clearstream). \u2022  Continuous Linked Settlement If the account requires set up in the Continuous Linked Settlement foreign exchange settlement system (CLS), \u201cyes\u201d should be selected. \u2022  OMGEO Alert model user If the account requires connectivity set up on OMGEO Alert platform, please select tick box \u2018YES\u2019 and enter the Alert Acronym Code generated from Alert platform for your requested sub fund. If the code is not yet available at this time, please select tick box \u2018not available at account opening \u2018 . Your dedicated Client Service team will contact you at a later stage in this account opening process \u2022  REGISTRATION MARKETS Select the required markets and currencies, or just currencies for cash only accounts.\nPlease refer to the Registration Kits within BBH Infuse (Research & News section) to obtain terms and documentation\nrequirements. \u2022  EUROCLEAR LEI AND INVESTOR TYPE REQUIREMENTS Euroclear Bank S.A. (Euroclear), the international central security depository (ICSD) requires investors to register their Legal Entity Identifier (LEI) and Investor Type prior to the settlement of domestic fixed income securities in Malaysia, Thailand, Yulan Bonds, and Saudi Arabia. Investor types (required for Malaysia, Thailand and Saudi Arabia): Remarks Asset Management (AM) Includes unit trust funds, mutual funds, bond funds, income funds, investment/asset/fund management companies, bank-backed/non-bank backed asset management, wealth management funds, private trust Central Bank (CB) Includes central bank, reserve bank or monetary authority Government (GV) Includes sovereign fund, federal fund, state fund, municipal fund, government organisation/council Pension Funds (PF) Includes retirement funds, employee provident funds, social security funds, pension scheme, government pension funds, national pension services, pension fund associations, social insurance organisations Insurance Companies (IC) Includes life/General insurance companies, insurance funds, social insurance organisations Non-Financial Corporation (NF) Includes associations, non-banking private sectors, foundations, endowment funds Banking Institutions/Financial Intermediaries (BI) Banks own positions only. Banks include commercial banks, investment banks, development banks, private banks, broker-dealers. Other financial intermediaries include credit union, financial cooperatives, credit corporations, property financier, mortgage corporations, leasing and factoring companies Individual (IN) A person"
+            }
+          ]
+        },
+        {
+          "number": "Section 4",
+          "title": "\ud83d\udcb0 Section 4: Intended Tax Treatment",
+          "fields": [
+            {
+              "label": "Guidelines & Requirements",
+              "type": "guide-content",
+              "content": "\u2022  Cash Only Account Cash Only accounts require Taxpayer (Account holder) Identification section to be populated: Taxpayer Title Local Taxpayer Identification Number Address \u2022 For U.S. accounts, always enter the actual state of permanent residence rather than U.S. to ensure proper state reporting \u2022 For U.S. citizens (W-9) living outside of the U.S., always enter United States. Country (Tax Domicile) Enter your tax classification from your IRS Form W-8/W-9 - FATCA Withholding If these fields are not populated, BBH will populate them based on the tax documents you provided. If these fields are not populated, and you did not provide tax documents, the FATCA default tax treatment will be applied. FATCA Withholding would apply to accounts that do not meet the requirements of FATCA status (e.g. no proper IRS tax documentation provided such as W-8BEN, W-8IMY, etc.). For example, the selection might be \u201cIncome\u201d for FATCA W/H  Code with a FFI type \u201cNonparticipating\u201d, and the account would receive statutory withholding tax on all U.S. source income. FATCA Type US Telephone Number Standing Instruction for Transfer of Funds to US Account Indicator Do you (the account holder) want to use the above address for tax materials mailing (i.e. 1042-S/1099)? \u2022  Accounts with Custody Service selected The first question present in that section would (Will you (the account holder) be the beneficial owner of the income earned by the assets in this account?)identify the correct account structure. Yes - Direct account structure No - Intermediary account structure \u25e6 Direct account structure Accounts in this scenario require Taxpayer (Account holder) Identification section to be populated: Taxpayer Title Local Taxpayer Identification Number Address \u2022 For U.S. accounts, always enter the actual state of permanent residence rather than U.S. to ensure proper state reporting \u2022 For U.S. citizens (W-9) living outside of the U.S., always enter United States. Country (Tax Domicile) Enter your tax classification from your IRS Form W-8/W-9 - Enter tax classification in your local tax domicile as a beneficial owner- FATCA Withholding If these fields are not populated, BBH will populate them based on the tax documents you provided. If these fields are not populated, and you did not provide tax documents, the FATCA default tax treatment will be applied. FATCA Withholding would apply to accounts that do not meet the requirements of FATCA status (e.g. no proper IRS tax documentation provided such as W-8BEN, W-8IMY, etc.). For example, the selection might be \u201cIncome\u201d for FATCA W/H  Code with a FFI type \u201cNonparticipating\u201d, and the account would receive FATCA Type US Telephone Number Standing Instruction for Transfer of Funds to US Account Indicator Do you (the account holder) want to use the above address for tax materials mailing (i.e. 1042-S/1099)? \u25e6 Intermediary account structure Note: The setup for the intermediary account structure would be predefined using the answers to questions asked in that section - if the default setup doesn't meet your expectations please contact your BBH clients service team Please populate first the Account Holder Identification section. Taxpayer Title Local Taxpayer Identification Number Address \u2022 For U.S. accounts, always enter the actual state of permanent residence rather than U.S. to ensure proper state reporting \u2022 For U.S. citizens (W-9) living outside of the U.S., always enter United States. Country (Tax Domicile) FATCA Withholding If these fields are not populated, BBH will populate them based on the tax documents you provided. If these fields are not populated, and you did not provide tax documents, the FATCA default tax treatment will be applied. FATCA Withholding would apply to accounts that do not meet the requirements of FATCA status (e.g. no proper IRS tax documentation provided such as W-8BEN, W-8IMY, etc.). For example, the selection might be \u201cIncome\u201d for FATCA W/H  Code with a FFI type \u201cNonparticipating\u201d, and the account would receive FATCA Type US Telephone Number Standing Instruction for Transfer of Funds to US Account Indicator Do you (the account holder) want to use the above address for tax materials mailing (i.e. 1042-S/1099)? When all above have been populated then please answer questions visible under Is the Intermediary requesting international tax benefits outside the US? Yes - In scope for Tax Services No - Statutory Rates are being requested If yes, BBH requires a Tax Relief Administration Services Standing Instruction and Indemnity Letter to be signed by an authorized signer of the Intermediary in order\",\" to provide \u201cTax Relief\u201d on Non U.S. securities.   Statutory rates will apply to income earned on Non U.S. securities if the letter is not provided. Please contact your client service manager for further information. Next question If any the answer to any of the above questions would be \"No\" then please answer to If beneficial owner details are not required then the account would be set up in Intermediary Omnibus (Pooled) structure and statutory rates would be applied. If \"Yes\" then the account would be set up in Intermediary SBO structure. Underlying Single Beneficial Owner Information: Depends on the initial selection made in that sub section you would need to provide First Name and Last Name of the individual or legal Tax Payer name of entity. Address \u2022 For U.S. accounts, always enter the actual state of permanent residence rather than U.S. to ensure proper state reporting \u2022 For U.S. citizens (W-9) living outside of the U.S., always enter United States. FATCA Withholding If these fields are not populated, BBH will populate them based on the tax documents you provided. If these fields are not populated, and you did not provide tax documents, the FATCA default\n                tax treatment will be applied. FATCA Withholding would apply to accounts that do not meet the requirements of FATCA status (e.g. no proper IRS tax documentation provided such as W-8BEN, W-8IMY, etc.). For example, the selection might be \u201cIncome\u201d for FATCA W/H  Code with a FFI type \u201cNonparticipating\u201d, and the account would receive FATCA Type US Telephone Number Standing Instruction for Transfer of Funds to US Account Indicator Enter your tax classification from your IRS Form W-8/W-9 - Underlying beneficial owner's local tax domicile Underlying beneficial owner's tax classification i \u25e6 U.S. TAX WITHHOLDING These questions are applicable for U.S. tax withholding purposes, and if you answer \u201cyes\u201d to any of them, please contact your client service team or BBH\u2019s Global Tax Services Department (BBH.Tax.Operations@bbh.com)."
+            }
+          ]
+        },
+        {
+          "number": "Section 5",
+          "title": "\ud83d\udcb1 Section 5: Foreign Exchange with BBH",
+          "fields": [
+            {
+              "label": "Guidelines & Requirements",
+              "type": "guide-content",
+              "content": "This section is required once the Foreign Exchange with BBH service is selected within section 2. Account Services of the Account Opening Form. Section \u201cFX TRADING ACTIVITY\u201d can be modelled after the existing account. Section \u201cTRADING COUNTERPARTY INFO\u201d cannot be modelled, details need to be provided manually. \u2022  Negotiated FX Execution - Active Execution A client who wishes to trade with BBH&Co. as principle, on an active basis (i.e., where all transaction details are agreed to before execution) may instruct its request through the custodian by proper instruction, or communicate its request to BBH&Co by telephone, or through a BBH proprietary tool or a market trading platform that is acceptable to BBH such as: FXALL\nFX Connect \nBloomberg\nEmail \u2022  Non-Negotiated Execution Method of trading by which the parties agree that a certain part of the transaction details is agreed upon on a standing basis or not known until post execution. (i.e., transaction rate). The execution method is limited to FX Worldview and FAX instruction. Prior approval and additional rules may apply for Email instruction. \u2022  Confirmation Process Any FX transaction executed with BBH&Co. as principal will be confirmed in accordance with terms agreed to between the client and BBH&Co. The methods by which any such confirmation may occur include, without limitation, via SWIFT MT300, Email or an automated third-party vendor platform such as MISYS, GTSS, FXAll and Bloomberg. Email as a confirmation method, requires the use of multiple group email to minimize risk and each vendor platform requires a unique Client ID and/or Fund Identifier that is used to set up confirmation matching. The terms used to describe the client ID may vary according to the vendor platform and may be referred to using the following terms: Email as a confirmation method, requires the use of multiple group email to minimize risk and each vendor platform requires a unique Client ID and/or Fund Identifier that is used to set up confirmation matching. The terms used to describe the client ID may vary according to the vendor platform and may be referred to using the following terms: MISYS/FINASTRA: BLOOMBERG: FXALL: Client Fund Identifier \u2022  Bilateral Confirmation Method The methods by which any such confirmation may occur include, without limitation, via Direct SWIFT MT300 SWIFT, Email, , or an automated third-party vendor platform such as Misys/Finastra, GTSS and FXALL \u2022  Bilateral Confirmation Matching Client selects Client selects Bank Identification Code (BIC) MT300 SWIFT \u2022  Trading Counterparty Information Details are required to ensure BBH has correct client static data information needed for BBH\u2019s FX Regulatory Reporting responsibilities. Trading Counterparty a US Person Trading Counterparty a Financial Entity Federal Entity Indicator (FEI) Trading Counterparty LEI 6. Cash posting transactions Select these options if any cash or custody flows should be posted (\u201ctransformed\u201d) from the head account to another BBH account number that you input (e.g., all charges from a client\u2019s multiple head accounts post to a single charges account). \n\nThis section can be modelled after the existing account. The only scenario when this section become mandatory is when U.S. Custody Only Account has been requested as USD cash transform for all transaction is required. 7. Mailing Products Delivery methods supported include paper statements, SWIFT delivery, email, and Infuse. The delivery methods available vary by mailing product as detailed in the Form. Please contact your client service team to discuss any custom delivery methods. 7.1     CASH SERVICE MAILING PRODUCTS If Cash service is required for the account setup this section would become visible. \n\nThe preferred option to deliver the Cash Statement Income is the Digital Copy (via Infuse portal) hence the Infuse ID is required. If you don\u2019t have the access to the portal there is no Statement Suppression Form in place please contact your Client Service Representative.\n\nThe other option available is to get the reports in Hard Copy via physical mailing. There is an option to provide BBH with up to 3 addresses. You can use the same address as for Tax documents mailing which would be the Taxpayer address or the other address for tax documents provided in Section 4 of this form. Additionally there is a possibility to provide to other addresses for the same purpose. 7.2     CUSTODY SERVICE MAILING PRODUCTS If Custody service is required for the account setup this section would become visible. \n\nThe preferred option to deliver the Custody Statement is the Digital Copy (via Infuse portal - Statements Online) hence the Infuse ID is required. If you don\u2019t have the access to the portal there is no Statement Suppression Form in place please contact your Client Service Representative.\n\nThe other option available is to get the reports in Hard Copy via physical mailing. There is an option to provide BBH with up to 3 addresses. You can use the same address as for Tax documents mailing which would be the Taxpayer address or the other address for tax documents provided in Section 4 of this form. Additionally there is a possibility to provide to other addresses for the same purpose.\n\nReorg. Material could be delivered in Hard Copy Only so there is a possibility to use the Tax documents mailing address and/or up to 3 additional mailing addresses. 8. Wire Transfer Address A wire transfer is an electronic transfer of funds across a network administered by banks globally. The contact name on the wire transfer will be populated with the Short Title of the account. The address is required (e.g., Travel Rule/Bank Secrecy Act, European Union Wire Transfer Directive), and should not include a PO Box or the words \u201cPersonal\u201d or \u201cConfidential\u201d.\n\nThere is option to use the same address as the one provided for the Tax documentation mailing (from Section 4) or the different one when Other would be selected.\n\nThis section wouldn't be visible for U.S. Custody Only Accounts. 9. Billing Address Please input this information for invoicing purposes.\nThere is option to use the same address as the one provided for the Tax documentation mailing (from Section 4) or the different one when Other would be selected. 10. Cash accounting BBH\u2019s Contractual Cash Program for US Dollars (\u201cUSD\u201d) is a settlement valuation option that serves as a useful tool in funds management by giving \u201cas of\u201d contractual value on \u201cvs. payment\u201d security settlements.  By opting to enroll in the product, clients can commit to security sale proceeds prior to settlement, while avoiding overdraft charges in the event of a fail. Likewise, purchase settlements are valued for contractual settlement date of the underlying trade. The product posts securities and cash entries to the client\u2019s account on an actual basis and contractual value is given to the cash side of security trade upon actual settlement, allowing clients to monitor true fail exposure without the need for additional reporting.  \nFor more information about Contractual Cash, please see Custody Client Guide in Infuse. 11. Trades  - Custody Please be informed that this section wouldn\u2019t be visible if Custody service in Section 2 wouldn\u2019t be selected. 11.1    TRADES AUTHORISATION BIC addresses (8 or 11 characters) should be input that are authorized to instruct for payments or trades. BBH will also require you to send an Authorized Persons Document. If any of the BIC addresses are for a third party (e.g., subadvisor), this should be indicated. INFUSE BBH Infuse portal is giving the ability to execute and authorize transactions. If you don't have an access to the portal please reach out to your client service representative. TRADE AFFIRMATION (DTC) In the Direct Affirmation process, brokers submit confirmations via Omgeo. Clients and/or their authorized parties affirm the confirmation. BBH receives the affirmed confirm and the affirm can be used as a valid trade instruction. FINS stands for Financial Industry Number Standard. It\u2019s a 5 digit number, issued by Omgeo, and also known as the Trade Suite ID. It is used to identify a trading entity for use in DTC\u2019s Institutional Delivery System.\n\nThis section would guide you through mandatory selections. Please see its logic down below:\n\n1. Select  if you want BBH to affirm trades by matching your trade instructions against the ID Confirms received from DTC or you/your designee will be directly affirming trades\n2. Input the five digit Trade Suite ID (FINS) number of the financial institution to be used to facilitate the affirmation or you/your designee (depends on the initial selection)\n3. Select if Trade Suite ID (FINS) number provided above, confirm if the financial institution is allowed to affirm confirms\n4. If BBH would be affirming trades please select if you want to receive near match status notifications for the ID Confirms?\n5. If you/your designee would be affirming trades If you want BBH to process the Affirmation instruction if there is a matching D&R instruction, and then cancel the D&R instruction? (e.g., Affirm received from a Trade Suite ID (FINS) other than the one authorized for the account). If \"No\" would be selected please indicate whether account is allowed to cancel Affirms that are not valid (e.g., Affirm received from a Trade Suite ID (FINS) other than the one authorized for account). 11.2     CUSTODY SECURITY INSTRUCTIONS Client Duplicate Check BBH offers clients a duplicate checking service for Trade Instructions. Clients who elect the Duplicate Checking Service can employ one of three methods to identify potential duplicate trade instructions. Trades that match on the criteria specified in the option of their choosing will be held in the trade repair queue and reviewed by a member of BBH's Trade Processing area. Clients will need to either authorize release of the trade into the market or submit a cancellation for the duplicate. *Option 1. No dupe check *Option 2. Trades will stop for duplicate if Account, Client Reference\nNumber, and Instruction Type are equal. \u2022 Client Account Number \u2022 Client Reference \u2022 Instruction Type (DEL, DVP, REC, RVP) *Option 3. Trades will stop if instruction details match, client reference\ndoes not need to match. \u2022 Client Account Number \u2022 Net Amount \u2022 Security ID \u2022 Currency \u2022 Trade Date \u2022 Executing Broker \u2022 Settle Date \u2022 Instruction Type (DEL, DVP, REC, RVP) \u2022 Units *Option 4. Trades will stop only if the Client Reference Number and\ninstruction details match. \u2022 Client Account Number \u2022 Units \u2022 Client Reference \u2022 Net Amount \u2022 Security ID \u2022 Currency \u2022 Trade Date \u2022 Executing Broker \u2022 Settle Date \u2022 Instruction Type (DEL, DVP, REC, RVP) Depository Movement   Service BBH\u2019s Depository Movement (Depot Movement) Service facilitates the settlement of delivery trades that may not settle in a certain market due to a lack of position or no position in that market depot when the client is holding the position in another market. In this instance, BBH will initiate a movement of securities from the current location to the desired location on behalf of the client to facilitate settlement. Depot movements are dependent on both the eligibility of the markets involved and/or the underlying security. DNR Money tolerance This field reflects the dollar amount you indicate as the acceptable deviation from the instructed payment amount on all\ndeliver and receive vs. payment instructions, and is applicable for US markets only. Holiday Service This field allows the client to amend trades if the trade date is instructed on a US Holiday. Trade processing will automatically move the trade dates to the prior business date. If the settlement date is instructed on a US Holiday, trade processing will automatically move the settlement date to the next business day. Fed 50 million If trade instructions settling at the US Federal Reserve are over 50 million par and the client has this option marked as \u201cYes\u201d then the trade instructions will \nautomatically be spread into instructions of 50 million or less. Return Delivery Service (\u201cRTD\u201d) This service is for security transactions which settle at either DTC or the US Federal Reserve (FRB) book-entry systems. It\nfacilitates the automated re-delivery of trades that have been Returned Delivered within these depositories. Should an account be subscribed to the Return Delivery Service, BBH Trade Processing will notify the client and automatically redeliver trades that have been returned by a broker. Options available are: Client does not subscribe to service Standard RTD subscription reporting services RTD email notification service If RTD email notification service is selected, you must provide an email address for both product 585 (Return Delivery free deliver transaction) and 586 (Return Delivery-delivery vs. payment transaction) Unannounced Free Receives This field indicates if you give BBH authorization to accept unannounced free receives. This allows counterparties to\n\u201cpush\u201d securities into the account without a client instruction. 11.3     SWIFTS FOR TRADES & POSITION REPORTING For SWIFT delivery, the SWIFT/BIC Address (8 or 11 characters), separated by commas if more than one, should be input. If more than one BIC address is required and the SWIFT messaging requirements differ, please complete the Additional SWIFT section (third tab of the Account Opening Form). Please be advised that this section contains just SWIFTs connected to Custody service. 11.4     SHAREHOLDER RIGHTS DIRECTIVE II For classification of accounts for the purposes of the Shareholder Rights Directive II (SRDII). Accounts must be classified as either an intermediary or not in order to properly report holdings for Proxy and Shareholder Identification. In addition, this section collects an account\u2019s LEI to be used for Proxy reporting and Shareholder ID Forwarding Address for intermediaries. 12. Payments - Cash 12.1     PAYEMENTS AUTHORISATION BIC addresses (8 or 11 characters) should be input that are authorized to instruct for payments or trades. BBH will also require you to send an Authorized Persons Document. If any of the BIC addresses are for a third party (e.g., subadvisor), this should be indicated. INFUSE BBH Infuse portal is giving the ability to execute and authorize payments. If you don't have an access to the portal please reach out to your client service representative. 12.2     SWIFTS FOR CASH For SWIFT delivery, the SWIFT/BIC Address (8 or 11 characters), separated by commas if more than one, should be input. If more than one BIC address is required and the SWIFT messaging requirements differ, please complete the Additional SWIFT section (third tab of the Account Opening Form). Please be advised that this section contains just SWIFTs connected to Custody service. 13. FWDP - Allow MT304 Forward processing (AFWD) BIC addresses (8 or 11 characters) should be input that are authorized to instruct for payments or trades. BBH will also require you to send an Authorized Persons Document. If any of the BIC addresses are for a third party (e.g., subadvisor), this should be indicated. 14. Corporate Actions 14.1     CORPORATE ACTIONS CONTACTS INFORMATION Contact name, telephone and fax number are mandatory, other fields are optional. These contacts are used in escalation instances for missing or repairing instructions. It is mandatory to provide Primary, Escalation and Fax back Contact information. 14.2     CORPORATE ACTIONS NOTIFICATION RECEIPT METHODS Notifications will be transmitted to the client via ActionView\u00ae, SWIFT or fax, and this section must be completed. All corporate event information may be subject to change during the life cycle of the event. As additional information is received and validated, updated notifications will be transmitted in accordance with the client\u2019s notification preferences. 14.3     CORPORATE ACTIONS PRIMARY/ SECONDARY NOTIFICATIONS PRODUCTS Notification products can be selected. If you selected SWIFT or fax notifications, these products are required and have been pre-selected in the Form: Eligibility Date Notices for Voluntary Action Types and            Mandatory with Election Action Types. 14.4     ODD LOT TENDERS PROCESSING All contacts set up to receive voluntary action types will receive Odd Lot Tender notifications if the eligible position is less than the maximum lot size of the offer. Clients whose eligible position is greater than then maximum lot size can choose to not receive Odd Lot Tender notifications. 14.5     CORPORATE ACTIONS AUTHORIZED RESPONDER SECTION Corporate Actions Response Instructions must be provided as either a Fax Instruction, SWIFT (MT565) Instruction, or via ActionView. If fax is selected, the Authorized Responder Signature List should be sent to Corporate Actions at the fax number provided on the Form 14.6     CORPORATE ACTIONS RESPONSE STATUS PRODUCT INFORMATION AND COMMUNICATION METHODS The communication preferences should be selected for the receipt of status updates. You must select a combination of communication preferences such that you receive all three possible status types: Accepts, Repairs, and No Instructions communication preferences such that you receive all three possible status types: Accepts, Repairs, and No Instructions (NOIN). If you selected ActionView to provide your response instructions, you can receive Accepts online via ActionView. 14.7     RESPONSE STANDING INSTRUCTIONS PRODUCTS AND SERVICES BBH offers clients the option of having standing instructions in certain markets for Cash / Stock Options and Dividend Reinvestments.\nPrior to enrolling in corporate actions standing instruction products, please review the Corporate Actions Response Standing Instruction Guide available within the Custody Client Guide in Infuse. 14.8     CORPORATE ACTIONS RESPONSE STANDING INSTRUCTION SERVICE FOR CASH DIVIDENDS BBH offers clients the option of having standing instructions in certain markets for Cash Dividends.\nPrior to enrolling in corporate actions standing instruction products, please review the Corporate Actions Response Standing Instruction Guide available within the Custody Client Guide in Infuse. 14.9     CORPORATE ACTIONS RESPONSE STANDING INSTRUCTION SERVICE FOR CURRENCY OPTIONS BBH offers clients the option of having standing instructions in certain markets for Currency Options. \nPrior to enrolling in corporate actions standing instruction products, please review the Corporate Actions Response Standing Instruction Guide available within the Custody Client Guide in Infuse. 14.10     CORPORATE ACTIONS RESPONSE STANDING INSTRUCTION RESTRICTED SECURITY EXCHANGE OFFERS BBH offers clients the option to have standing instructions to exchange applied to Restricted Security Exchange Offers as announced by BBH; identified as \u201cRestricted Security Exchange Offer\u201d within the ActionView or Fax Notification, or by the presence of the ERUN SWIFT tag within an Exchange Offer MT564 Notification.\nRestricted Security Exchange Offer Standing Instructions will not be executed for events that require documentation to be completed by the beneficial owner. Holders wishing to exchange on such events must send instructions from an authorized party.\nPrior to enrolling in corporate actions standing instruction products, please review the Corporate Actions Response Standing Instruction Guide available within the Custody Client Guide in Infuse. 14.11     CERTIFICATIONS STANDING INSTRUCTIONS BBH offers clients the option of having standing instructions for Certifications.\nBy establishing Standing Instructions to \"Certify Holdings\", Bondholders certify one of the following criteria:\n     \u2022 Bondholder is a Non-US Owner\n     \u2022 Bondholder is a Qualified Institutional Buyer under the U.S. Securities Act of 1933\nPrior to enrolling in corporate actions standing instruction products, please review the Corporate Actions Response Standing Instruction Guide available within the Custody Client Guide in Infuse. 14.12     NON OFFICIAL OFFER STANDING INSTRUCTION BBH offers clients the option of having standing instructions to Take No Action on Non-Official Offers. Non-Official Offers, as announced by BBH, have been defined as an offer made by a third party that has not been registered with the SEC and is for less than 5% of the outstanding shares. In addition, Non-Official Offers also apply to any offer made within the United States to purchase a Company\u2019s Debt made by a party other than the issuer.\nFurthermore, Non-Official Offers typically, but are not required to, meet the following conditions:\n     1) Offer price is at a discount to the market price at the time the offer is announced.\n     2) Instructions to participate within the offer are not able to be withdrawn.\n     3) Offer period is often subject to multiple extensions.\nPrior to enrolling in corporate actions standing instruction products, please review the Corporate Actions Response Standing Instruction Guide available within the Custody Client Guide in Infuse. 14.13     RESPONSE RECONCILIATION REPORT The Response Reconciliation Report must be selected and is available by Fax or on Infuse, from BBH response deadline minus three until BBH deadline plus five. The report captures both instructed and uninstructed positions. 14.14     PRE-PAYMENT ADVICE BBH offers clients a cash projection (MT 564 Pre-advice) message for certain income payments. 14.15     MT566 PAYMENT CONFIRMATION BBH offers clients an MT566 Payment Confirmation message for all cash and share payments resulting from a Corporate Actions Reorganization event. 14.16     PROVISIONAL INCOME PROGRAM BBH offers clients the option of receiving provisional payment on certain income related actions.\nPrior to enrolling in the Provisional Income Program, please review the Provisional Income Guide available within the Custody Client Guide in Infuse. 14.17     INCOME RECLASIFICATION SERVICE Identify the election for a particular service level change to the original reporting character of a payment issued to a non-US client's account. If you select this service, BBH will require a signed Income Reclassification Response Form that indicates the selected service level option. Country No Income Reclassification Service Contact Name Information reporting only 613 - MT 513 Client Advice of Execution (Intraday) Reclassification performed, notifications and reporting through Jan 31 615 - MT 515 Confirmation of Purchase Sale (Batch) Same as Service level 2 plus supplemental reporting through Mar 15 962 - MT 535 STAT TD LOC Price CUR FACE Reclassification performed, notifications and reporting through Feb 15 964 - MT111 535 STAT SD LOC Price CUR FACE Same as Service level 4 plus supplemental reporting through Mar 15 974 - MT 535 Status T/D LOC Price Orig Face CUSIP Level Threshold Billing $500 and over \u2013 Reclassification performed, notifications and reporting through Feb 15 975 - MT 535 Status USD Price ORIG Face Same as Service level 6 plus supplemental reporting through Mar 15 Notes: This election may be changed during BBH\u2019s annual October solicitation. Depending on the service level selected, an additional fee per reclassification event is charged.\nService level 6 and 7: Threshold service levels not available to withholding QIs, withholding foreign partnerships/trusts, or U.S. Branches acting as a U.S. Person.\nService level 7: Threshold does not apply to supplemental report. 14.18     PROXY INFORMATION BBH offers proxy services for both Domestic (US) and Global assets. This allows clients the ability to participate in the Annual General Meetings (AGMs) and Extraordinary General Meetings (EGMs).\nDue to the time-sensitive nature of proxy materials and possible delays associated with mailing of US proxy materials abroad, it is recommended that non-US based clients utilize an electronic delivery method for Domestic proxy materials abroad, it is recommended that non-US based clients utilize an electronic delivery method for Domestic proxy materials 15. Fund Order & Custody 15.1     FUND ORDER & CUSTODY PROSPECTUS Input the address to which the Mutual Fund Prospectus should be mailed. If you choose to suppress the hard copy mailing, the mailing address is still required, an email address should be input,\n     and a signed letter of suppression will be requested. 15.2     FUND ORDER & CUSTODY CURRENCIES For clients with Fund Order & Custody services, select the currencies you require for settlement of Fund Orders. 15.3     FUND ORDER & CUSTODY SERVICE MAILING PRODUCTS If Custody service and Fund Order & Custody service are required for the account setup this section would become visible.\nFor accounts with Fund Order & Custody services, the MFPS Confirmation must be sent by either hard copy mailing (up to 3 addresses), email or SWIFT (MT515).\nInput email addresses to receive the MFPS Confirmation and MFPS Email Status."
+            }
+          ]
+        },
+        {
+          "number": "Help",
+          "title": "\u2753 Additional Help",
+          "fields": [
+            {
+              "label": "Support & Resources",
+              "type": "guide-content",
+              "content": "For additional assistance:\n        - Hover over the \u2139\ufe0f icon next to field labels for specific field guidance\n        - Contact your Client Service Representative for complex requirements\n        - Review the detailed PDF User Guide for comprehensive information\n        - Use your mouse to click and navigate rather than using ENTER button"
+            }
+          ]
         }
       ]
     }
@@ -852,14 +1038,22 @@
     "crossPageConditionals": [
       {
         "description": "Address fields from Page 1 populate address display on Page 2",
-        "sourceFields": ["primaryAddress", "secondaryAddress"],
+        "sourceFields": [
+          "primaryAddress",
+          "secondaryAddress"
+        ],
         "targetPage": "AOF Page 2",
-        "targetFields": ["mailingAddress"]
+        "targetFields": [
+          "mailingAddress"
+        ]
       },
       {
         "description": "Tax classification affects multiple sections",
         "triggerField": "taxClassification",
-        "affectedSections": ["mailingProducts", "wireTransfer"]
+        "affectedSections": [
+          "mailingProducts",
+          "wireTransfer"
+        ]
       }
     ],
     "validationRules": [
@@ -867,10 +1061,14 @@
         "rule": "mailingAddressRequired",
         "condition": "mailingFormat !== null",
         "message": "At least one mailing address type must be selected",
-        "fields": ["mt950Options", "swiftMessages", "infuseUserId"]
+        "fields": [
+          "mt950Options",
+          "swiftMessages",
+          "infuseUserId"
+        ]
       },
       {
-        "rule": "accountServicesRequired", 
+        "rule": "accountServicesRequired",
         "condition": "!foreignExchangeServices && !cashServices && !physicalServices",
         "message": "Please select at least one account service",
         "level": "warning"
@@ -879,7 +1077,9 @@
         "rule": "currencyMarketsDependency",
         "condition": "(foreignExchangeServices || cashServices) && currencyPreferences.length === 0",
         "message": "Please select currencies when cash or FX services are enabled",
-        "fields": ["currencyPreferences"]
+        "fields": [
+          "currencyPreferences"
+        ]
       }
     ]
   },
@@ -895,17 +1095,17 @@
     "source": "Excel analysis completed",
     "sections": [
       "1. General Account Information",
-      "2. Account Services", 
+      "2. Account Services",
       "3. Global Custody Markets and Cash",
       "4. Intended Tax Treatment",
       "5. Foreign Exchange with BBH - confirmation methodology",
       "6. Cash posting transactions",
-      "7. Mailing Products", 
+      "7. Mailing Products",
       "8. Wire Transfer Address",
       "9. Billing Address",
       "10. Cash accounting",
       "11. Trades - Custody",
-      "12. Payments - Cash", 
+      "12. Payments - Cash",
       "13. FWDP - Allow MT304 Forward Processing (AFWD)",
       "14. Corporate Actions",
       "15. Fund Order & Custody"
