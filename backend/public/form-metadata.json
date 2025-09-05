@@ -345,17 +345,434 @@
       "name": "Additional SWIFTs",
       "sections": [
         {
-          "number": "SWIFT",
-          "title": "SWIFT Message Configuration",
+          "number": "16.1",
+          "title": "SWIFTS FOR TRADES & CUSTODY SERVICE MAILING PRODUCTS I",
           "fields": [
             {
-              "label": "SWIFT Message Types",
-              "type": "table",
-              "name": "swiftMessageTypes",
-              "columns": [
-                {"header": "Code", "key": "code"},
-                {"header": "Description", "key": "description"},
-                {"header": "Enable", "key": "enabled", "type": "checkbox"}
+              "label": "MT 535 Statement of Positions",
+              "type": "checkbox-with-options",
+              "name": "mt535StatementOfPositions",
+              "helpText": "Please select frequency:",
+              "conditionalOptions": [
+                "Daily",
+                "Weekly", 
+                "Monthly",
+                "Daily on activity",
+                "Always daily",
+                "Quarterly"
+              ]
+            },
+            {
+              "label": "MT509 - Trade Status Messages",
+              "type": "checkbox-group",
+              "name": "mt509Messages",
+              "options": [
+                "609 - MT509 - TRADE STATUS CHANGE"
+              ]
+            },
+            {
+              "label": "MT513/MT515 - Trade Confirmations",
+              "type": "checkbox-group",
+              "name": "tradeConfirmations",
+              "options": [
+                "613 - MT 513 Client Advice of Execution (Intraday)",
+                "615 - MT 515 Confirmation of Purchase Sale (Batch)"
+              ]
+            },
+            {
+              "label": "MT535 - Statement Messages (Holdings)",
+              "type": "checkbox-group",
+              "name": "mt535Messages",
+              "options": [
+                "962 - MT 535 STAT TD LOC Price CUR FACE",
+                "964 - MT 535 STAT SD LOC Price CUR FACE",
+                "964 - MT111 535 STAT SD LOC Price CUR FACE",
+                "966 - MT535 STAT-TD Date Multi CRY Price-ORG/CUR Face",
+                "966 - MT535 SWIFT Base Curr",
+                "967 - MT535 STAT-STLMNT Date Multi CRY Price-ORG/CUR Face",
+                "967 - MT535 SWIFT Base Curr",
+                "974 - MT 535 Status T/D LOC Price Orig Face",
+                "975 - MT 535 Status USD Price ORIG Face",
+                "976 - MT 535 Status SD LOC Price Orig Face",
+                "977 - MT 535 Status SD USD Price Orig Face",
+                "978 - MT 535 TD LOC Price Orig Face",
+                "979 - MT 535 TD USD Price Orig Face",
+                "980 - MT 535 SD LOC Price Orig Face",
+                "981 - MT535 - SD USD PRICE ORIG FACE",
+                "982 - MT 535 STAT TD LOC Price ORIG/CUR Face",
+                "983 - MT 535 STAT TD USD Price ORIG/CUR Face",
+                "984 - MT 535 STAT SD LOC Price ORIG/CUR Face",
+                "985 - MT 535 STAT SD USD Price ORIG/CUR Face",
+                "986 - MT 535 TD LOC Price ORIG/CUR Face",
+                "987 - MT 535 TD USD Price ORIG/CUR Face",
+                "988 - MT 535 SD LOC Price ORIG/CUR Face",
+                "989 - MT 535 SD USD Price ORIG/CUR Face",
+                "990 - MT 535 TD Unpric ORIG/CUR Face",
+                "991 - MT 535 SD Unpric ORIG/CUR Face",
+                "997 - MT 535 TD Unpric ORIG Face",
+                "998 - MT 535 SD Unpric ORIG Face"
+              ]
+            },
+            {
+              "label": "MT536/MT537 - Transaction Statements",
+              "type": "checkbox-group",
+              "name": "transactionStatements",
+              "options": [
+                "692 - MT537 CSDR Daily penalty report",
+                "693 - MT537 CSDR Monthly penalty report",
+                "972 - MT 536 Statement of Transactions",
+                "973 - MT 537F Statement of Fail Trans Only",
+                "992 - MT 537R Statement of Repair Transactions Only",
+                "994 - MT 537I Statement of Unmat DTC BRK CNFM",
+                "995 - MT 537N Statement of No Pending Trans",
+                "996 - MT 537P Statement of Pending Trans Only"
+              ]
+            },
+            {
+              "label": "MT538 - Intra-Position Advice",
+              "type": "checkbox-group",
+              "name": "intraPositionAdvice",
+              "options": [
+                "904 - MT 538 Statement of Intra-Position Advice EOD"
+              ]
+            },
+            {
+              "label": "MT54X - Trade Settlement Messages",
+              "type": "checkbox-group",
+              "name": "tradeSettlement",
+              "options": [
+                "918 - MT54X-SUPPRESS COPY OUTBOUND TRD CUST",
+                "920 - MT 54X Outbound Trade Custody",
+                "921 - MT 54X Outbound Trade Brokerage",
+                "927 - MT 54X Purch/Sales Clearance - EOD",
+                "928 - MT 54X Purch/Sales Clearance - Intraday",
+                "930 - MT 54X US DK Confirm Aggregation EOD",
+                "931 - MT 54X Custody Clearance - EOD",
+                "932 - MT 54X Custody Clearance - Intraday",
+                "934 - MT54X - PAS CLIENT - INTR",
+                "935 - MT 54X Stock Loan Broker Only-Intra",
+                "936 - MT 54X Stock Loan Broker Only - EOD",
+                "937 - MT 54X Stock Loan Client - Intraday",
+                "938 - MT 54X Stock Loan Client - EOD"
+              ]
+            },
+            {
+              "label": "MT548 - Status Messages",
+              "type": "checkbox-group",
+              "name": "statusMessages",
+              "options": [
+                "908 - MT548 REPAIR - Client Action Status Advice",
+                "909 - MT548 REPAIR - Non-Client Action Status Advice",
+                "910 - MT548 - FAIL STATUS ADVISE",
+                "911 - MT548 - PENDING STATUS ADVICE",
+                "912 - MT548 - UNMATCHED STATUS ADVICE",
+                "913 - MT548 - MATCHED STATUS ADVICE",
+                "914 - MT548 - TRANS CANCELLATION STAT ADVICE",
+                "915 - MT548 - DOMESTIC RETURN RECEIVE ADVICE",
+                "916 - MT548 - NEAR MATCH"
+              ]
+            },
+            {
+              "label": "MT576/MT578 - Order and Allegement Messages",
+              "type": "checkbox-group",
+              "name": "orderMessages",
+              "options": [
+                "699 - MT 576 Statement of Open Orders",
+                "901 - MT 578 Stlmnt Allegement - Unmatched BRKR CNFM",
+                "902 - MT 578 Stlmnt Allegement - Dom Return Rec"
+              ]
+            },
+            {
+              "label": "MT940/MT950 - Customer Statements",
+              "type": "checkbox-group",
+              "name": "customerStatements",
+              "options": [
+                "638 - MT 940 Customer Statement w/ Ledger 60",
+                "639 - MT 940 Customer Statement w/Head Acct and Ledger 60",
+                "640 - MT 940 Customer Statement w/ Head Account",
+                "647 - MT940 Customer Statement Stk Loan L60 Acct",
+                "648 - MT 940 Customer Statement w/ Ledger aggregated",
+                "649 - MT 940 Customer Statement w/ Head & Ledger agg.",
+                "650 - MT 940 Customer Statement w/ Head aggregated",
+                "950 - MT950 Customer Statement w/ Ledger Aggregated",
+                "951 - MT 950 Customer STMT W/ Head & L60 Aggregated",
+                "952 - MT 950 Customer STMT W/ Head Aggregated",
+                "957 - MT950 Customer Statement w/ Ledger Segregated",
+                "958 - MT 950 Customer STMT W/ Head & L60 Segregated",
+                "959 - MT 950 Customer STMT W/ Head Segregated"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Additional SWIFTs",
+      "sections": [
+        {
+          "number": "16.1",
+          "title": "SWIFTS FOR TRADES & CUSTODY SERVICE MAILING PRODUCTS I",
+          "fields": [
+            {
+              "label": "MT509 - Trade Status Messages",
+              "type": "checkbox-group",
+              "name": "mt509Messages",
+              "options": [
+                "MT 509 Trade Status Change",
+                "609 - MT509 - TRADE STATUS CHANGE"
+              ]
+            },
+            {
+              "label": "MT51X - Confirmation Messages",
+              "type": "checkbox-group", 
+              "name": "mt51xMessages",
+              "options": [
+                "MT 51X Confirmation of Execution, Purchase, & Sales"
+              ]
+            },
+            {
+              "label": "MT513/MT515 - Trade Confirmations",
+              "type": "checkbox-group",
+              "name": "tradeConfirmations",
+              "options": [
+                "613 - MT 513 Client Advice of Execution (Intraday)",
+                "615 - MT 515 Confirmation of Purchase Sale (Batch)"
+              ]
+            },
+            {
+              "label": "MT535 - Statement of Positions",
+              "type": "checkbox-group",
+              "name": "mt535Messages",
+              "options": [
+                "MT 535 Statement of Positions",
+                "962 - MT 535 STAT TD LOC Price CUR FACE",
+                "966 - MT535 STAT-TD Date Multi CRY Price-ORG/CUR Face",
+                "967 - MT535 STAT-STLMNT Date Multi CRY Price-ORG/CUR Face",
+                "974 - MT 535 Status T/D LOC Price Orig Face",
+                "975 - MT 535 Status USD Price ORIG Face",
+                "976 - MT 535 Status SD LOC Price Orig Face",
+                "977 - MT 535 Status SD USD Price Orig Face",
+                "978 - MT 535 TD LOC Price Orig Face",
+                "979 - MT 535 TD USD Price Orig Face",
+                "980 - MT 535 SD LOC Price Orig Face",
+                "981 - MT535 - SD USD PRICE ORIG FACE",
+                "982 - MT 535 STAT TD LOC Price ORIG/CUR Face",
+                "983 - MT 535 STAT TD USD Price ORIG/CUR Face",
+                "984 - MT 535 STAT SD LOC Price ORIG/CUR Face",
+                "985 - MT 535 STAT SD USD Price ORIG/CUR Face",
+                "986 - MT 535 TD LOC Price ORIG/CUR Face",
+                "987 - MT 535 TD USD Price ORIG/CUR Face",
+                "988 - MT 535 SD LOC Price ORIG/CUR Face",
+                "989 - MT 535 SD USD Price ORIG/CUR Face",
+                "990 - MT 535 TD Unpric ORIG/CUR Face",
+                "991 - MT 535 SD Unpric ORIG/CUR Face",
+                "997 - MT 535 TD Unpric ORIG Face",
+                "998 - MT 535 SD Unpric ORIG Face"
+              ],
+              "helpText": "Frequency options: Daily / Daily on activity / Monthly"
+            },
+            {
+              "label": "MT536 - Statement of Transactions",
+              "type": "checkbox-group",
+              "name": "mt536Messages",
+              "options": [
+                "MT 536 Statement of Transactions",
+                "972 - MT 536 Statement of Transactions"
+              ],
+              "helpText": "Frequency options: Daily / Daily on activity"
+            },
+            {
+              "label": "MT537 - Statement of Pending/Failed Transactions",
+              "type": "checkbox-group",
+              "name": "mt537Messages",
+              "options": [
+                "MT 537 Statement of Pending Transactions",
+                "692 - MT537 CSDR Daily penalty report",
+                "693 - MT537 CSDR Monthly penalty report",
+                "973 - MT 537F Statement of Fail Trans Only",
+                "992 - MT 537R Statement of Repair Transactions Only",
+                "994 - MT 537I Statement of Unmat DTC BRK CNFM",
+                "995 - MT 537N Statement of No Pending Trans",
+                "996 - MT 537P Statement of Pending Trans Only"
+              ]
+            },
+            {
+              "label": "MT538 - Intra-Position and Depot Management Advice",
+              "type": "checkbox-group",
+              "name": "mt538Messages",
+              "options": [
+                "MT 538 Depot Management Advice",
+                "904 - MT 538 Statement of Intra-Position Advice EOD"
+              ]
+            },
+            {
+              "label": "MT548 - Trade Status Advice",
+              "type": "checkbox-group",
+              "name": "mt548Messages",
+              "options": [
+                "MT 548 Trade Status Advice",
+                "908 - MT548 REPAIR - Client Action Status Advice",
+                "909 - MT548 REPAIR - Non-Client Action Status Advice",
+                "910 - MT548 - FAIL STATUS ADVISE",
+                "911 - MT548 - PENDING STATUS ADVICE",
+                "912 - MT548 - UNMATCHED STATUS ADVICE",
+                "913 - MT548 - MATCHED STATUS ADVICE",
+                "914 - MT548 - TRANS CANCELLATION STAT ADVICE",
+                "915 - MT548 - DOMESTIC RETURN RECEIVE ADVICE",
+                "916 - MT548 - NEAR MATCH"
+              ]
+            },
+            {
+              "label": "Stock Loan SWIFT Messages",
+              "type": "checkbox-group",
+              "name": "stockLoanMessages",
+              "options": [
+                "906 - STOCK LOAN REPAIR-NON-CLNT ACT STAT AD",
+                "907 - STOCK LOAN FAIL STATUS ADVISE",
+                "923 - STOCK LOAN PENDING STATUS ADVICE",
+                "924 - STOCK LOAN UNMATCHED STATUS ADVICE",
+                "925 - STOCK LOAN MATCHED STATUS ADVICE",
+                "926 - STOCK LOAN TRANS CANCELLATION STAT AD"
+              ]
+            },
+            {
+              "label": "Stock Borrow SWIFT Messages",
+              "type": "checkbox-group",
+              "name": "stockBorrowMessages",
+              "options": [
+                "939 - STOCK BRW REPAIR CLIENT ACTN STAT ADV",
+                "943 - STOCK BRW REPAIR-NON-CLNT ACT STAT AD",
+                "944 - STOCK BRW FAIL STATUS ADVISE",
+                "945 - STOCK BRW PENDING STATUS ADVICE",
+                "946 - STOCK BRW UNMATCHED STATUS ADVICE",
+                "947 - STOCK BRW MATCHED STATUS ADVICE",
+                "948 - STOCK BRW TRANS CANCELLATION STAT AD"
+              ]
+            },
+            {
+              "label": "MT54X - Trade Settlement Messages",
+              "type": "checkbox-group",
+              "name": "mt54xMessages",
+              "options": [
+                "MT 54X Outbound Trade Copy",
+                "MT 54X Settlement Confirmations",
+                "918 - MT54X-SUPPRESS COPY OUTBOUND TRD CUST",
+                "920 - MT 54X Outbound Trade Custody",
+                "930 - MT 54X US DK Confirm Aggregation EOD",
+                "931 - MT 54X Custody Clearance - EOD",
+                "932 - MT 54X Custody Clearance - Intraday",
+                "935 - MT 54X Stock Loan Broker Only-Intra",
+                "936 - MT 54X Stock Loan Broker Only - EOD",
+                "937 - MT 54X Stock Loan Client - Intraday",
+                "938 - MT 54X Stock Loan Client - EOD"
+              ],
+              "helpText": "Note: Cannot select 930 without first selecting 910"
+            },
+            {
+              "label": "MT576 - Statement of Open Orders",
+              "type": "checkbox-group",
+              "name": "mt576Messages",
+              "options": [
+                "MT 576 - Statement of Open Orders",
+                "699 - MT 576 Statement of Open Orders"
+              ],
+              "helpText": "Frequency options: Daily / Monthly"
+            },
+            {
+              "label": "MT578 - Settlement Allegement",
+              "type": "checkbox-group",
+              "name": "mt578Messages",
+              "options": [
+                "MT 578 Settlement Allegement", 
+                "901 - MT 578 Stlmnt Allegement - Unmatched BRKR CNFM",
+                "902 - MT 578 Stlmnt Allegement - Dom Return Rec"
+              ]
+            },
+            {
+              "label": "MT940 - Customer Statement Messages",
+              "type": "section-header",
+              "name": "mt940SectionHeader"
+            },
+            {
+              "label": "MT 940 Customer Statement Message",
+              "type": "checkbox",
+              "name": "mt940CustomerStatementMessage",
+              "helpText": "Please select frequency:"
+            },
+            {
+              "label": "MT940 Frequency Options",
+              "type": "checkbox-group",
+              "name": "mt940FrequencyOptions",
+              "conditional": {
+                "field": "mt940CustomerStatementMessage",
+                "operator": "equals",
+                "value": true,
+                "showWhen": true
+              },
+              "options": [
+                "Daily",
+                "Daily on activity",
+                "Weekly", 
+                "Monthly",
+                "Quarterly",
+                "Always daily",
+                "Zero Account Balance Trigger, No Cash Activity"
+              ]
+            },
+            {
+              "label": "MT940 Specific Message Types",
+              "type": "checkbox-group",
+              "name": "mt940Messages",
+              "options": [
+                "638 - MT 940 Customer Statement w/ Ledger 60",
+                "639 - MT 940 Customer Statement w/Head Acct and Ledger 60",
+                "640 - MT 940 Customer Statement w/ Head Account",
+                "647 - MT940 Customer Statement Stk Loan L60 Acct",
+                "648 - MT 940 Customer Statement w/ Ledger aggregated",
+                "649 - MT 940 Customer Statement w/ Head & Ledger agg.",
+                "650 - MT 940 Customer Statement w/ Head aggregated",
+                "652 - Zero Account Balance Trigger, No Cash Activity"
+              ]
+            },
+            {
+              "label": "MT950 - Customer Cash Statements",
+              "type": "section-header",
+              "name": "mt950SectionHeader"
+            },
+            {
+              "label": "MT 950 Customer of Cash Statement",
+              "type": "checkbox",
+              "name": "mt950CustomerCashStatement",
+              "helpText": "Please select frequency:"
+            },
+            {
+              "label": "MT950 Frequency Options",
+              "type": "checkbox-group",
+              "name": "mt950FrequencyOptions",
+              "conditional": {
+                "field": "mt950CustomerCashStatement",
+                "operator": "equals",
+                "value": true,
+                "showWhen": true
+              },
+              "options": [
+                "Daily",
+                "Daily on activity",
+                "Weekly",
+                "Monthly"
+              ]
+            },
+            {
+              "label": "MT950 Specific Message Types",
+              "type": "checkbox-group",
+              "name": "mt950Messages",
+              "options": [
+                "950 - MT950 Customer Statement w/ Ledger Aggregated",
+                "951 - MT 950 Customer STMT W/ Head & L60 Aggregated",
+                "952 - MT 950 Customer STMT W/ Head Aggregated",
+                "957 - MT950 Customer Statement w/ Ledger Segregated",
+                "958 - MT 950 Customer STMT W/ Head & L60 Segregated",
+                "959 - MT 950 Customer STMT W/ Head Segregated"
               ]
             }
           ]

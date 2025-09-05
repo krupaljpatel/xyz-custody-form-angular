@@ -553,6 +553,13 @@
 
         .conditional-field {
             transition: all 0.3s ease;
+            grid-column: 1 / -1; /* Take full width of the grid */
+            width: 100%;
+            margin-left: 2rem; /* Indent to show it's conditional */
+            border-left: 3px solid #e9ecef;
+            padding-left: 1rem;
+            background: rgba(0,123,255,0.02);
+            border-radius: 8px;
         }
 
         .conditional-field.hidden {
@@ -844,6 +851,43 @@
                     `;
                     break;
                     
+                case 'checkbox-with-options':
+                    fieldHtml += `
+                        <div class="checkbox-option">
+                            <input 
+                                type="checkbox" 
+                                id="${field.name}" 
+                                name="${field.name}"
+                                onchange="handleFieldChange('${field.name}')">
+                            <label for="${field.name}">${field.label}</label>
+                        </div>
+                    `;
+                    if (field.conditionalOptions && field.conditionalOptions.length > 0) {
+                        fieldHtml += `
+                            <div class="conditional-options" id="conditional-${field.name}" style="display: none; margin-top: 1rem; margin-left: 2rem;">
+                                <div class="help-text" style="margin-bottom: 0.5rem;">${field.helpText || 'Please select frequency:'}</div>
+                                <div class="checkbox-group">
+                        `;
+                        field.conditionalOptions.forEach(option => {
+                            fieldHtml += `
+                                <div class="checkbox-option">
+                                    <input 
+                                        type="checkbox" 
+                                        id="${field.name}_${option}" 
+                                        name="${field.name}_options" 
+                                        value="${option}"
+                                        onchange="handleFieldChange('${field.name}')">
+                                    <label for="${field.name}_${option}">${option}</label>
+                                </div>
+                            `;
+                        });
+                        fieldHtml += `
+                                </div>
+                            </div>
+                        `;
+                    }
+                    break;
+                    
                 case 'dropdown':
                     fieldHtml += `
                         <label for="${field.name}">${field.label}${field.required ? ' *' : ''}</label>
@@ -927,6 +971,19 @@
         // Handle field changes and conditional logic
         function handleFieldChange(fieldName) {
             console.log('Field changed:', fieldName);
+            
+            // Handle checkbox-with-options type
+            const checkbox = document.getElementById(fieldName);
+            const conditionalOptions = document.getElementById(`conditional-${fieldName}`);
+            
+            if (checkbox && conditionalOptions) {
+                if (checkbox.checked) {
+                    conditionalOptions.style.display = 'block';
+                } else {
+                    conditionalOptions.style.display = 'none';
+                }
+            }
+            
             updateConditionalFields();
         }
 
