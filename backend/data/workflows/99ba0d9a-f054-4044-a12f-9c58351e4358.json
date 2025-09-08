@@ -1,0 +1,23 @@
+{
+  "id": "99ba0d9a-f054-4044-a12f-9c58351e4358",
+  "tenantId": "f6604044-33e7-43ee-8a94-821cee670139",
+  "clientId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+  "status": "draft",
+  "priority": "medium",
+  "title": "Demo Client - Custody Account Application",
+  "description": "New custody account opening application",
+  "files": [],
+  "comments": [],
+  "history": [
+    {
+      "id": "2f74cd06-7364-4b7f-8700-3a9192c45a9f",
+      "action": "Workflow created",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T22:13:45.126Z",
+      "details": {}
+    }
+  ],
+  "metadata": {},
+  "createdDate": "2025-09-08T22:13:45.126Z",
+  "lastModified": "2025-09-08T22:13:45.126Z"
+}

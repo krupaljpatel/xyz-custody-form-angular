@@ -1,0 +1,103 @@
+{
+  "id": "a523126e-f136-4ceb-9552-a919b8c55c9f",
+  "tenantId": "2b0a26a5-5108-4be1-ae84-b678c79a3f70",
+  "formId": "form-alpha-001",
+  "clientId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+  "status": "gcs_rejected",
+  "priority": "medium",
+  "title": "Hedge Fund Setup - Alpha Strategies",
+  "description": "Hedge fund requiring prime brokerage and custody services for alternative investments.",
+  "files": [],
+  "comments": [
+    {
+      "id": "f7ff271e-6b53-49b8-a808-7f91f429eedc",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "comment": "Completed form with all required fields.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:19:45.440Z"
+    },
+    {
+      "id": "b008d626-fc31-4cb2-8374-d0ec5896f6e2",
+      "userId": "982e14ed-4bc2-4954-92b3-320eb2f3c7d3",
+      "comment": "Missing required regulatory documentation for Cayman Islands jurisdiction. Please provide Certificate of Good Standing and updated Board Resolutions.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:19:45.440Z"
+    },
+    {
+      "id": "48c21f21-3670-4291-b85a-db7f6a7b31e3",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "comment": "Working on obtaining the requested documentation. Will resubmit within 3 business days.",
+      "isInternal": false,
+      "timestamp": "2025-09-08T15:19:45.441Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "05be2447-f328-4283-bf67-d9f85e3fdbe1",
+      "action": "Form created",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "timestamp": "2025-09-08T15:19:45.440Z",
+      "details": {}
+    },
+    {
+      "id": "ebc4505a-8de0-4622-ae2c-6bc5b6c5d92f",
+      "action": "Status changed from gcs_rejected to submitted",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "timestamp": "2025-09-08T15:19:45.440Z",
+      "details": {
+        "oldStatus": "gcs_rejected",
+        "newStatus": "submitted",
+        "comment": "Completed form with all required fields."
+      }
+    },
+    {
+      "id": "3d6e2529-072f-4217-b839-9f2d54b4e3f0",
+      "action": "Comment added",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "timestamp": "2025-09-08T15:19:45.440Z",
+      "details": {}
+    },
+    {
+      "id": "549bbaf4-afcb-4809-bb15-b0c9284e2a94",
+      "action": "Status changed from submitted to under_gcs_review",
+      "userId": "982e14ed-4bc2-4954-92b3-320eb2f3c7d3",
+      "timestamp": "2025-09-08T15:19:45.440Z",
+      "details": {
+        "oldStatus": "submitted",
+        "newStatus": "under_gcs_review"
+      }
+    },
+    {
+      "id": "12d2122b-c548-4383-a556-1deec5ef08dd",
+      "action": "Status changed from under_gcs_review to gcs_rejected",
+      "userId": "982e14ed-4bc2-4954-92b3-320eb2f3c7d3",
+      "timestamp": "2025-09-08T15:19:45.440Z",
+      "details": {
+        "oldStatus": "under_gcs_review",
+        "newStatus": "gcs_rejected",
+        "comment": "Missing required regulatory documentation for Cayman Islands jurisdiction. Please provide Certificate of Good Standing and updated Board Resolutions."
+      }
+    },
+    {
+      "id": "a3709e02-db17-4d72-813c-b18e1aa8419e",
+      "action": "Comment added",
+      "userId": "982e14ed-4bc2-4954-92b3-320eb2f3c7d3",
+      "timestamp": "2025-09-08T15:19:45.441Z",
+      "details": {}
+    },
+    {
+      "id": "cca54f67-35bd-41d9-b402-5ceb40e1ff5f",
+      "action": "Comment added",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "timestamp": "2025-09-08T15:19:45.441Z",
+      "details": {}
+    }
+  ],
+  "metadata": {
+    "accountType": "Prime Brokerage",
+    "estimatedAssets": "$25M",
+    "jurisdiction": "Cayman Islands"
+  },
+  "createdDate": "2025-09-01T15:19:45.440Z",
+  "lastModified": "2025-09-08T15:19:45.441Z"
+}

@@ -1,0 +1,79 @@
+{
+  "id": "1fa69af7-3e7b-4f8b-8700-24d3f9662c21",
+  "tenantId": "2b0a26a5-5108-4be1-ae84-b678c79a3f70",
+  "formId": "form-techstart-001",
+  "clientId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+  "status": "under_gcs_review",
+  "currentAssignee": "982e14ed-4bc2-4954-92b3-320eb2f3c7d3",
+  "priority": "high",
+  "title": "Investment Account Opening - TechStart LLC",
+  "description": "Technology startup requiring custody services for employee stock options and treasury management.",
+  "files": [],
+  "comments": [
+    {
+      "id": "8bde939d-69ba-4549-ba5f-7c35db9c3041",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "comment": "Form completed and submitted for review. All required documents have been attached.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:20:36.301Z"
+    },
+    {
+      "id": "a5a76e7a-368e-4f70-922f-89f3b3d1ab2b",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "comment": "Please let me know if you need any additional information or documentation.",
+      "isInternal": false,
+      "timestamp": "2025-09-08T15:20:36.301Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "0902870e-9b46-4f41-8833-341f4c5aabb7",
+      "action": "Form created",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "timestamp": "2025-09-08T15:20:36.301Z",
+      "details": {}
+    },
+    {
+      "id": "c939953b-68ce-4c42-a9a4-bb93dda92391",
+      "action": "Status changed from submitted to submitted",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "timestamp": "2025-09-08T15:20:36.301Z",
+      "details": {
+        "oldStatus": "submitted",
+        "newStatus": "submitted",
+        "comment": "Form completed and submitted for review. All required documents have been attached."
+      }
+    },
+    {
+      "id": "2099edda-8e26-44c8-8477-e46fabec5ec4",
+      "action": "Comment added",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "timestamp": "2025-09-08T15:20:36.301Z",
+      "details": {}
+    },
+    {
+      "id": "e6dca8fb-6105-4059-a993-dcfdb38c2d7b",
+      "action": "Status changed from submitted to under_gcs_review",
+      "userId": "982e14ed-4bc2-4954-92b3-320eb2f3c7d3",
+      "timestamp": "2025-09-08T15:20:36.301Z",
+      "details": {
+        "oldStatus": "submitted",
+        "newStatus": "under_gcs_review"
+      }
+    },
+    {
+      "id": "ff434034-35f1-4f1a-9841-638785f9586d",
+      "action": "Comment added",
+      "userId": "af64e4b5-edd2-4ae1-9977-c44fa8ad52a4",
+      "timestamp": "2025-09-08T15:20:36.301Z",
+      "details": {}
+    }
+  ],
+  "metadata": {
+    "accountType": "Cash & Securities",
+    "estimatedAssets": "$10M",
+    "jurisdiction": "California, USA"
+  },
+  "createdDate": "2025-08-30T15:20:36.301Z",
+  "lastModified": "2025-09-08T15:20:36.301Z"
+}

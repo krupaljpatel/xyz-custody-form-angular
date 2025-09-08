@@ -1,0 +1,125 @@
+{
+  "id": "be103ea2-e4ee-4d94-a347-fe8e036a4298",
+  "tenantId": "7b6d07ca-3c6d-4d9d-87e7-8be5c691690a",
+  "formId": "form-cryptotrade-001",
+  "clientId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+  "status": "bbh_rejected",
+  "priority": "medium",
+  "title": "Cryptocurrency Exchange - CryptoTrade Inc",
+  "description": "Digital asset exchange requiring custody services for cryptocurrency holdings.",
+  "files": [],
+  "comments": [
+    {
+      "id": "37f5471c-f8a7-4de7-99e7-868776f1f105",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "comment": "Cryptocurrency exchange custody services requested.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T22:27:16.013Z"
+    },
+    {
+      "id": "a95037c8-9a3b-44b9-82a4-3f9e4f840389",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "comment": "Digital asset custody requires specialized approval due to regulatory complexity.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T22:27:16.013Z"
+    },
+    {
+      "id": "3a8b60d0-0ef1-40f7-8f5e-32069eb96208",
+      "userId": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+      "comment": "Unable to provide custody services for cryptocurrency assets at this time due to current regulatory framework limitations.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T22:27:16.013Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "6ca957d6-23b6-4b73-998c-5318bfc67fa0",
+      "action": "Form created",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {}
+    },
+    {
+      "id": "9f541ad3-7ce6-405c-9662-c8b2e26ded53",
+      "action": "Status changed from bbh_rejected to submitted",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {
+        "oldStatus": "bbh_rejected",
+        "newStatus": "submitted",
+        "comment": "Cryptocurrency exchange custody services requested."
+      }
+    },
+    {
+      "id": "51b353c0-cc6e-4d52-947a-4245c0528c6c",
+      "action": "Comment added",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {}
+    },
+    {
+      "id": "5e1c0e4f-cd4d-4d27-85ee-8fd39c38f6f7",
+      "action": "Status changed from submitted to under_gcs_review",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {
+        "oldStatus": "submitted",
+        "newStatus": "under_gcs_review"
+      }
+    },
+    {
+      "id": "3ea0f2b5-0919-48be-a2d2-ff57023bd752",
+      "action": "Status changed from under_gcs_review to escalated_to_bbh",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {
+        "oldStatus": "under_gcs_review",
+        "newStatus": "escalated_to_bbh",
+        "comment": "Digital asset custody requires specialized approval due to regulatory complexity."
+      }
+    },
+    {
+      "id": "ba3d559f-f65a-4e6c-85e6-92fdc0891f07",
+      "action": "Comment added",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {}
+    },
+    {
+      "id": "e90fac21-2367-417f-addc-afbc0b2370c5",
+      "action": "Status changed from escalated_to_bbh to bbh_review",
+      "userId": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {
+        "oldStatus": "escalated_to_bbh",
+        "newStatus": "bbh_review"
+      }
+    },
+    {
+      "id": "408f4ce5-dd6b-47f1-98a5-789e52d23b97",
+      "action": "Status changed from bbh_review to bbh_rejected",
+      "userId": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {
+        "oldStatus": "bbh_review",
+        "newStatus": "bbh_rejected",
+        "comment": "Unable to provide custody services for cryptocurrency assets at this time due to current regulatory framework limitations."
+      }
+    },
+    {
+      "id": "9aee6922-f75f-4461-bf91-575dcb51002a",
+      "action": "Comment added",
+      "userId": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {}
+    }
+  ],
+  "metadata": {
+    "accountType": "Digital Assets",
+    "estimatedAssets": "$15M",
+    "jurisdiction": "Malta"
+  },
+  "createdDate": "2025-09-06T22:27:16.013Z",
+  "lastModified": "2025-09-08T22:27:16.013Z",
+  "completedDate": "2025-09-08T22:27:16.013Z"
+}

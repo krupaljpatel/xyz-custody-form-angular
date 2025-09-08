@@ -1,0 +1,128 @@
+{
+  "id": "b33970d2-310a-41d6-968f-8959d6f166c7",
+  "tenantId": "7b6d07ca-3c6d-4d9d-87e7-8be5c691690a",
+  "formId": "form-nordic-001",
+  "clientId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+  "status": "bbh_review",
+  "currentAssignee": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+  "priority": "urgent",
+  "title": "Sovereign Wealth Fund - Nordic Investment",
+  "description": "Government investment fund requiring highest level of custody and compliance oversight.",
+  "files": [],
+  "comments": [
+    {
+      "id": "23e34023-63e6-4d21-8206-41189e3d088b",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "comment": "Government entity with special regulatory requirements.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:19:45.453Z"
+    },
+    {
+      "id": "036535f5-c187-49ca-99a1-4d1ee5f977a2",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "comment": "Sovereign wealth fund requires senior management approval and enhanced due diligence.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:19:45.453Z"
+    },
+    {
+      "id": "dbf9428f-17e2-4742-9cf2-babc0c4d7613",
+      "userId": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+      "comment": "Coordinating with compliance team for enhanced due diligence procedures.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:19:45.453Z"
+    },
+    {
+      "id": "97ad39ab-cf15-49aa-8be8-c07e7367f08f",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "comment": "Please let me know if you need any additional information or documentation.",
+      "isInternal": false,
+      "timestamp": "2025-09-08T15:19:45.453Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "9d1264a1-5dc0-4ea9-ba05-005b492656e8",
+      "action": "Form created",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T15:19:45.453Z",
+      "details": {}
+    },
+    {
+      "id": "0866e791-f91f-4642-ad15-3f9b300a8bd6",
+      "action": "Status changed from bbh_review to submitted",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T15:19:45.453Z",
+      "details": {
+        "oldStatus": "bbh_review",
+        "newStatus": "submitted",
+        "comment": "Government entity with special regulatory requirements."
+      }
+    },
+    {
+      "id": "3a4b194f-b6b2-4f77-8816-67ef1fa6cb5a",
+      "action": "Comment added",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T15:19:45.453Z",
+      "details": {}
+    },
+    {
+      "id": "ff7c4b55-90bc-4d9a-b7af-ed4ab589acbf",
+      "action": "Status changed from submitted to under_gcs_review",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "timestamp": "2025-09-08T15:19:45.453Z",
+      "details": {
+        "oldStatus": "submitted",
+        "newStatus": "under_gcs_review"
+      }
+    },
+    {
+      "id": "4ac98be8-d551-42d5-85fb-239acc8d2adc",
+      "action": "Status changed from under_gcs_review to escalated_to_bbh",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "timestamp": "2025-09-08T15:19:45.453Z",
+      "details": {
+        "oldStatus": "under_gcs_review",
+        "newStatus": "escalated_to_bbh",
+        "comment": "Sovereign wealth fund requires senior management approval and enhanced due diligence."
+      }
+    },
+    {
+      "id": "b0a9166f-cac9-4437-8cfd-cf1899537559",
+      "action": "Comment added",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "timestamp": "2025-09-08T15:19:45.453Z",
+      "details": {}
+    },
+    {
+      "id": "8e1e6906-a7e7-4eb9-b94a-22202c9426ad",
+      "action": "Status changed from escalated_to_bbh to bbh_review",
+      "userId": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+      "timestamp": "2025-09-08T15:19:45.453Z",
+      "details": {
+        "oldStatus": "escalated_to_bbh",
+        "newStatus": "bbh_review"
+      }
+    },
+    {
+      "id": "196a2d61-8c04-429b-8374-8da6c6082fc2",
+      "action": "Comment added",
+      "userId": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+      "timestamp": "2025-09-08T15:19:45.453Z",
+      "details": {}
+    },
+    {
+      "id": "f3a577fd-8e59-45b5-af41-e4160ca98955",
+      "action": "Comment added",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T15:19:45.453Z",
+      "details": {}
+    }
+  ],
+  "metadata": {
+    "accountType": "Sovereign Entity",
+    "estimatedAssets": "$5B",
+    "jurisdiction": "Norway"
+  },
+  "createdDate": "2025-09-03T15:19:45.453Z",
+  "lastModified": "2025-09-08T15:19:45.453Z"
+}

@@ -1,0 +1,90 @@
+{
+  "id": "43fc28c2-6ae3-4996-8104-3e029b097d86",
+  "tenantId": "f6604044-33e7-43ee-8a94-821cee670139",
+  "formId": "form-bakery-001",
+  "clientId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+  "status": "completed",
+  "priority": "low",
+  "title": "Small Business Account - Local Bakery Chain",
+  "description": "Regional bakery chain requiring basic cash management and custody services.",
+  "files": [],
+  "comments": [
+    {
+      "id": "6c1de7d7-59f5-465e-96d1-b98806f56967",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "comment": "Straightforward business account with standard requirements.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:20:36.312Z"
+    },
+    {
+      "id": "58ae6507-4dec-4db5-b3ec-555cca2697c3",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "comment": "Standard business account approved. All documentation verified and account ready for activation.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:20:36.312Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "2bd49b30-a663-4e6c-ab7c-37fd4e4d7c53",
+      "action": "Form created",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:20:36.312Z",
+      "details": {}
+    },
+    {
+      "id": "f8864de6-833f-42ca-bfde-99a9491f3063",
+      "action": "Status changed from completed to submitted",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:20:36.312Z",
+      "details": {
+        "oldStatus": "completed",
+        "newStatus": "submitted",
+        "comment": "Straightforward business account with standard requirements."
+      }
+    },
+    {
+      "id": "0f941e83-0492-4672-8127-877fd1172c7d",
+      "action": "Comment added",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:20:36.312Z",
+      "details": {}
+    },
+    {
+      "id": "0876cfda-b9e6-415e-bbe1-f743c89dab40",
+      "action": "Status changed from submitted to under_gcs_review",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "timestamp": "2025-09-08T15:20:36.312Z",
+      "details": {
+        "oldStatus": "submitted",
+        "newStatus": "under_gcs_review"
+      }
+    },
+    {
+      "id": "0eefea35-b78d-4cb2-9f6d-f1243e643cc1",
+      "action": "Status changed from under_gcs_review to completed",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "timestamp": "2025-09-08T15:20:36.312Z",
+      "details": {
+        "oldStatus": "under_gcs_review",
+        "newStatus": "completed",
+        "comment": "Standard business account approved. All documentation verified and account ready for activation."
+      }
+    },
+    {
+      "id": "ab3481b9-94e7-426d-8b9a-e61021d155e4",
+      "action": "Comment added",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "timestamp": "2025-09-08T15:20:36.312Z",
+      "details": {}
+    }
+  ],
+  "metadata": {
+    "accountType": "Small Business",
+    "estimatedAssets": "$2M",
+    "jurisdiction": "Texas, USA"
+  },
+  "createdDate": "2025-09-05T15:20:36.312Z",
+  "lastModified": "2025-09-08T15:20:36.312Z",
+  "completedDate": "2025-09-08T15:20:36.312Z"
+}

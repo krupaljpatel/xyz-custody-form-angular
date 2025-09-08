@@ -1,0 +1,125 @@
+{
+  "id": "ba693e36-d82a-4c40-8a08-154a968e5da6",
+  "tenantId": "f6604044-33e7-43ee-8a94-821cee670139",
+  "formId": "form-securelife-001",
+  "clientId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+  "status": "bbh_approved",
+  "priority": "high",
+  "title": "Insurance Company - SecureLife Assurance",
+  "description": "Insurance company custody account for managing policyholder reserves and investments.",
+  "files": [],
+  "comments": [
+    {
+      "id": "2208553d-2eca-45a8-b813-446cc14eb758",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "comment": "Insurance company account setup with comprehensive requirements.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:19:49.539Z"
+    },
+    {
+      "id": "157cff83-0547-4209-a432-1a80e38b9666",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "comment": "Insurance regulatory requirements need senior review.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:19:49.539Z"
+    },
+    {
+      "id": "e6d63c14-d3a2-4e67-ba4f-3dfe8d8f2926",
+      "userId": "4c0b06e7-1dc4-4f5e-b529-5748853c6436",
+      "comment": "Approved after compliance review. Account setup can proceed with standard insurance custody procedures.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:19:49.539Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "57760aa7-d4cf-47e9-9ee4-b2f8098f5474",
+      "action": "Form created",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:19:49.539Z",
+      "details": {}
+    },
+    {
+      "id": "3b45f044-8fd4-4220-ba89-2171b6b8202f",
+      "action": "Status changed from bbh_approved to submitted",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:19:49.539Z",
+      "details": {
+        "oldStatus": "bbh_approved",
+        "newStatus": "submitted",
+        "comment": "Insurance company account setup with comprehensive requirements."
+      }
+    },
+    {
+      "id": "b355883e-79b2-48dc-82c1-4b14061b5621",
+      "action": "Comment added",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:19:49.539Z",
+      "details": {}
+    },
+    {
+      "id": "ac1038d9-64a3-427f-8d2d-41b3eb66a194",
+      "action": "Status changed from submitted to under_gcs_review",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "timestamp": "2025-09-08T15:19:49.539Z",
+      "details": {
+        "oldStatus": "submitted",
+        "newStatus": "under_gcs_review"
+      }
+    },
+    {
+      "id": "357796ad-54f6-4dca-aff3-a63d74cb802b",
+      "action": "Status changed from under_gcs_review to escalated_to_bbh",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "timestamp": "2025-09-08T15:19:49.539Z",
+      "details": {
+        "oldStatus": "under_gcs_review",
+        "newStatus": "escalated_to_bbh",
+        "comment": "Insurance regulatory requirements need senior review."
+      }
+    },
+    {
+      "id": "7424dc0f-25a0-4200-8865-2c187c4fce8a",
+      "action": "Comment added",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "timestamp": "2025-09-08T15:19:49.539Z",
+      "details": {}
+    },
+    {
+      "id": "bce039a8-c95b-4254-b941-2715c39aa9e5",
+      "action": "Status changed from escalated_to_bbh to bbh_review",
+      "userId": "4c0b06e7-1dc4-4f5e-b529-5748853c6436",
+      "timestamp": "2025-09-08T15:19:49.539Z",
+      "details": {
+        "oldStatus": "escalated_to_bbh",
+        "newStatus": "bbh_review"
+      }
+    },
+    {
+      "id": "37f07f74-6e58-427c-81b1-0124fa691e4c",
+      "action": "Status changed from bbh_review to bbh_approved",
+      "userId": "4c0b06e7-1dc4-4f5e-b529-5748853c6436",
+      "timestamp": "2025-09-08T15:19:49.539Z",
+      "details": {
+        "oldStatus": "bbh_review",
+        "newStatus": "bbh_approved",
+        "comment": "Approved after compliance review. Account setup can proceed with standard insurance custody procedures."
+      }
+    },
+    {
+      "id": "cad54d49-b4c6-4144-a3d1-34e4406c7431",
+      "action": "Comment added",
+      "userId": "4c0b06e7-1dc4-4f5e-b529-5748853c6436",
+      "timestamp": "2025-09-08T15:19:49.539Z",
+      "details": {}
+    }
+  ],
+  "metadata": {
+    "accountType": "Insurance Custody",
+    "estimatedAssets": "$100M",
+    "jurisdiction": "Connecticut, USA"
+  },
+  "createdDate": "2025-09-04T15:19:49.539Z",
+  "lastModified": "2025-09-08T15:19:49.539Z",
+  "completedDate": "2025-09-08T15:19:49.539Z"
+}

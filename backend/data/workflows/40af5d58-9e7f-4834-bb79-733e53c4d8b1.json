@@ -1,0 +1,43 @@
+{
+  "id": "40af5d58-9e7f-4834-bb79-733e53c4d8b1",
+  "tenantId": "f6604044-33e7-43ee-8a94-821cee670139",
+  "formId": "form-acme-001",
+  "clientId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+  "status": "draft",
+  "priority": "medium",
+  "title": "XYZ Custody Account Setup - Acme Corp",
+  "description": "New custody account opening form for Acme Corporation. Setting up securities custody services with multi-currency settlement capabilities.",
+  "files": [],
+  "comments": [
+    {
+      "id": "2224ef21-498d-45ab-8419-7d438a920303",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "comment": "Still working on gathering all required documentation for the account opening.",
+      "isInternal": false,
+      "timestamp": "2025-09-08T15:20:36.311Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "2a148106-0796-43a3-9f23-3d9f3f7b87c7",
+      "action": "Form created",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:20:36.311Z",
+      "details": {}
+    },
+    {
+      "id": "9253c75d-c279-4079-9070-a4fb21f64d35",
+      "action": "Comment added",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:20:36.311Z",
+      "details": {}
+    }
+  ],
+  "metadata": {
+    "accountType": "Global Custody",
+    "estimatedAssets": "$50M",
+    "jurisdiction": "Delaware, USA"
+  },
+  "createdDate": "2025-08-29T15:20:36.311Z",
+  "lastModified": "2025-09-08T15:20:36.311Z"
+}

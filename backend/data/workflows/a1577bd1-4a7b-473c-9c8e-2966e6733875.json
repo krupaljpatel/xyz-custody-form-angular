@@ -1,0 +1,23 @@
+{
+  "id": "a1577bd1-4a7b-473c-9c8e-2966e6733875",
+  "tenantId": "f6604044-33e7-43ee-8a94-821cee670139",
+  "clientId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+  "status": "draft",
+  "priority": "medium",
+  "title": "John Smith - Custody Account Application",
+  "description": "New custody account opening application",
+  "files": [],
+  "comments": [],
+  "history": [
+    {
+      "id": "af9c2f6b-b90c-412e-9a79-32aafa293ba5",
+      "action": "Workflow created",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T19:00:47.679Z",
+      "details": {}
+    }
+  ],
+  "metadata": {},
+  "createdDate": "2025-09-08T19:00:47.677Z",
+  "lastModified": "2025-09-08T19:00:47.680Z"
+}

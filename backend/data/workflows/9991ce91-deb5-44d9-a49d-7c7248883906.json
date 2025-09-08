@@ -1,0 +1,93 @@
+{
+  "id": "9991ce91-deb5-44d9-a49d-7c7248883906",
+  "tenantId": "f6604044-33e7-43ee-8a94-821cee670139",
+  "formId": "form-retiresafe-001",
+  "clientId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+  "status": "under_gcs_review",
+  "currentAssignee": "be508457-4a51-4a9c-acd7-599b31a10737",
+  "priority": "urgent",
+  "title": "Pension Fund Custody - RetireSafe Fund",
+  "description": "Large pension fund requiring comprehensive custody services across global markets.",
+  "files": [],
+  "comments": [
+    {
+      "id": "92853c49-62cc-463c-b75d-dff895b2c82d",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "comment": "High priority account opening. Client has requested expedited processing.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:14:49.620Z"
+    },
+    {
+      "id": "8ddfac5c-ab25-43b9-97de-a8e471f77fae",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "comment": "Reviewing documentation. May need additional KYC information.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T15:14:49.620Z"
+    },
+    {
+      "id": "9a7482c4-7359-4412-86f2-f07a90df41f7",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "comment": "Please let me know if you need any additional information or documentation.",
+      "isInternal": false,
+      "timestamp": "2025-09-08T15:14:49.620Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "47147600-340b-4a73-9ea6-e1637da503e5",
+      "action": "Form created",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:14:49.620Z",
+      "details": {}
+    },
+    {
+      "id": "3518b404-f985-4e8c-9a12-fc3180c0d078",
+      "action": "Status changed from under_gcs_review to submitted",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:14:49.620Z",
+      "details": {
+        "oldStatus": "under_gcs_review",
+        "newStatus": "submitted",
+        "comment": "High priority account opening. Client has requested expedited processing."
+      }
+    },
+    {
+      "id": "a21aa42f-496a-47fe-824d-08cc8f8bedef",
+      "action": "Comment added",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:14:49.620Z",
+      "details": {}
+    },
+    {
+      "id": "555c9332-3c03-4a55-9a72-8893a4e9267d",
+      "action": "Status changed from submitted to under_gcs_review",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "timestamp": "2025-09-08T15:14:49.620Z",
+      "details": {
+        "oldStatus": "submitted",
+        "newStatus": "under_gcs_review"
+      }
+    },
+    {
+      "id": "e18aac1b-7467-4d1b-9731-286115ad41b7",
+      "action": "Comment added",
+      "userId": "be508457-4a51-4a9c-acd7-599b31a10737",
+      "timestamp": "2025-09-08T15:14:49.620Z",
+      "details": {}
+    },
+    {
+      "id": "20e4480c-36d6-49f4-accb-24fc56bf1a4f",
+      "action": "Comment added",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:14:49.620Z",
+      "details": {}
+    }
+  ],
+  "metadata": {
+    "accountType": "Global Custody",
+    "estimatedAssets": "$500M",
+    "jurisdiction": "New York, USA"
+  },
+  "createdDate": "2025-08-31T15:14:49.620Z",
+  "lastModified": "2025-09-08T15:14:49.620Z"
+}

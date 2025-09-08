@@ -1,0 +1,20 @@
+{
+  "clientName": "eddd",
+  "status": "draft",
+  "formData": {
+    "section1": {
+      "bbhAccountNumberReserved": "No",
+      "bbhAccountNumber": "",
+      "newAccountNameLegal": "eddd",
+      "shortAccountName": "dd",
+      "contactName": "dd",
+      "foreignExchangeServices": true,
+      "fxConfirmationMethod": "SWIFT",
+      "cashServices": true,
+      "physicalServices": true
+    }
+  },
+  "id": "5e53bfb8-d194-4d39-a942-7be1d7605abb",
+  "createdDate": "2025-09-04T19:14:07.795Z",
+  "lastModified": "2025-09-04T19:14:07.795Z"
+}

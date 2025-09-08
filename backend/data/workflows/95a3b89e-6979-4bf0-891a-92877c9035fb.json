@@ -1,0 +1,114 @@
+{
+  "id": "95a3b89e-6979-4bf0-891a-92877c9035fb",
+  "tenantId": "7b6d07ca-3c6d-4d9d-87e7-8be5c691690a",
+  "formId": "form-eurobank-001",
+  "clientId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+  "status": "bbh_review",
+  "currentAssignee": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+  "priority": "urgent",
+  "title": "International Bank Subsidiary - EuroBank USA",
+  "description": "Complex multinational banking subsidiary requiring specialized custody arrangements.",
+  "files": [],
+  "comments": [
+    {
+      "id": "ba610794-48db-4ab0-a722-94c8c066fb7c",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "comment": "Complex multinational structure requiring specialized review.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T22:27:16.013Z"
+    },
+    {
+      "id": "bd8c58aa-e121-429a-981a-b61067e8f535",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "comment": "Complex regulatory requirements across multiple jurisdictions. Requires BBH Client Service review for compliance approval.",
+      "isInternal": true,
+      "timestamp": "2025-09-08T22:27:16.013Z"
+    },
+    {
+      "id": "97cbf741-684e-41fc-9ab7-8a2384f5a6f2",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "comment": "Please let me know if you need any additional information or documentation.",
+      "isInternal": false,
+      "timestamp": "2025-09-08T22:27:16.013Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "3d306ca9-4b00-4bd4-adb8-4c3a9ce991cb",
+      "action": "Form created",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {}
+    },
+    {
+      "id": "b13e1b8d-d0ed-4bc4-b4fd-79e30a7486b2",
+      "action": "Status changed from escalated_to_bbh to submitted",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {
+        "oldStatus": "escalated_to_bbh",
+        "newStatus": "submitted",
+        "comment": "Complex multinational structure requiring specialized review."
+      }
+    },
+    {
+      "id": "b3b01ec4-a204-437c-9dea-169ac78ea879",
+      "action": "Comment added",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {}
+    },
+    {
+      "id": "8456bd56-95e4-4ffe-9a42-b6c57ae81634",
+      "action": "Status changed from submitted to under_gcs_review",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {
+        "oldStatus": "submitted",
+        "newStatus": "under_gcs_review"
+      }
+    },
+    {
+      "id": "0a6362d9-0f2a-45c2-b35b-bd76dfa49524",
+      "action": "Status changed from under_gcs_review to escalated_to_bbh",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {
+        "oldStatus": "under_gcs_review",
+        "newStatus": "escalated_to_bbh",
+        "comment": "Complex regulatory requirements across multiple jurisdictions. Requires BBH Client Service review for compliance approval."
+      }
+    },
+    {
+      "id": "48bfe2d9-0c80-426b-857e-2d72eecbeb18",
+      "action": "Comment added",
+      "userId": "3e577de3-75ec-44a3-bb9d-5f44adb40b18",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {}
+    },
+    {
+      "id": "ba686aad-43cf-432d-b39c-c51456701d51",
+      "action": "Status changed from escalated_to_bbh to bbh_review",
+      "userId": "a911329d-e143-4e38-ac2a-e3e1b98e8f7a",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {
+        "oldStatus": "escalated_to_bbh",
+        "newStatus": "bbh_review"
+      }
+    },
+    {
+      "id": "5c99bdd8-02f9-43e7-9ef4-40497f1d8830",
+      "action": "Comment added",
+      "userId": "71593a98-2ad1-4f41-ba1f-18f788572778",
+      "timestamp": "2025-09-08T22:27:16.013Z",
+      "details": {}
+    }
+  ],
+  "metadata": {
+    "accountType": "Institutional Banking",
+    "estimatedAssets": "$2B",
+    "jurisdiction": "Multiple (USA, EU, UK)"
+  },
+  "createdDate": "2025-09-02T22:27:16.013Z",
+  "lastModified": "2025-09-08T22:27:16.013Z"
+}

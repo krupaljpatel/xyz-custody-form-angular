@@ -1,0 +1,14 @@
+{
+  "id": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+  "tenantId": "f6604044-33e7-43ee-8a94-821cee670139",
+  "username": "client1",
+  "email": "client1@client.corp.com",
+  "firstName": "John",
+  "lastName": "Smith",
+  "role": "client",
+  "permissions": [],
+  "isActive": true,
+  "createdDate": "2025-09-08T15:09:44.125Z",
+  "lastLogin": "2025-09-08T19:25:50.694Z",
+  "passwordHash": "demo123"
+}

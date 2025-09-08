@@ -1,0 +1,13 @@
+{
+  "id": "71593a98-2ad1-4f41-ba1f-18f788572778",
+  "tenantId": "7b6d07ca-3c6d-4d9d-87e7-8be5c691690a",
+  "username": "client1",
+  "email": "client1@global.finance.com",
+  "firstName": "John",
+  "lastName": "Smith",
+  "role": "client",
+  "permissions": [],
+  "isActive": true,
+  "createdDate": "2025-09-08T15:09:44.127Z",
+  "passwordHash": "demo123"
+}

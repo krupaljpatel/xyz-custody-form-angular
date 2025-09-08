@@ -1,0 +1,23 @@
+{
+  "id": "d80b42ca-dd38-4289-92ed-2c8866930c42",
+  "tenantId": "f6604044-33e7-43ee-8a94-821cee670139",
+  "clientId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+  "status": "draft",
+  "priority": "medium",
+  "title": "eee",
+  "description": "eee",
+  "files": [],
+  "comments": [],
+  "history": [
+    {
+      "id": "82e4032c-12f6-4956-9183-983533b6ec3f",
+      "action": "Workflow created",
+      "userId": "02a67bb8-5e6f-4caf-aeb2-8ba62820987d",
+      "timestamp": "2025-09-08T15:25:23.139Z",
+      "details": {}
+    }
+  ],
+  "metadata": {},
+  "createdDate": "2025-09-08T15:25:23.139Z",
+  "lastModified": "2025-09-08T15:25:23.139Z"
+}

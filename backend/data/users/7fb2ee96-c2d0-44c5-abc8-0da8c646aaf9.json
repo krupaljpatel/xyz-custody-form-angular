@@ -1,0 +1,13 @@
+{
+  "id": "7fb2ee96-c2d0-44c5-abc8-0da8c646aaf9",
+  "tenantId": "7b6d07ca-3c6d-4d9d-87e7-8be5c691690a",
+  "username": "admin1",
+  "email": "admin1@xyz.bank.com",
+  "firstName": "Admin",
+  "lastName": "User",
+  "role": "admin",
+  "permissions": [],
+  "isActive": true,
+  "createdDate": "2025-09-08T15:09:44.128Z",
+  "passwordHash": "demo123"
+}
