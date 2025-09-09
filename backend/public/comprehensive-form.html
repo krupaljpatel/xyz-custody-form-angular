@@ -1286,10 +1286,10 @@
                 <h1>🏦 XYZ Custody Forms</h1>
                 <nav>
                     <button class="nav-button" onclick="showFormsListPage()" id="nav-forms">
-                        <span>📋</span> My Forms
+                        <span>📋</span> My Account Forms
                     </button>
                     <button class="nav-button" onclick="showNewFormPage()" id="nav-new">
-                        <span>✨</span> New Form
+                        <span>✨</span> New Account
                     </button>
                 </nav>
             </div>
@@ -1299,8 +1299,8 @@
             <!-- Forms List Page -->
             <div id="forms-list-page" class="hidden">
                 <div class="header" style="text-align: center; margin-bottom: 3rem;">
-                    <h2 style="color: #495057; margin-bottom: 1rem; font-size: 2rem;">Manage Your Forms</h2>
-                    <button class="btn-primary" onclick="showNewFormPage()">➕ Create New Form</button>
+                    <h2 style="color: #495057; margin-bottom: 1rem; font-size: 2rem;">Manage Your Account Forms</h2>
+                    <button class="btn-primary" onclick="showNewFormPage()">➕ Create New Account</button>
                 </div>
 
                 <!-- Enhanced Search and Filter Controls -->
@@ -1311,7 +1311,7 @@
                             <input 
                                 type="text" 
                                 id="search-input" 
-                                placeholder="🔍 Search forms by client name, status, or content..." 
+                                placeholder="Search forms by client name, status, or content..." 
                                 style="width: 100%; padding: 0.75rem 1rem 0.75rem 3rem; border: 2px solid #e9ecef; border-radius: 25px; font-size: 1rem; transition: all 0.3s ease;"
                                 oninput="handleSearch()"
                                 onfocus="this.style.borderColor='#007bff'; this.style.boxShadow='0 0 0 3px rgba(0,123,255,0.1)'"
@@ -3613,11 +3613,14 @@
             // Check if we're in workflow context
             if (checkWorkflowContext()) {
                 // We're coming from workflow dashboard
+                console.log('Workflow context detected, preparing form...');
                 addBackToDashboardButton();
                 addSubmitButton();
                 updateFormTitle();
                 
-                // Form will show by default when no forms list is displayed
+                // Ensure the new form page is visible
+                showNewFormPage();
+                
                 // Hide forms list if it exists
                 const formsList = document.getElementById('forms-list');
                 if (formsList) {
@@ -3633,12 +3636,9 @@
                 // Normal form access - form should be visible by default
                 console.log('Normal form access - comprehensive form should be visible');
                 
-                // Load form metadata for the comprehensive form
-                if (!formMetadata) {
-                    loadFormMetadata();
-                } else {
-                    renderFormContent();
-                }
+                // Ensure the new form page is visible
+                showNewFormPage();
+                console.log('Form ready for user input');
             }
         });
     </script>
