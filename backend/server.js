@@ -1,10 +1,16 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const rateLimit = require('express-rate-limit');
+
+// Import workflow modules
+const { initializeDefaultData } = require('./workflow-schema');
+const { createSampleData } = require('./sample-data');
+const workflowRoutes = require('./workflow-routes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -47,8 +53,20 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Cookie parsing middleware
+app.use(cookieParser());
+
 // Serve static files from public directory
 app.use('/', express.static(path.join(__dirname, 'public')));
+
+// Initialize workflow default data
+initializeDefaultData();
+
+// Create sample data for demonstration
+createSampleData();
+
+// Mount workflow routes
+app.use('/api', workflowRoutes);
 
 // Utility functions
 const getFormFilePath = (id) => path.join(DATA_DIR, `${id}.json`);

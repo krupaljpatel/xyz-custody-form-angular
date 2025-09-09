@@ -834,68 +834,36 @@
             margin-bottom: var(--space-1);
         }
         
-        /* Tooltip Styles */
-        .tooltip-container {
-            position: relative;
-            display: inline-block;
-        }
-        
+        /* Hide old tooltip elements */
+        .tooltip-container,
         .tooltip-trigger {
-            cursor: help;
-            margin-left: var(--space-1);
-            color: var(--primary);
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-decoration: none;
-            opacity: 0.7;
-            transition: opacity 0.2s ease;
-        }
-        
-        .tooltip-trigger:hover {
-            opacity: 1;
-        }
-        
-        .tooltip-content {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-bottom: var(--space-2);
-            padding: var(--space-3);
-            background: var(--gray-900);
-            color: var(--white);
-            border-radius: var(--radius);
-            font-size: 0.875rem;
-            line-height: 1.4;
-            white-space: nowrap;
-            max-width: 300px;
-            white-space: normal;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .tooltip-content::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 5px solid transparent;
-            border-top-color: var(--gray-900);
-        }
-        
-        .tooltip-container:hover .tooltip-content {
-            opacity: 1;
-            visibility: visible;
+            display: none;
         }
         
         .form-field label {
             display: flex;
             align-items: center;
             margin-bottom: var(--space-2);
+        }
+        
+        /* Field Help Text Styles */
+        .field-help-text {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #0ea5e9;
+            border-radius: var(--radius);
+            padding: var(--space-3);
+            margin-top: var(--space-2);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--gray-700);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
+        }
+        
+        .help-icon {
+            flex-shrink: 0;
+            font-size: 1rem;
         }
         
         /* User Guide Document Styles */
@@ -1044,6 +1012,271 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* Chatbot Styles */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: inherit;
+        }
+        
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .chatbot-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6);
+        }
+        
+        .chatbot-panel {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--gray-200);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chatbot-panel.open {
+            display: flex;
+            animation: chatbotSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes chatbotSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+            color: white;
+            padding: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .chatbot-avatar {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .chatbot-info h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .chatbot-info p {
+            margin: 0;
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: var(--space-4);
+            overflow-y: auto;
+            background: #f8fafc;
+        }
+        
+        .chat-message {
+            margin-bottom: var(--space-4);
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+        
+        .message-content {
+            max-width: 80%;
+            padding: var(--space-3);
+            border-radius: 12px;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+        
+        .message-content.bot {
+            background: white;
+            border: 1px solid var(--gray-200);
+            color: var(--gray-800);
+        }
+        
+        .message-content.user {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .message-avatar.bot {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .message-avatar.user {
+            background: var(--gray-300);
+            color: var(--gray-700);
+        }
+        
+        .chatbot-input-area {
+            padding: var(--space-4);
+            border-top: 1px solid var(--gray-200);
+            background: white;
+        }
+        
+        .chatbot-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            margin-bottom: var(--space-3);
+        }
+        
+        .suggestion-chip {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            padding: var(--space-2) var(--space-3);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .suggestion-chip:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .chatbot-input {
+            display: flex;
+            gap: var(--space-2);
+            align-items: center;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            padding: var(--space-3);
+            border: 1px solid var(--gray-300);
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.875rem;
+        }
+        
+        .chatbot-input input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .chatbot-send {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+        
+        .chatbot-send:hover {
+            background: var(--primary-dark);
+        }
+        
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+        
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gray-400);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        /* Mobile responsiveness for chatbot */
+        @media (max-width: 768px) {
+            .chatbot-panel {
+                width: calc(100vw - 40px);
+                height: 400px;
+                right: 10px;
+                bottom: 80px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1064,7 +1297,7 @@
 
         <main class="app-main">
             <!-- Forms List Page -->
-            <div id="forms-list-page">
+            <div id="forms-list-page" class="hidden">
                 <div class="header" style="text-align: center; margin-bottom: 3rem;">
                     <h2 style="color: #495057; margin-bottom: 1rem; font-size: 2rem;">Manage Your Forms</h2>
                     <button class="btn-primary" onclick="showNewFormPage()">➕ Create New Form</button>
@@ -1130,7 +1363,7 @@
             </div>
 
             <!-- New Form Page -->
-            <div id="new-form-page" class="hidden">
+            <div id="new-form-page">
                 <div class="form-editor">
                     <div class="editor-header">
                         <h2>Create New XYZ Custody Account Opening Form</h2>
@@ -1237,13 +1470,27 @@
             try {
                 console.log('Loading form metadata...');
                 const response = await fetch('/form-metadata.json');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
                 formMetadata = await response.json();
-                console.log('Metadata loaded:', formMetadata);
+                console.log('Metadata loaded successfully, tabs:', formMetadata.tabs.length);
                 renderFormContent();
             } catch (error) {
                 console.error('Error loading metadata:', error);
-                document.getElementById('form-content').innerHTML = 
-                    '<div style="text-align: center; padding: 2rem; color: #dc3545;">Error loading form structure</div>';
+                const container = document.getElementById('form-content');
+                if (container) {
+                    container.innerHTML = 
+                        `<div style="text-align: center; padding: 2rem; color: #dc3545;">
+                            <h3>Error loading form structure</h3>
+                            <p>Error: ${error.message}</p>
+                            <button onclick="location.reload()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Reload Page</button>
+                        </div>`;
+                } else {
+                    console.error('form-content element not found');
+                }
             }
         }
 
@@ -1304,16 +1551,45 @@
             return tooltipMap[fieldName] || null;
         }
 
-        // Generate tooltip HTML
-        function generateTooltipHTML(tooltipContent) {
-            if (!tooltipContent) return '';
-            
-            return `
-                <div class="tooltip-container">
-                    <span class="tooltip-trigger">?</span>
-                    <div class="tooltip-content">${tooltipContent}</div>
-                </div>
-            `;
+        // Add help text below form fields after rendering
+        function addHelpTextToFields() {
+            try {
+                console.log('addHelpTextToFields called');
+                // Find all form fields and add help text below them
+                const formFields = document.querySelectorAll('.form-field');
+                console.log('Found form fields:', formFields.length);
+                
+                formFields.forEach(field => {
+                    // Get field name from data attribute or input name
+                    const input = field.querySelector('input, select, textarea');
+                    if (!input) return;
+                    
+                    const fieldName = input.name || input.id;
+                    const helpContent = getTooltipContent(fieldName);
+                    
+                    if (helpContent) {
+                        // Remove existing help text if any
+                        const existingHelp = field.querySelector('.field-help-text');
+                        if (existingHelp) {
+                            existingHelp.remove();
+                        }
+                        
+                        // Create help text element
+                        const helpDiv = document.createElement('div');
+                        helpDiv.className = 'field-help-text';
+                        helpDiv.innerHTML = `
+                            <span class="help-icon">💡</span>
+                            ${helpContent}
+                        `;
+                        
+                        // Add help text after the input element
+                        input.parentNode.appendChild(helpDiv);
+                        console.log('Added help text for field:', fieldName);
+                    }
+                });
+            } catch (error) {
+                console.error('Error in addHelpTextToFields:', error);
+            }
         }
 
         // Render form content based on current tab
@@ -1371,7 +1647,21 @@
             container.innerHTML = html;
             
             // Setup conditional logic after rendering
-            setupConditionalLogic();
+            try {
+                setupConditionalLogic();
+                console.log('setupConditionalLogic completed successfully');
+            } catch (error) {
+                console.error('Error in setupConditionalLogic:', error);
+            }
+            
+            // Add help text below form fields
+            setTimeout(() => {
+                try {
+                    addHelpTextToFields();
+                } catch (error) {
+                    console.error('Error calling addHelpTextToFields:', error);
+                }
+            }, 100);
         }
 
         // Render User Guide as a document instead of form fields
@@ -1523,8 +1813,6 @@
         function renderField(field) {
             const conditionalClass = field.conditional ? 'conditional-field' : '';
             const conditionalId = field.conditional ? `conditional-${field.name}` : '';
-            const tooltipContent = getTooltipContent(field.name);
-            const tooltipHTML = generateTooltipHTML(tooltipContent);
             
             let fieldHtml = `<div class="form-field ${conditionalClass}" id="${conditionalId}" data-field="${field.name}">`;
             
@@ -1535,7 +1823,7 @@
                     fieldHtml += `
                         <label for="${field.name}">
                             ${field.label}${field.required ? ' *' : ''}
-                            ${tooltipHTML}
+
                         </label>
                         <input 
                             type="${field.type}" 
@@ -1553,7 +1841,7 @@
                     fieldHtml += `
                         <label for="${field.name}">
                             ${field.label}${field.required ? ' *' : ''}
-                            ${tooltipHTML}
+
                         </label>
                         <textarea 
                             id="${field.name}" 
@@ -1569,7 +1857,7 @@
                     fieldHtml += `
                         <label class="field-label">
                             ${field.label}${field.required ? ' *' : ''}
-                            ${tooltipHTML}
+
                         </label>
                         <div class="radio-group">
                     `;
@@ -1608,7 +1896,7 @@
                                 onchange="handleFieldChange('${field.name}')">
                             <label for="${field.name}">
                                 ${field.label}
-                                ${tooltipHTML}
+
                             </label>
                         </div>
                     `;
@@ -1624,7 +1912,7 @@
                                 onchange="handleFieldChange('${field.name}')">
                             <label for="${field.name}">
                                 ${field.label}
-                                ${tooltipHTML}
+
                             </label>
                         </div>
                     `;
@@ -1658,7 +1946,7 @@
                     fieldHtml += `
                         <label for="${field.name}">
                             ${field.label}${field.required ? ' *' : ''}
-                            ${tooltipHTML}
+
                         </label>
                         <select 
                             id="${field.name}" 
@@ -1677,7 +1965,7 @@
                     fieldHtml += `
                         <label class="field-label">
                             ${field.label}${field.required ? ' *' : ''}
-                            ${tooltipHTML}
+
                         </label>
                         <div class="multiselect-group">
                     `;
@@ -1701,7 +1989,7 @@
                     fieldHtml += `
                         <label class="field-label">
                             ${field.label}${field.required ? ' *' : ''}
-                            ${tooltipHTML}
+
                         </label>
                         <div class="checkbox-group">
                     `;
@@ -2426,11 +2714,986 @@
             }
         });
 
+        // Chatbot functionality
+        let chatbotOpen = false;
+        let currentLanguage = 'en'; // Default to English
+        
+        // Language detection function
+        function detectLanguage(text) {
+            // Simple language detection based on character patterns
+            const chinesePattern = /[\u4e00-\u9fff]/;
+            const japanesePattern = /[\u3040-\u309f\u30a0-\u30ff]/;
+            const spanishPattern = /[ñáéíóúüç]/i;
+            
+            if (chinesePattern.test(text)) {
+                return 'zh';
+            } else if (japanesePattern.test(text)) {
+                return 'ja';
+            } else if (spanishPattern.test(text)) {
+                return 'es';
+            }
+            return 'en';
+        }
+        
+        // Multilingual translations
+        const translations = {
+            en: {
+                welcome: "Hi! I'm here to help you with questions about the XYZ Custody Account Opening Form. How can I assist you today?",
+                accountNaming: `<strong>Account Naming Guidelines:</strong><br><br>
+                        • <strong>Legal Title:</strong> Use full legal name, up to 228 characters<br>
+                        • <strong>Short Name:</strong> 30 character limit for XYZ Infuse and wire transfers<br>
+                        • Must be unique and recognizable<br><br>
+                        <em>Different entity types have specific naming conventions - check Section 1 of the User Guide for details!</em>`,
+                swift: `<strong>SWIFT/BIC Codes:</strong><br><br>
+                        • Use 8 or 11 character SWIFT/BIC codes<br>
+                        • Required for wire transfers and trade confirmations<br>
+                        • Must be valid and active codes<br>
+                        • Contact name will be populated with your account Short Title<br><br>
+                        <em>Need help with specific SWIFT messages? Check Section 12 in the User Guide!</em>`,
+                tax: `<strong>Tax Treatment Guidelines:</strong><br><br>
+                        • Enter your tax classification from IRS Form W-8/W-9<br>
+                        • For U.S. accounts: enter actual state, not just "U.S."<br>
+                        • U.S. citizens abroad: enter "United States" as domicile<br>
+                        • FATCA withholding may apply without proper documentation<br><br>
+                        <em>See Section 4 in the User Guide for complete tax guidance!</em>`,
+                services: `<strong>Account Services:</strong><br><br>
+                        • <strong>Cash Services:</strong> Required for cash-only accounts<br>
+                        • <strong>Custody Services:</strong> For securities safekeeping & administration<br>
+                        • <strong>Foreign Exchange:</strong> Enables FX trading capabilities<br>
+                        • Account type determined by your service selections<br><br>
+                        <em>Services must match what's contracted with XYZ - see Section 2!</em>`,
+                markets: `<strong>Markets & Currencies:</strong><br><br>
+                        • Select only required markets and currencies<br>
+                        • Missing markets may delay account opening<br>
+                        • Some markets need more than 1 business day to open<br>
+                        • Euroclear/Clearstream for international fixed income<br><br>
+                        <em>Check Section 3 for detailed market selection guidance!</em>`,
+                help: `<strong>Getting Help:</strong><br><br>
+                        • Look for 💡 help text below each field<br>
+                        • Check the User Guide tab for detailed guidance<br>
+                        • Contact your Client Service Representative<br>
+                        • Review XYZ Infuse documentation<br><br>
+                        <em>I can also answer specific questions about form sections!</em>`,
+                wire: `<strong>Wire Transfer Setup:</strong><br><br>
+                        • Provide complete address for electronic transfers<br>
+                        • Contact name uses your account Short Title<br>
+                        • No PO Box or "Personal/Confidential" in address<br>
+                        • Can use same address as tax documentation<br><br>
+                        <em>See Section 8 for wire transfer address requirements!</em>`,
+                default: [
+                    `I can help you with questions about:<br><br>
+                     • Account naming and setup<br>
+                     • SWIFT codes and wire transfers<br>
+                     • Tax treatment and FATCA<br>
+                     • Services and market selection<br>
+                     • Form navigation and requirements<br><br>
+                     <em>Try asking about any of these topics!</em>`,
+                    `For detailed guidance, check the <strong>User Guide tab</strong> which covers all 15 sections of the form. You can also look at the 💡 help text below each field for specific requirements.`,
+                    `I'm designed to help with the XYZ Custody Account Opening Form. Try asking about specific sections like "account naming", "tax treatment", or "SWIFT codes" for detailed guidance!`
+                ]
+            },
+            es: {
+                welcome: "¡Hola! Estoy aquí para ayudarte con preguntas sobre el Formulario de Apertura de Cuenta de Custodia XYZ. ¿Cómo puedo asistirte hoy?",
+                accountNaming: `<strong>Directrices para Nombres de Cuenta:</strong><br><br>
+                        • <strong>Título Legal:</strong> Use el nombre legal completo, hasta 228 caracteres<br>
+                        • <strong>Nombre Corto:</strong> Límite de 30 caracteres para XYZ Infuse y transferencias<br>
+                        • Debe ser único y reconocible<br><br>
+                        <em>Diferentes tipos de entidades tienen convenciones específicas - ¡consulte la Sección 1 de la Guía del Usuario!</em>`,
+                swift: `<strong>Códigos SWIFT/BIC:</strong><br><br>
+                        • Use códigos SWIFT/BIC de 8 u 11 caracteres<br>
+                        • Requeridos para transferencias y confirmaciones comerciales<br>
+                        • Deben ser códigos válidos y activos<br>
+                        • El nombre de contacto se poblará con su Título Corto de cuenta<br><br>
+                        <em>¿Necesita ayuda con mensajes SWIFT específicos? ¡Consulte la Sección 12!</em>`,
+                tax: `<strong>Directrices de Tratamiento Fiscal:</strong><br><br>
+                        • Ingrese su clasificación fiscal del Formulario IRS W-8/W-9<br>
+                        • Para cuentas de EE.UU.: ingrese el estado real, no solo "EE.UU."<br>
+                        • Ciudadanos de EE.UU. en el extranjero: ingrese "Estados Unidos" como domicilio<br>
+                        • La retención FATCA puede aplicar sin documentación adecuada<br><br>
+                        <em>¡Vea la Sección 4 para orientación fiscal completa!</em>`,
+                services: `<strong>Servicios de Cuenta:</strong><br><br>
+                        • <strong>Servicios de Efectivo:</strong> Requeridos para cuentas solo de efectivo<br>
+                        • <strong>Servicios de Custodia:</strong> Para custodia y administración de valores<br>
+                        • <strong>Cambio de Divisas:</strong> Habilita capacidades comerciales FX<br>
+                        • Tipo de cuenta determinado por sus selecciones de servicios<br><br>
+                        <em>¡Los servicios deben coincidir con lo contratado con XYZ!</em>`,
+                markets: `<strong>Mercados y Monedas:</strong><br><br>
+                        • Seleccione solo mercados y monedas requeridos<br>
+                        • Mercados faltantes pueden retrasar la apertura<br>
+                        • Algunos mercados necesitan más de 1 día hábil para abrir<br>
+                        • Euroclear/Clearstream para renta fija internacional<br><br>
+                        <em>¡Consulte la Sección 3 para orientación detallada!</em>`,
+                help: `<strong>Obteniendo Ayuda:</strong><br><br>
+                        • Busque el texto de ayuda 💡 debajo de cada campo<br>
+                        • Consulte la pestaña Guía del Usuario<br>
+                        • Contacte a su Representante de Servicio al Cliente<br>
+                        • Revise la documentación de XYZ Infuse<br><br>
+                        <em>¡También puedo responder preguntas específicas sobre secciones!</em>`,
+                wire: `<strong>Configuración de Transferencia:</strong><br><br>
+                        • Proporcione dirección completa para transferencias electrónicas<br>
+                        • El nombre de contacto usa su Título Corto de cuenta<br>
+                        • No use apartado postal o "Personal/Confidencial"<br>
+                        • Puede usar la misma dirección que documentación fiscal<br><br>
+                        <em>¡Vea la Sección 8 para requisitos de dirección!</em>`,
+                default: [
+                    `Puedo ayudarte con preguntas sobre:<br><br>
+                     • Nomenclatura y configuración de cuentas<br>
+                     • Códigos SWIFT y transferencias<br>
+                     • Tratamiento fiscal y FATCA<br>
+                     • Selección de servicios y mercados<br>
+                     • Navegación y requisitos del formulario<br><br>
+                     <em>¡Pregunta sobre cualquiera de estos temas!</em>`,
+                    `Para orientación detallada, consulte la <strong>pestaña Guía del Usuario</strong> que cubre las 15 secciones del formulario.`,
+                    `Estoy diseñado para ayudar con el Formulario XYZ. ¡Pregunta sobre secciones específicas como "nombres de cuenta", "tratamiento fiscal" o "códigos SWIFT"!`
+                ]
+            },
+            zh: {
+                welcome: "您好！我在这里帮助您解答关于XYZ托管账户开户表格的问题。今天我能为您提供什么帮助？",
+                accountNaming: `<strong>账户命名指南：</strong><br><br>
+                        • <strong>法定名称：</strong> 使用完整法定名称，最多228个字符<br>
+                        • <strong>简称：</strong> XYZ Infuse和电汇限制30个字符<br>
+                        • 必须唯一且可识别<br><br>
+                        <em>不同实体类型有特定命名约定 - 请查看用户指南第1部分！</em>`,
+                swift: `<strong>SWIFT/BIC代码：</strong><br><br>
+                        • 使用8或11位SWIFT/BIC代码<br>
+                        • 电汇和交易确认需要<br>
+                        • 必须是有效和活跃的代码<br>
+                        • 联系人姓名将使用您的账户简称<br><br>
+                        <em>需要特定SWIFT消息帮助？查看第12部分！</em>`,
+                tax: `<strong>税务处理指南：</strong><br><br>
+                        • 输入IRS表格W-8/W-9的税务分类<br>
+                        • 美国账户：输入实际州份，不只是"美国"<br>
+                        • 海外美国公民：输入"美国"作为税务居住地<br>
+                        • 没有适当文件可能适用FATCA预扣税<br><br>
+                        <em>查看第4部分获取完整税务指导！</em>`,
+                services: `<strong>账户服务：</strong><br><br>
+                        • <strong>现金服务：</strong> 纯现金账户必需<br>
+                        • <strong>托管服务：</strong> 用于证券保管和管理<br>
+                        • <strong>外汇：</strong> 启用外汇交易功能<br>
+                        • 账户类型由服务选择决定<br><br>
+                        <em>服务必须与XYZ合约匹配 - 查看第2部分！</em>`,
+                markets: `<strong>市场和货币：</strong><br><br>
+                        • 仅选择所需的市场和货币<br>
+                        • 缺失市场可能延迟开户<br>
+                        • 某些市场需要超过1个工作日开通<br>
+                        • Euroclear/Clearstream用于国际固收<br><br>
+                        <em>查看第3部分获取详细选择指导！</em>`,
+                help: `<strong>获取帮助：</strong><br><br>
+                        • 查看每个字段下方的💡帮助文本<br>
+                        • 查看用户指南选项卡获取详细指导<br>
+                        • 联系您的客户服务代表<br>
+                        • 查看XYZ Infuse文档<br><br>
+                        <em>我也可以回答关于表格部分的具体问题！</em>`,
+                wire: `<strong>电汇设置：</strong><br><br>
+                        • 提供完整地址用于电子转账<br>
+                        • 联系人姓名使用您的账户简称<br>
+                        • 地址中不要包含邮政信箱或"个人/机密"<br>
+                        • 可以使用与税务文件相同的地址<br><br>
+                        <em>查看第8部分了解电汇地址要求！</em>`,
+                default: [
+                    `我可以帮助您解答关于以下问题：<br><br>
+                     • 账户命名和设置<br>
+                     • SWIFT代码和电汇<br>
+                     • 税务处理和FATCA<br>
+                     • 服务和市场选择<br>
+                     • 表格导航和要求<br><br>
+                     <em>请询问这些主题中的任何一个！</em>`,
+                    `如需详细指导，请查看<strong>用户指南选项卡</strong>，其中包含表格的所有15个部分。`,
+                    `我专门帮助处理XYZ托管账户开户表格。请询问具体部分，如"账户命名"、"税务处理"或"SWIFT代码"！`
+                ]
+            },
+            ja: {
+                welcome: "こんにちは！XYZカストディ口座開設フォームに関するご質問をお手伝いします。今日はどのようなご用件でしょうか？",
+                accountNaming: `<strong>口座名義ガイドライン：</strong><br><br>
+                        • <strong>正式名称：</strong> 完全な法的名称を使用、最大228文字<br>
+                        • <strong>略称：</strong> XYZ Infuseと電信送金用30文字制限<br>
+                        • 固有で認識可能である必要があります<br><br>
+                        <em>異なる事業体タイプには特定の命名規則があります - ユーザーガイドセクション1をご確認ください！</em>`,
+                swift: `<strong>SWIFT/BICコード：</strong><br><br>
+                        • 8桁または11桁のSWIFT/BICコードを使用<br>
+                        • 電信送金と取引確認に必要<br>
+                        • 有効でアクティブなコードである必要があります<br>
+                        • 連絡先名は口座略称で入力されます<br><br>
+                        <em>特定のSWIFTメッセージのヘルプが必要ですか？セクション12をご確認ください！</em>`,
+                tax: `<strong>税務処理ガイドライン：</strong><br><br>
+                        • IRSフォームW-8/W-9から税務分類を入力<br>
+                        • 米国口座の場合：「米国」ではなく実際の州を入力<br>
+                        • 海外在住米国市民：居住地として「米国」を入力<br>
+                        • 適切な書類がない場合、FATCA源泉徴収が適用される可能性があります<br><br>
+                        <em>完全な税務ガイダンスについてはセクション4をご覧ください！</em>`,
+                services: `<strong>口座サービス：</strong><br><br>
+                        • <strong>現金サービス：</strong> 現金のみ口座に必要<br>
+                        • <strong>カストディサービス：</strong> 証券の保管と管理用<br>
+                        • <strong>外国為替：</strong> FX取引機能を有効化<br>
+                        • 口座タイプはサービス選択によって決定されます<br><br>
+                        <em>サービスはXYZとの契約内容と一致する必要があります - セクション2をご覧ください！</em>`,
+                markets: `<strong>市場と通貨：</strong><br><br>
+                        • 必要な市場と通貨のみを選択<br>
+                        • 不足している市場は口座開設を遅らせる可能性があります<br>
+                        • 一部の市場は開設に1営業日以上必要<br>
+                        • 国際債券にはEuroclear/Clearstream<br><br>
+                        <em>詳細な選択ガイダンスについてはセクション3をご確認ください！</em>`,
+                help: `<strong>ヘルプの取得：</strong><br><br>
+                        • 各フィールド下の💡ヘルプテキストを確認<br>
+                        • 詳細なガイダンスについてはユーザーガイドタブを確認<br>
+                        • クライアントサービス担当者にお問い合わせください<br>
+                        • XYZ Infuseドキュメントを確認<br><br>
+                        <em>フォームセクションに関する具体的な質問にもお答えできます！</em>`,
+                wire: `<strong>電信送金設定：</strong><br><br>
+                        • 電子送金用の完全な住所を提供<br>
+                        • 連絡先名は口座略称を使用<br>
+                        • 私書箱や「Personal/Confidential」は住所に含めない<br>
+                        • 税務書類と同じ住所を使用可能<br><br>
+                        <em>電信送金住所要件についてはセクション8をご覧ください！</em>`,
+                default: [
+                    `以下について質問をお手伝いできます：<br><br>
+                     • 口座命名と設定<br>
+                     • SWIFTコードと電信送金<br>
+                     • 税務処理とFATCA<br>
+                     • サービスと市場選択<br>
+                     • フォームナビゲーションと要件<br><br>
+                     <em>これらのトピックについてお気軽にお尋ねください！</em>`,
+                    `詳細なガイダンスについては、フォームの全15セクションをカバーする<strong>ユーザーガイドタブ</strong>をご確認ください。`,
+                    `XYZカストディ口座開設フォームのお手伝いをするよう設計されています。「口座命名」、「税務処理」、「SWIFTコード」などの具体的なセクションについてお尋ねください！`
+                ]
+            }
+        };
+        
+        function toggleChatbot() {
+            const panel = document.getElementById('chatbot-panel');
+            const icon = document.getElementById('chatbot-icon');
+            
+            chatbotOpen = !chatbotOpen;
+            
+            if (chatbotOpen) {
+                panel.classList.add('open');
+                icon.textContent = '✖️';
+                
+                // Initialize chatbot with default language
+                initializeChatbot();
+            } else {
+                panel.classList.remove('open');
+                icon.textContent = '💬';
+            }
+        }
+        
+        function initializeChatbot() {
+            // Detect browser language preference
+            const browserLang = navigator.language.substring(0, 2);
+            if (['en', 'es', 'zh', 'ja'].includes(browserLang)) {
+                currentLanguage = browserLang;
+            }
+            
+            // Update welcome message
+            const welcomeMessage = document.getElementById('welcome-message');
+            welcomeMessage.innerHTML = translations[currentLanguage].welcome;
+            
+            // Update suggestion chips
+            updateSuggestions();
+            
+            // Update input placeholder
+            const placeholders = {
+                en: 'Ask me anything about the form...',
+                es: 'Pregúntame sobre el formulario...',
+                zh: '询问关于表格的任何问题...',
+                ja: 'フォームについて何でもお聞きください...'
+            };
+            
+            const input = document.getElementById('chatbot-input');
+            input.placeholder = placeholders[currentLanguage];
+        }
+        
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        function sendSuggestion(message) {
+            document.getElementById('chatbot-input').value = message;
+            sendMessage();
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatbot-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Simulate bot response delay
+            setTimeout(() => {
+                hideTypingIndicator();
+                const response = getBotResponse(message);
+                addMessage(response, 'bot');
+                
+                // Update suggestion chips based on detected language
+                updateSuggestions();
+            }, 1500);
+        }
+        
+        function updateSuggestions() {
+            const suggestionsContainer = document.getElementById('chatbot-suggestions');
+            const suggestions = {
+                en: [
+                    { text: 'Account naming help', query: 'How do I fill account name?' },
+                    { text: 'SWIFT codes', query: 'What are SWIFT codes?' },
+                    { text: 'Tax help', query: 'Tax treatment guide' }
+                ],
+                es: [
+                    { text: 'Ayuda nombres cuenta', query: '¿Cómo lleno el nombre de cuenta?' },
+                    { text: 'Códigos SWIFT', query: '¿Qué son los códigos SWIFT?' },
+                    { text: 'Ayuda fiscal', query: 'Guía tratamiento fiscal' }
+                ],
+                zh: [
+                    { text: '账户命名帮助', query: '如何填写账户名称？' },
+                    { text: 'SWIFT代码', query: '什么是SWIFT代码？' },
+                    { text: '税务帮助', query: '税务处理指南' }
+                ],
+                ja: [
+                    { text: '口座名義ヘルプ', query: '口座名はどう記入しますか？' },
+                    { text: 'SWIFTコード', query: 'SWIFTコードとは？' },
+                    { text: '税務ヘルプ', query: '税務処理ガイド' }
+                ]
+            };
+            
+            const currentSuggestions = suggestions[currentLanguage];
+            suggestionsContainer.innerHTML = currentSuggestions.map(suggestion => 
+                `<div class="suggestion-chip" onclick="sendSuggestion('${suggestion.query}')">${suggestion.text}</div>`
+            ).join('');
+        }
+        
+        function addMessage(message, sender) {
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}`;
+            
+            const avatarDiv = document.createElement('div');
+            avatarDiv.className = `message-avatar ${sender}`;
+            avatarDiv.textContent = sender === 'bot' ? '🤖' : '👤';
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = `message-content ${sender}`;
+            contentDiv.innerHTML = message;
+            
+            messageDiv.appendChild(avatarDiv);
+            messageDiv.appendChild(contentDiv);
+            messagesContainer.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        function showTypingIndicator() {
+            document.getElementById('typing-indicator').style.display = 'flex';
+            const messagesContainer = document.getElementById('chatbot-messages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        function hideTypingIndicator() {
+            document.getElementById('typing-indicator').style.display = 'none';
+        }
+        
+        // Language detection function
+        function detectLanguage(text) {
+            const chinesePattern = /[\u4e00-\u9fff]/;
+            const japanesePattern = /[\u3040-\u309f\u30a0-\u30ff]/;
+            const spanishPattern = /[ñáéíóúüç]|que|los|las|son|servicios|ofrecen|cuales/i;
+            
+            if (chinesePattern.test(text)) {
+                return 'zh';
+            }
+            if (japanesePattern.test(text)) {
+                return 'ja';
+            }
+            if (spanishPattern.test(text)) {
+                return 'es';
+            }
+            return 'en'; // default to English
+        }
+
+        function getBotResponse(message) {
+            // Detect language from user message
+            const detectedLang = detectLanguage(message);
+            currentLanguage = detectedLang;
+            
+            const lowercaseMessage = message.toLowerCase();
+            const t = translations[currentLanguage];
+            
+            // Define keyword patterns for different languages
+            const keywords = {
+                accountName: {
+                    en: ['account name', 'naming', 'legal title', 'short name'],
+                    es: ['nombre cuenta', 'nomenclatura', 'título legal', 'nombre corto'],
+                    zh: ['账户名', '命名', '账户名称', '法定名称', '简称'],
+                    ja: ['口座名', '名義', '正式名称', '略称']
+                },
+                swift: {
+                    en: ['swift', 'bic', 'wire transfer', 'bank code'],
+                    es: ['swift', 'bic', 'transferencia', 'código banco'],
+                    zh: ['swift', 'bic', '电汇', '银行代码'],
+                    ja: ['swift', 'bic', '電信送金', '銀行コード']
+                },
+                tax: {
+                    en: ['tax', 'fatca', 'withhold', 'classification'],
+                    es: ['impuesto', 'fiscal', 'fatca', 'retención'],
+                    zh: ['税', '税务', 'fatca', '预扣', '分类'],
+                    ja: ['税', '税務', 'fatca', '源泉徴収', '分類']
+                },
+                services: {
+                    en: ['service', 'services', 'custody', 'cash', 'foreign exchange'],
+                    es: ['servicio', 'servicios', 'custodia', 'efectivo', 'divisas'],
+                    zh: ['服务', '托管', '现金', '外汇'],
+                    ja: ['サービス', 'カストディ', '現金', '外国為替']
+                },
+                markets: {
+                    en: ['market', 'currency', 'global', 'euroclear'],
+                    es: ['mercado', 'moneda', 'global', 'euroclear'],
+                    zh: ['市场', '货币', '全球', '欧洲清算'],
+                    ja: ['市場', '通貨', 'グローバル', 'ユーロクリア']
+                },
+                help: {
+                    en: ['help', 'support', 'contact', 'assistance'],
+                    es: ['ayuda', 'soporte', 'contacto', 'asistencia'],
+                    zh: ['帮助', '支持', '联系', '协助'],
+                    ja: ['ヘルプ', 'サポート', '連絡', '支援']
+                },
+                wire: {
+                    en: ['wire', 'transfer', 'address', 'electronic'],
+                    es: ['transferencia', 'dirección', 'electrónica'],
+                    zh: ['电汇', '转账', '地址', '电子'],
+                    ja: ['電信送金', '送金', '住所', '電子']
+                }
+            };
+            
+            // Check for matches in the detected language
+            const checkKeywords = (category) => {
+                const categoryKeywords = keywords[category][currentLanguage] || keywords[category]['en'];
+                return categoryKeywords.some(keyword => lowercaseMessage.includes(keyword));
+            };
+            
+            // Return appropriate response based on detected keywords
+            if (checkKeywords('accountName')) {
+                return t.accountNaming;
+            }
+            
+            if (checkKeywords('swift')) {
+                return t.swift;
+            }
+            
+            if (checkKeywords('tax')) {
+                return t.tax;
+            }
+            
+            if (checkKeywords('services')) {
+                return t.services;
+            }
+            
+            if (checkKeywords('markets')) {
+                return t.markets;
+            }
+            
+            if (checkKeywords('help')) {
+                return t.help;
+            }
+            
+            if (checkKeywords('wire')) {
+                return t.wire;
+            }
+            
+            // Return random default response in detected language
+            return t.default[Math.floor(Math.random() * t.default.length)];
+        }
+
+        // Workflow Integration
+        let currentWorkflowId = null;
+        let workflowData = null;
+
+        // Check if we're coming from the workflow dashboard
+        function checkWorkflowContext() {
+            currentWorkflowId = sessionStorage.getItem('currentWorkflowId');
+            const workflowDataStr = sessionStorage.getItem('workflowData');
+            
+            if (currentWorkflowId && workflowDataStr) {
+                workflowData = JSON.parse(workflowDataStr);
+                console.log('Loading form from workflow:', workflowData.title);
+                return true;
+            }
+            return false;
+        }
+
+        // Add Back to Dashboard button for workflow context
+        function addBackToDashboardButton() {
+            // Try multiple selectors to find the header
+            let header = document.querySelector('.main-header .header-content');
+            if (!header) {
+                header = document.querySelector('.main-header');
+            }
+            if (!header) {
+                header = document.querySelector('header');
+            }
+            if (!header) {
+                // Create a fixed position button if no header found
+                console.log('No header found, creating fixed position back button');
+                createFixedBackButton();
+                return;
+            }
+            
+            if (header && !document.getElementById('back-to-dashboard')) {
+                const backButton = document.createElement('button');
+                backButton.id = 'back-to-dashboard';
+                backButton.className = 'back-button';
+                backButton.innerHTML = '← Back to Dashboard';
+                backButton.style.cssText = `
+                    position: absolute;
+                    left: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: #667eea;
+                    color: white;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-weight: 500;
+                `;
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Back to Dashboard button clicked');
+                    
+                    // Clear workflow context and go back to dashboard
+                    sessionStorage.removeItem('currentWorkflowId');
+                    sessionStorage.removeItem('workflowData');
+                    
+                    console.log('Redirecting to workflow dashboard...');
+                    window.location.href = '/workflow-dashboard.html';
+                });
+                header.appendChild(backButton);
+            }
+        }
+
+        // Create fixed position back button as fallback
+        function createFixedBackButton() {
+            if (document.getElementById('back-to-dashboard')) return;
+            
+            const backButton = document.createElement('button');
+            backButton.id = 'back-to-dashboard';
+            backButton.className = 'back-button fixed';
+            backButton.innerHTML = '← Back to Dashboard';
+            backButton.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                background: #667eea;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 14px;
+                z-index: 10000;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                transition: all 0.3s ease;
+            `;
+            
+            backButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Fixed Back to Dashboard button clicked');
+                
+                // Clear workflow context and go back to dashboard
+                sessionStorage.removeItem('currentWorkflowId');
+                sessionStorage.removeItem('workflowData');
+                
+                console.log('Redirecting to workflow dashboard...');
+                window.location.href = '/workflow-dashboard.html';
+            });
+            
+            // Add hover effect
+            backButton.addEventListener('mouseenter', function() {
+                this.style.background = '#5a6fd8';
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            backButton.addEventListener('mouseleave', function() {
+                this.style.background = '#667eea';
+                this.style.transform = 'translateY(0)';
+            });
+            
+            document.body.appendChild(backButton);
+            console.log('Fixed position back button created');
+        }
+
+        // Add Submit for Review button for workflow context
+        function addSubmitButton() {
+            if (!currentWorkflowId || workflowData.status !== 'draft') return;
+            
+            const header = document.querySelector('.main-header .header-content');
+            if (header && !document.getElementById('submit-for-review')) {
+                const submitButton = document.createElement('button');
+                submitButton.id = 'submit-for-review';
+                submitButton.className = 'submit-button';
+                submitButton.innerHTML = '✓ Submit for Review';
+                submitButton.style.cssText = `
+                    position: absolute;
+                    right: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: #27ae60;
+                    color: white;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-weight: 500;
+                `;
+                submitButton.addEventListener('click', submitFormForReview);
+                header.appendChild(submitButton);
+            }
+        }
+
+        // Submit form for review
+        async function submitFormForReview() {
+            if (!currentWorkflowId) return;
+            
+            // Save current form data first
+            await saveFormToWorkflow();
+            
+            // Ask for confirmation
+            if (!confirm('Are you sure you want to submit this form for review? You won\'t be able to edit it after submission.')) {
+                return;
+            }
+            
+            try {
+                // Submit workflow
+                await apiCall(`/workflows/${currentWorkflowId}/submit`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        comment: 'Form completed and submitted for review.'
+                    })
+                });
+                
+                showMessage('Form submitted for review successfully!', 'success');
+                
+                // Redirect back to dashboard after a delay
+                setTimeout(() => {
+                    sessionStorage.removeItem('currentWorkflowId');
+                    sessionStorage.removeItem('workflowData');
+                    window.location.href = '/workflow-dashboard.html';
+                }, 2000);
+                
+            } catch (error) {
+                showMessage('Error submitting form: ' + error.message, 'error');
+            }
+        }
+
+        // API helper for workflow operations
+        async function apiCall(endpoint, options = {}) {
+            const defaultOptions = {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include'
+            };
+            
+            const response = await fetch(`/api${endpoint}`, {
+                ...defaultOptions,
+                ...options,
+                headers: { ...defaultOptions.headers, ...options.headers }
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Request failed');
+            }
+            
+            return response.json();
+        }
+
+        // Save form data to workflow
+        async function saveFormToWorkflow() {
+            if (!currentWorkflowId) return;
+            
+            try {
+                // Get current form data
+                const formData = getCurrentFormData();
+                
+                // Update workflow with form data
+                await apiCall(`/workflows/${currentWorkflowId}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        title: workflowData.title,
+                        description: workflowData.description,
+                        priority: workflowData.priority,
+                        metadata: {
+                            ...workflowData.metadata,
+                            formData: formData,
+                            lastSaved: new Date().toISOString()
+                        }
+                    })
+                });
+                
+                console.log('Form data saved to workflow');
+                showSaveSuccess();
+            } catch (error) {
+                console.error('Error saving form to workflow:', error);
+                showSaveError(error.message);
+            }
+        }
+
+        // Get current form data from all form pages
+        function getCurrentFormData() {
+            const formData = {};
+            
+            // Get data from all form inputs
+            const inputs = document.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                if (input.id && input.value) {
+                    formData[input.id] = input.value;
+                }
+            });
+            
+            return formData;
+        }
+
+        // Load form data from workflow
+        function loadFormDataFromWorkflow() {
+            if (!workflowData || !workflowData.metadata || !workflowData.metadata.formData) {
+                return;
+            }
+            
+            const formData = workflowData.metadata.formData;
+            
+            // Populate form fields with saved data
+            Object.keys(formData).forEach(fieldId => {
+                const input = document.getElementById(fieldId);
+                if (input) {
+                    input.value = formData[fieldId];
+                }
+            });
+            
+            console.log('Form data loaded from workflow');
+        }
+
+        // Auto-save functionality
+        function setupAutoSave() {
+            if (!currentWorkflowId) return;
+            
+            // Auto-save every 30 seconds
+            setInterval(saveFormToWorkflow, 30000);
+            
+            // Save on form field changes (debounced)
+            let saveTimeout;
+            document.addEventListener('input', function(e) {
+                if (e.target.matches('input, select, textarea')) {
+                    clearTimeout(saveTimeout);
+                    saveTimeout = setTimeout(saveFormToWorkflow, 3000);
+                }
+            });
+        }
+
+        // Show save success message
+        function showSaveSuccess() {
+            showMessage('Form saved successfully', 'success');
+        }
+
+        // Show save error message
+        function showSaveError(error) {
+            showMessage('Error saving form: ' + error, 'error');
+        }
+
+        // Show message to user
+        function showMessage(message, type) {
+            // Remove existing message
+            const existingMessage = document.getElementById('save-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            // Create new message
+            const messageDiv = document.createElement('div');
+            messageDiv.id = 'save-message';
+            messageDiv.textContent = message;
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                border-radius: 5px;
+                color: white;
+                font-weight: 500;
+                z-index: 10000;
+                background: ${type === 'success' ? '#27ae60' : '#e74c3c'};
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            // Auto-remove after 3 seconds
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.remove();
+                }
+            }, 3000);
+        }
+
+        // Update form title for workflow context
+        function updateFormTitle() {
+            if (workflowData && workflowData.title) {
+                const titleElement = document.querySelector('.main-header h1');
+                if (titleElement) {
+                    titleElement.textContent = workflowData.title;
+                }
+            }
+        }
+
+        // Add back to dashboard button
+        function addBackToDashboardButton() {
+            // Check if button already exists
+            if (document.getElementById('back-to-dashboard-btn')) {
+                return;
+            }
+            
+            const backButton = document.createElement('button');
+            backButton.id = 'back-to-dashboard-btn';
+            backButton.textContent = '← Back to Dashboard';
+            backButton.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                padding: 12px 20px;
+                background: #667eea;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                z-index: 1000;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                transition: all 0.3s ease;
+            `;
+            
+            // Add hover effect
+            backButton.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+            });
+            
+            backButton.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+            });
+            
+            backButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Save form before leaving
+                if (currentWorkflowId) {
+                    saveFormToWorkflow();
+                }
+                
+                // Redirect to workflow dashboard
+                window.location.href = '/workflow-dashboard.html';
+            });
+            
+            document.body.appendChild(backButton);
+        }
+
         // Initialize app
         document.addEventListener('DOMContentLoaded', function() {
             console.log('App initialized');
-            showFormsListPage();
+            
+            // Check if we're in workflow context
+            if (checkWorkflowContext()) {
+                // We're coming from workflow dashboard
+                addBackToDashboardButton();
+                addSubmitButton();
+                updateFormTitle();
+                
+                // Form will show by default when no forms list is displayed
+                // Hide forms list if it exists
+                const formsList = document.getElementById('forms-list');
+                if (formsList) {
+                    formsList.style.display = 'none';
+                }
+                
+                // Load form data after a short delay to ensure form is rendered
+                setTimeout(() => {
+                    loadFormDataFromWorkflow();
+                    setupAutoSave();
+                }, 500);
+            } else {
+                // Normal form access - form should be visible by default
+                console.log('Normal form access - comprehensive form should be visible');
+                
+                // Load form metadata for the comprehensive form
+                if (!formMetadata) {
+                    loadFormMetadata();
+                } else {
+                    renderFormContent();
+                }
+            }
         });
     </script>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chatbot-panel" id="chatbot-panel">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">🤖</div>
+                <div class="chatbot-info">
+                    <h3>XYZ Guide Assistant</h3>
+                    <p>Ask me about the form guide</p>
+                </div>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chat-message">
+                    <div class="message-avatar bot">🤖</div>
+                    <div class="message-content bot" id="welcome-message">
+                        Hi! I'm here to help you with questions about the XYZ Custody Account Opening Form. How can I assist you today?
+                    </div>
+                </div>
+                
+                <div class="typing-indicator" id="typing-indicator">
+                    <div class="message-avatar bot">🤖</div>
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chatbot-input-area">
+                <div class="chatbot-suggestions" id="chatbot-suggestions">
+                    <div class="suggestion-chip" onclick="sendSuggestion('How do I fill account name?')">Account naming help</div>
+                    <div class="suggestion-chip" onclick="sendSuggestion('What are SWIFT codes?')">SWIFT codes</div>
+                    <div class="suggestion-chip" onclick="sendSuggestion('Tax treatment guide')">Tax help</div>
+                </div>
+                
+                <div class="chatbot-input">
+                    <input type="text" id="chatbot-input" placeholder="Ask me anything about the form..." 
+                           onkeypress="handleChatKeyPress(event)">
+                    <button class="chatbot-send" onclick="sendMessage()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <button class="chatbot-toggle" onclick="toggleChatbot()">
+            <span id="chatbot-icon">💬</span>
+        </button>
+    </div>
 </body>
 </html>
